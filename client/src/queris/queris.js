@@ -178,21 +178,31 @@ const getEndLocationQuery = gql`
   }
 `;
 
-const getCarQuery = gql`
-  query($id: String){
-    car(id: $id){
-      id
-      carName
-      owner{
-        id
-        firstName
-        cars{
-          id
-          carName
-        }
-      }
-    }
+
+const getDashboardAllDataQuery = gql`
+{
+  car(id: "5d65e47f7efc67265a342ea1"){
+    carName
+    lastfillup
+    lastfilluptime
+    fuelleft
+    traveldsince
+    diagnostic
+    diagnosticdetail
+    businessratio
+    businesstotal
+    averagespeed
+    traveldistancetotal
+    traveldistancethisyear
+    timeincar
+    emissions
+    fueleconomy
+    parking
+    timetraveld
+    startlocation
+    endlocation
   }
+}
 `;
 
 
@@ -270,7 +280,5 @@ export {
   getTimeTraveldQuery,
   getStartLocationQuery,
   getEndLocationQuery,
-  getCarQuery
+  getDashboardAllDataQuery
 };
-
-
