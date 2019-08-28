@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { getCarsQuery } from "../queris/queris";
-
+import LoadingSpinner from './LoadingSpinner';
 
 
 class CarList extends Component {
   displayCars() {
     let data = this.props.data;
     if (data.loading) {
-      return (<div>Loading</div>);
+      return <LoadingSpinner />;
     } else {
       return data.cars.map(car => {
         return (

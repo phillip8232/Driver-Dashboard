@@ -10,7 +10,7 @@ class LastFillupTimeCard extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.latfilluptime}</div>
+      return <div>{data.car.lastfilluptime}</div>
     }
   }
   render() {

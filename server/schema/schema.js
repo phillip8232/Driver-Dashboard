@@ -20,8 +20,8 @@ const CarType = new GraphQLObjectType ({
   fields: () => ({
     id: { type: GraphQLID },
     carName: { type: GraphQLString },
-    latfillup: { type: GraphQLInt },
-    latfilluptime: { type: GraphQLString },
+    lastfillup: { type: GraphQLInt },
+    lastfilluptime: { type: GraphQLString },
     lastfilluplocation: { type: GraphQLString },
     fuelleft: { type: GraphQLInt },
     traveldsince: { type: GraphQLInt },
@@ -123,8 +123,8 @@ const Mutation = new GraphQLObjectType({
       type: CarType,
       args: {
         carName: { type: new GraphQLNonNull(GraphQLString)},
-        latfillup: { type: GraphQLInt },
-        latfilluptime: { type: GraphQLString },
+        lastfillup: { type: GraphQLInt },
+        lastfilluptime: { type: GraphQLString },
         // lastfilluplocation: { type: GraphQLString },
         fuelleft: { type: GraphQLInt },
         traveldsince: { type: GraphQLInt },
@@ -147,8 +147,8 @@ const Mutation = new GraphQLObjectType({
       resolve(parent, args){
         let car = new Car({
           carName: args.carName,
-          latfillup: args.latfillup,
-          latfilluptime: args.latfilluptime,
+          lastfillup: args.lastfillup,
+          lastfilluptime: args.lastfilluptime,
           // lastfilluplocation: args.lastfilluplocation,
           fuelleft: args.fuelleft,
           traveldsince: args.traveldsince,
@@ -181,7 +181,7 @@ module.exports = new GraphQLSchema({
 });
 
 
-//mutation adding owner
+// mutation adding owner
 
 // mutation {
 //   addOwner(firstName: "Sam"){
@@ -193,10 +193,10 @@ module.exports = new GraphQLSchema({
 // lastfilluplocation
 
 // mutation {
-//   addCar(carName: "BMW", latfillup: 30, latfilluptime: "2019-01-17-T09:02", fuelleft: 58, traveldsince: 30, diagnostic: "PowerSteering", diagnosticdetail: "seeamechanic", businessratio: 75, businesstotal: 300000, averagespeed: 28, traveldistancetotal: 34000000, traveldistancethisyear: 7600, timeincar: 120, emissions: 74, fueleconomy: 12, parking: "HOWDOIDISPLAYPARKIMGSPOT??", timetraveld: "2019-08-12-T11:02", startlocation: "Brsibane", endlocation: "Sydney", ownerId: "5d5d256fb83eef860d9358cc"){
+//   addCar(carName: "HONDA CIVIC", lastfillup: 20, lastfilluptime: "2019-06-17-T09:02", fuelleft: 28, traveldsince: 50, diagnostic: "PowerSteering", diagnosticdetail: "seeamechanic", businessratio: 10, businesstotal: 300000, averagespeed: 28, traveldistancetotal: 34000000, traveldistancethisyear: 7600, timeincar: 120, emissions: 74, fueleconomy: 1 5, parking: "", timetraveld: "20 1 9- 0 8- 1 2-T1 1:02", startlocation: "Brsibane", endlocation: "Sydney", ownerId: "5d5dd2ed55642b15a9d08d06"){
 //     carName
-//     latfillup
-//     latfilluptime
+//     lastfillup
+//     lastfilluptime
 //     fuelleft
 //     traveldsince
 //     diagnostic

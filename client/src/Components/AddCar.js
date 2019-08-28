@@ -10,8 +10,8 @@ class AddCar extends Component {
     super(props);
     this.state = {
       carName: '',
-      latfillup: 0,
-      latfilluptime: '',
+      lastfillup: 0,
+      lastfilluptime: '',
       lastfilluplocation: '',
       fuelleft: 0,
       traveldsince: 0,
@@ -48,8 +48,8 @@ class AddCar extends Component {
     this.props.AddCarMutation({
       variables: {
         carName: this.state.carName,
-        latfillup: this.state.latfillup,
-        latfilluptime: this.state.latfilluptime,
+        lastfillup: this.state.lastfillup,
+        lastfilluptime: this.state.lastfilluptime,
         lastfilluplocation: this.state.lastfilluplocation,
         fuelleft: this.state.fuelleft,
         traveldsince: this.state.traveldsince,
@@ -81,12 +81,12 @@ class AddCar extends Component {
           <input type="text" onChange={(e) => this.setState({ carName: e.target.value})}/>
         </div>
         <div className="field">
-          <label>latfillup:</label>
-          <input type="number" onChange={(e) => this.setState({ latfillup: e.target.value })}/>
+          <label>lastfillup:</label>
+          <input type="number" onChange={(e) => this.setState({ lastfillup: e.target.value })}/>
         </div>
         <div className="field">
-          <label>latfilluptime:</label>
-          <input type="text" onChange={(e) => this.setState({ latfilluptime: e.target.value })}/>
+          <label>lastfilluptime:</label>
+          <input type="text" onChange={(e) => this.setState({ lastfilluptime: e.target.value })}/>
         </div>
         <div className="field">
           <label>lastfilluplocation:</label>

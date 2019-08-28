@@ -16,7 +16,7 @@ class LastFillupCard extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.latfillup} L</div>
+      return <div>{data.car.lastfillup} L</div>
     }
   }
 

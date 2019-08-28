@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const carSchema = new Schema({
   carName: String,
-  latfillup: Number,
-  latfilluptime: String,
+  lastfillup: Number,
+  lastfilluptime: String,
   lastfilluplocation: Number,
   fuelleft: Number,
   traveldsince: Number,
