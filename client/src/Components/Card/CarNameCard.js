@@ -3,6 +3,7 @@ import { graphql } from "react-apollo";
 import { getCarNameQuery } from "../../queris/queris";
 
 
+
 class CarNameCard extends Component {
   displayCarData() {
     let data = this.props.data;

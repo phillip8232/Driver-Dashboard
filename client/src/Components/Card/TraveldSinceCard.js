@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { getTraveldSinceQuery } from "../../queris/queris";
+import LoadingSpinner from '../LoadingSpinner';
 
 
 class TraveldSinceCard extends Component {
   displayCarData() {
     let data = this.props.data;
     if (data.loading) {
-      return (<div>Loading</div>);
+      return <LoadingSpinner />;
     } else {
       return <div>{data.car.traveldsince} km traveld (since last fillup)</div>
 

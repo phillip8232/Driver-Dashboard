@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { getAverageSpeedQuery } from "../../queris/queris";
 import { Card, Icon } from 'semantic-ui-react';
+import LoadingSpinner from '../LoadingSpinner';
 
 
 class AverageSpeedCard extends Component {
   displayCarData() {
     let data = this.props.data;
     if (data.loading) {
-      return (<div>Loading</div>);
+      return <LoadingSpinner />;
     } else {
       return <div>{data.car.averagespeed} km/hr</div>
     }

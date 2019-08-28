@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { getLastFillupQuery } from "../../queris/queris";
-import { Card,Icon, Responsive } from 'semantic-ui-react';
+import { Card, Icon } from 'semantic-ui-react';
+import LoadingSpinner from '../LoadingSpinner';
 
 import LastFillupTimeCard from "./LastFillupTimeCard";
-import EndLocationCard from "./EndLocationCard"
+import EndLocationCard from "./EndLocationCard";
 
 
 
@@ -13,7 +14,7 @@ class LastFillupCard extends Component {
   displayCarData() {
     let data = this.props.data;
     if (data.loading) {
-      return (<div>Loading</div>);
+      return <LoadingSpinner />;
     } else {
       return <div>{data.car.latfillup} L</div>
     }

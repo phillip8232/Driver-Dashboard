@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { getDiagnosticQuery } from "../../queris/queris";
-import { Card, Icon, Responsive } from "semantic-ui-react";
+import { Card, Icon } from "semantic-ui-react";
+import LoadingSpinner from '../LoadingSpinner';
 
 import DiagnosticDetailCard from "./DiagnosticDetailCard";
 
@@ -10,7 +11,7 @@ class DiagnosticCard extends Component {
   displayCarData() {
     let data = this.props.data;
     if (data.loading) {
-      return (<div>Loading</div>);
+      return <LoadingSpinner />;
     } else {
       return <div>{data.car.diagnostic}</div>
     }
