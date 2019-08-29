@@ -23,10 +23,12 @@ import FuelEconomyCard from "../../Components/Card/FuelEconomyCard";
 // import StartLocationCard from "../../Components/Card/StartLocationCard";
 // import EndLocationCard from "../../Components/Card/EndLocationCard";
 import SmartCard from "../../Components/Card/SmartCard";
+import LoadingSpinner from '../../Components/LoadingSpinner';
 
 
 
 class DashboardView extends Component {
+
   render() {
     return (
       <>
