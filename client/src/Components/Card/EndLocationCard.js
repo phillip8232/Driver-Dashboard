@@ -1,27 +1,17 @@
-import React, { Component } from "react";
-import { graphql } from "react-apollo";
-import { getEndLocationQuery } from "../../queris/queris";
-import LoadingSpinner from '../LoadingSpinner';
+// import React, { Component } from "react";
 
 
-class EndLocationCard extends Component {
-  displayCarData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return <div>{data.car.endlocation}</div>
-    }
-  }
-  render() {
-    return (
-      <div>
-        <ul>
-          {this.displayCarData()}
-        </ul>
-      </div>
-    );
-  }
-}
+// class EndLocationCard extends Component {
 
-export default graphql(getEndLocationQuery)(EndLocationCard);
+//   render() {
+//     return (
+//       <div>
+
+//           {this.displayCarData()}
+
+//       </div>
+//     );
+//   }
+// }
+
+// export default EndLocationCard;

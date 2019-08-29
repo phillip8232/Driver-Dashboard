@@ -1,21 +1,9 @@
 import React, { Component } from "react";
-import { graphql } from "react-apollo";
-import { getDiagnosticQuery } from "../../queris/queris";
 import { Card, Icon } from "semantic-ui-react";
-import LoadingSpinner from '../LoadingSpinner';
-
-import DiagnosticDetailCard from "./DiagnosticDetailCard";
 
 
 class DiagnosticCard extends Component {
-  displayCarData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return <div>{data.car.diagnostic}</div>
-    }
-  }
+
   render() {
     return (
       <Card className="data-cards-r1" >
@@ -23,11 +11,12 @@ class DiagnosticCard extends Component {
           <Icon circular inverted color="red" name="wrench" size="big" />
           <div className="data-content">
             <p>Diagnostic Issues    </p>
-            <h2>{this.displayCarData()}</h2>
+            <h2>{this.props.diagnostic}</h2>
           </div>
           <Card.Content extra>
             <hr></hr>
-            <p><DiagnosticDetailCard /></p>
+            <p>{this.props.diagnosticdetail}</p>
+
           </Card.Content>
         </Card.Content>
       </Card>
@@ -35,4 +24,4 @@ class DiagnosticCard extends Component {
   }
 }
 
-export default graphql(getDiagnosticQuery)(DiagnosticCard);
+export default DiagnosticCard;

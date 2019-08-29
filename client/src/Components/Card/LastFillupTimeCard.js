@@ -1,27 +1,14 @@
-import React, { Component } from "react";
-import { graphql } from "react-apollo";
-import { getLastFillupTimeQuery } from "../../queris/queris";
-import LoadingSpinner from '../LoadingSpinner';
+// import React, { Component } from "react";
 
+// class LastFillupTimeCard extends Component {
 
-class LastFillupTimeCard extends Component {
-  displayCarData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return <div>{data.car.lastfilluptime}</div>
-    }
-  }
-  render() {
-    return (
-      <div>
-        <ul>
-          {this.displayCarData()}
-        </ul>
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <p>
+//         {this.props.filluptime}
+//       </p>
+//     );
+//   }
+// }
 
-export default graphql(getLastFillupTimeQuery)(LastFillupTimeCard);
+// export default LastFillupTimeCard;

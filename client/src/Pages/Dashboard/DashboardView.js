@@ -1,37 +1,113 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { getDashboardAllDataQuery } from "../../queris/queris";
-import GoogleMap from "../../Components/GoogleMap/GoogleMap";
-import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
+
 import { Card } from 'semantic-ui-react';
-// import CarList from "../../Components/CarList"
-import CarNameCard from "../../Components/Card/CarNameCard";
+import LoadingSpinner from '../../Components/LoadingSpinner';
 import LastFillupCard from "../../Components/Card/LastFillupCard";
-// import LastFillupTimeCard from "../../Components/Card/LastFillupTimeCard";
 import FuelLeftCard from "../../Components/Card/FuelLeftCard";
-// import TraveldSinceCard from "../../Components/Card/TraveldSinceCard";
 import DiagnosticCard from "../../Components/Card/DiagnosticCard";
-// import DiagnosticDetailCard from "../../Components/Card/DiagnosticDetailCard";
 import BusinessRatioCard from "../../Components/Card/BusinessRatioCard";
-// import BusinessTotalCard from "../../Components/Card/BusinessTotalCard";
 import AverageSpeedCard from "../../Components/Card/AverageSpeedCard";
 import TravelDistanceTotalCard from "../../Components/Card/TravelDistanceTotalCard";
-// import TravelDistanceThisYearCard from "../../Components/Card/TravelDistanceThisYearCard";
 import TimeInCarCard from "../../Components/Card/TimeInCarCard";
 import EmissionsCard from "../../Components/Card/EmissionsCard";
 import FuelEconomyCard from "../../Components/Card/FuelEconomyCard";
-// import ParkingCard from "../../Components/Card/ParkingCard";
-// import TimeTraveldCard from "../../Components/Card/TimeTraveldCard";
-// import StartLocationCard from "../../Components/Card/StartLocationCard";
-// import EndLocationCard from "../../Components/Card/EndLocationCard";
-import SmartCard from "../../Components/Card/SmartCard";
-import LoadingSpinner from '../../Components/LoadingSpinner';
+
+import GoogleMap from "../../Components/GoogleMap/GoogleMap";
+import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 
 
 
 class DashboardView extends Component {
 
-  displayCarData() {
+
+
+  displayLastFillupData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.lastfillup}</div>
+    }
+  }
+
+  displayLastFillupTimeData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.lastfilluptime}</div>
+    }
+  }
+
+  displayEndlocationData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.endlocation}</div>
+    }
+  }
+
+  displayFuelLeftData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.fuelleft}</div>
+    }
+  }
+
+  displayTraveldinceData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.traveldsince}</div>
+    }
+  }
+
+  displayDiagnosticData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.diagnostic}</div>
+    }
+  }
+
+
+  displayDiagnosticDetailData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.diagnosticdetail}</div>
+    }
+  }
+
+
+  displayBusinessRatioData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.businessratio}</div>
+    }
+  }
+
+
+  displayBusinessTotalData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.businesstotal}</div>
+    }
+  }
+
+  displayAverageSpeedData() {
     let data = this.props.data;
     if (data.loading) {
       return <LoadingSpinner />;
@@ -40,24 +116,76 @@ class DashboardView extends Component {
     }
   }
 
+  displayTimeInCarData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.timeincar}</div>
+    }
+  }
+
+
+  displayTravelDistanceTotalData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.traveldistancetotal}</div>
+    }
+  }
+
+
+  displayTravelDistanceThisYear() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.traveldistancethisyear}</div>
+    }
+  }
+
+
+
+  displayEmissionsData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.emissions}</div>
+    }
+  }
+
+  displayFuelEconomyData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.fueleconomy}</div>
+    }
+  }
+
+
 
 
   render() {
     return (
       <>
         <div className="ui container">
-
-          <AverageSpeedCard speed={this.displayCarData()}/>
-        </div>
-        <div className="ui container">
-        <h1><CarNameCard /></h1>
-        </div>
-        <div className="ui container">
           <Card.Group>
-            <LastFillupCard />
-            <FuelLeftCard />
-            <DiagnosticCard />
-            <BusinessRatioCard />
+            <LastFillupCard fillup={this.displayLastFillupData()}
+                            filluptime={this.displayLastFillupTimeData()}
+                            lastparkingspot={this.displayEndlocationData()}
+            />
+            <FuelLeftCard fuelleft={this.displayFuelLeftData()}
+                          traveldsince={this.displayTraveldinceData()}
+            />
+            <DiagnosticCard diagnostic={this.displayDiagnosticData()}
+                            diagnosticdetail={this.displayDiagnosticDetailData()}
+            />
+            <BusinessRatioCard businessratio={this.displayBusinessRatioData()}
+                               businesstotal={this.displayBusinessTotalData()}
+            />
           </Card.Group>
         </div>
         <div className="ui container">
@@ -65,19 +193,21 @@ class DashboardView extends Component {
         </div>
         <div className="ui container">
           <Card.Group>
-            <AverageSpeedCard />
-            <TravelDistanceTotalCard />
-            <TimeInCarCard />
+            <AverageSpeedCard speed={this.displayAverageSpeedData()}/>
+            <TravelDistanceTotalCard distancetotal={this.displayTravelDistanceTotalData()}
+                                     distancetotalthisyear={this.displayTravelDistanceThisYear()}
+            />
+            <TimeInCarCard timeincar={this.displayTimeInCarData()}/>
           </Card.Group>
         </div>
         <div className="ui container">
           <Card.Group>
-            <EmissionsCard />
-            <FuelEconomyCard />
+            <EmissionsCard emission={this.displayEmissionsData()} />
+            <FuelEconomyCard fueleconomy={this.displayFuelEconomyData()}/>
           </Card.Group>
         </div>
         <div className="ui container">
-          <AntdTableComponent />
+          <AntdTableComponent/>
         </div>
       </>
     );
