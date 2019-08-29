@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { graphql } from "react-apollo";
+import { getDashboardAllDataQuery } from "../../queris/queris";
 import GoogleMap from "../../Components/GoogleMap/GoogleMap";
 import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 import { Card } from 'semantic-ui-react';
@@ -29,12 +31,23 @@ import LoadingSpinner from '../../Components/LoadingSpinner';
 
 class DashboardView extends Component {
 
+  displayCarData() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return <div>{data.car.averagespeed}</div>
+    }
+  }
+
+
+
   render() {
     return (
       <>
         <div className="ui container">
-          <SmartCard />
-          <AverageSpeedCard />
+
+          <AverageSpeedCard speed={this.displayCarData()}/>
         </div>
         <div className="ui container">
         <h1><CarNameCard /></h1>
@@ -71,4 +84,4 @@ class DashboardView extends Component {
   }
 }
 
-export default DashboardView;
+export default graphql(getDashboardAllDataQuery)(DashboardView);
