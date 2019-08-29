@@ -22,7 +22,7 @@ import FuelEconomyCard from "../../Components/Card/FuelEconomyCard";
 // import TimeTraveldCard from "../../Components/Card/TimeTraveldCard";
 // import StartLocationCard from "../../Components/Card/StartLocationCard";
 // import EndLocationCard from "../../Components/Card/EndLocationCard";
-
+import SmartCard from "../../Components/Card/SmartCard";
 
 
 
@@ -30,6 +30,10 @@ class DashboardView extends Component {
   render() {
     return (
       <>
+        <div className="ui container">
+          <SmartCard />
+          <AverageSpeedCard />
+        </div>
         <div className="ui container">
         <h1><CarNameCard /></h1>
         </div>
