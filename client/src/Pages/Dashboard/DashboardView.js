@@ -4,7 +4,7 @@ import { getDashboardAllDataQuery } from "../../queris/queris";
 
 import { Card } from 'semantic-ui-react';
 import LoadingSpinner from '../../Components/LoadingSpinner';
-import LastFillupCard from "../../Components/Card/LastFillupCard";
+import LastFillUpCard from "../../Components/Card/LastFillUpCard";
 import FuelLeftCard from "../../Components/Card/FuelLeftCard";
 import DiagnosticCard from "../../Components/Card/DiagnosticCard";
 import BusinessRatioCard from "../../Components/Card/BusinessRatioCard";
@@ -23,21 +23,21 @@ class DashboardView extends Component {
 
 
 
-  displayLastFillupData() {
+  displayLastFillUpData() {
     let data = this.props.data;
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.lastfillup}</div>
+      return (data.car.lastfillup)
     }
   }
 
-  displayLastFillupTimeData() {
+  displayLastFillUpTimeData() {
     let data = this.props.data;
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.lastfilluptime}</div>
+      return (data.car.lastfilluptime)
     }
   }
 
@@ -46,7 +46,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.endlocation}</div>
+      return (data.car.endlocation)
     }
   }
 
@@ -55,7 +55,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.fuelleft}</div>
+      return (data.car.fuelleft)
     }
   }
 
@@ -64,7 +64,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.traveldsince}</div>
+      return (data.car.traveldsince)
     }
   }
 
@@ -73,7 +73,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.diagnostic}</div>
+      return (data.car.diagnostic)
     }
   }
 
@@ -83,7 +83,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.diagnosticdetail}</div>
+      return (data.car.diagnosticdetail)
     }
   }
 
@@ -93,7 +93,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.businessratio}</div>
+      return (data.car.businessratio)
     }
   }
 
@@ -103,7 +103,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.businesstotal}</div>
+      return (data.car.businesstotal)
     }
   }
 
@@ -112,7 +112,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.averagespeed}</div>
+      return (data.car.averagespeed)
     }
   }
 
@@ -121,7 +121,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.timeincar}</div>
+      return (data.car.timeincar)
     }
   }
 
@@ -131,7 +131,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.traveldistancetotal}</div>
+      return (data.car.traveldistancetotal)
     }
   }
 
@@ -141,7 +141,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.traveldistancethisyear}</div>
+      return (data.car.traveldistancethisyear)
     }
   }
 
@@ -152,7 +152,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.emissions}</div>
+      return (data.car.emissions)
     }
   }
 
@@ -161,10 +161,9 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-      return <div>{data.car.fueleconomy}</div>
+      return (data.car.fueleconomy)
     }
   }
-
 
 
 
@@ -173,14 +172,14 @@ class DashboardView extends Component {
       <>
         <div className="ui container">
           <Card.Group>
-            <LastFillupCard fillup={this.displayLastFillupData()}
-                            filluptime={this.displayLastFillupTimeData()}
-                            lastparkingspot={this.displayEndlocationData()}
+            <LastFillUpCard fillUp={this.displayLastFillUpData()}
+                            fillUpTime={this.displayLastFillUpTimeData()}
+                            lastParkingSpot={this.displayEndlocationData()}
             />
             <FuelLeftCard fuelleft={this.displayFuelLeftData()}
-                          traveldsince={this.displayTraveldinceData()}
+                          travelSince={this.displayTraveldinceData()}
             />
-            <DiagnosticCard diagnostic={this.displayDiagnosticData()}
+            <DiagnosticCard diagnosticissue={this.displayDiagnosticData()}
                             diagnosticdetail={this.displayDiagnosticDetailData()}
             />
             <BusinessRatioCard businessratio={this.displayBusinessRatioData()}
@@ -203,7 +202,7 @@ class DashboardView extends Component {
         <div className="ui container">
           <Card.Group>
             <EmissionsCard emission={this.displayEmissionsData()} />
-            <FuelEconomyCard fueleconomy={this.displayFuelEconomyData()}/>
+            <FuelEconomyCard fuelEconomy={this.displayFuelEconomyData()}/>
           </Card.Group>
         </div>
         <div className="ui container">

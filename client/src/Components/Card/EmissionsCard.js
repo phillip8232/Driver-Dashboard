@@ -10,7 +10,7 @@ class EmissionsCard extends Component {
         <Card.Content>
           <Icon float="left" circular inverted color="green" name="tree" size="big" />
           <div className="data-content">
-            <p>EMISSIONS</p>
+            <p>Emissions</p>
             <h2>{this.props.emission}</h2>
           </div>
           <Card.Content extra>
