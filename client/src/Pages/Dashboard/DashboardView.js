@@ -25,146 +25,76 @@ class DashboardView extends Component {
   }
 
   displayLastFillUpData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.lastfillup)
-    }
+    return (this.props.data.car.lastfillup)
   }
 
   displayLastFillUpTimeData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.lastfilluptime)
-    }
+    return (this.props.data.car.lastfilluptime)
   }
 
   displayEndLocationData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.endlocation)
-    }
+      return (this.props.data.car.endlocation)
   }
+
 
   displayFuelLeftData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.fuelleft)
+      return (this.props.data.car.fuelleft)
     }
-  }
+
 
   displayTraveldinceData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.traveldsince)
-    }
+      return (this.props.data.car.traveldsince)
   }
 
   displayDiagnosticData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.diagnostic)
-    }
+      return (this.props.data.car.diagnostic)
   }
 
   displayDiagnosticDetailData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.diagnosticdetail)
-    }
+      return (this.props.data.car.diagnosticdetail)
   }
 
   displayBusinessRatioData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.businessratio)
-    }
+      return (this.props.data.car.businessratio)
+
   }
 
   displayBusinessTotalData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.businesstotal)
-    }
+      return (this.props.data.car.businesstotal)
   }
 
   displayAverageSpeedData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.averagespeed)
-    }
+      return (this.props.data.car.averagespeed)
   }
 
+
   displayTimeInCarData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.timeincar)
-    }
+      return (this.props.data.car.timeincar)
   }
 
   displayTravelDistanceTotalData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.traveldistancetotal)
-    }
+      return (this.props.data.car.traveldistancetotal)
   }
 
   displayTravelDistanceThisYear() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.traveldistancethisyear)
-    }
+      return (this.props.data.car.traveldistancethisyear)
   }
 
   displayEmissionsData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.emissions)
+      return (this.props.data.car.emissions)
     }
-  }
+
 
   displayFuelEconomyData() {
-    let data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      return (data.car.fueleconomy)
-    }
+      return (this.props.data.car.fueleconomy)
   }
 
   render() {
-
     let data = this.props.data;
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
+
       return (
         <>
           <div className="ui container">
