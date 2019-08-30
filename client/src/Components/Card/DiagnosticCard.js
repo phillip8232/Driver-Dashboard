@@ -11,11 +11,11 @@ class DiagnosticCard extends Component {
           <Icon circular inverted color="red" name="wrench" size="big" />
           <div className="data-content">
             <p>Diagnostic Issues</p>
-            <h2>{this.props.diagnosticissue}</h2>
+            <h2>{this.props.diagnosticIssue}</h2>
           </div>
           <Card.Content extra>
             <hr></hr>
-            <p>{this.props.diagnosticdetail}</p>
+            <p>{this.props.diagnosticDetail}</p>
 
           </Card.Content>
         </Card.Content>
@@ -25,3 +25,4 @@ class DiagnosticCard extends Component {
 }
 
 export default DiagnosticCard;
+

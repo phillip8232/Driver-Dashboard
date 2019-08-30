@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '../../Images/GoFarlogo.png';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'

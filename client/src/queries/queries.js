@@ -31,7 +31,7 @@ const getCarNameQuery = gql`
 const getLastFillupQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      lastfillup
+      lastFillUp
     }
   }
 `;
@@ -39,7 +39,7 @@ const getLastFillupQuery = gql`
 const getLastFillupTimeQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      lastfilluptime
+      lastFillUpTime
     }
   }
 `;
@@ -47,7 +47,7 @@ const getLastFillupTimeQuery = gql`
 const getFuelLeftQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      fuelleft
+      fuelLeft
     }
   }
 `;
@@ -55,7 +55,7 @@ const getFuelLeftQuery = gql`
 const getTraveldSinceQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      traveldsince
+      travelSince
     }
   }
 `;
@@ -63,7 +63,7 @@ const getTraveldSinceQuery = gql`
 const getDiagnosticQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      diagnostic
+      diagnosticIssue
     }
   }
 `;
@@ -71,7 +71,7 @@ const getDiagnosticQuery = gql`
 const getDiagnosticDetailQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      diagnosticdetail
+      diagnosticDetail
     }
   }
 `;
@@ -80,7 +80,7 @@ const getDiagnosticDetailQuery = gql`
 const getBusinessRatioQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      businessratio
+      businessRatio
     }
   }
 `;
@@ -88,7 +88,7 @@ const getBusinessRatioQuery = gql`
 const getBusinessTotalQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      businesstotal
+      businessTotal
     }
   }
 `;
@@ -96,7 +96,7 @@ const getBusinessTotalQuery = gql`
 const getAverageSpeedQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      averagespeed
+      averageSpeed
     }
   }
 `;
@@ -104,7 +104,7 @@ const getAverageSpeedQuery = gql`
 const getTravelDistanceTotalQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      traveldistancetotal
+      travelDistanceTotal
     }
   }
 `;
@@ -113,7 +113,7 @@ const getTravelDistanceTotalQuery = gql`
 const getTravelDistanceThisYearQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      traveldistancethisyear
+      travelDistanceThisYear
     }
   }
 `;
@@ -121,7 +121,7 @@ const getTravelDistanceThisYearQuery = gql`
 const getTimeInCarQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      timeincar
+      timeInCar
     }
   }
 `;
@@ -137,7 +137,7 @@ const getEmissionsQuery = gql`
 const getFuelEconomyQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      fueleconomy
+      fuelEconomy
     }
   }
 `;
@@ -155,7 +155,7 @@ const getParkingQuery = gql`
 const getTimeTraveldQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      timetraveld
+      timeTraveld
     }
   }
 `;
@@ -164,7 +164,7 @@ const getTimeTraveldQuery = gql`
 const getStartLocationQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      startlocation
+      startLocation
     }
   }
 `;
@@ -173,7 +173,7 @@ const getStartLocationQuery = gql`
 const getEndLocationQuery = gql`
   {
     car(id: "5d65e47f7efc67265a342ea1") {
-      endlocation
+      endLocation
     }
   }
 `;
@@ -183,75 +183,51 @@ const getDashboardAllDataQuery = gql`
 {
   car(id: "5d65e47f7efc67265a342ea1"){
     carName
-    lastfillup
-    lastfilluptime
-    fuelleft
-    traveldsince
-    diagnostic
-    diagnosticdetail
-    businessratio
-    businesstotal
-    averagespeed
-    traveldistancetotal
-    traveldistancethisyear
-    timeincar
+    lastFillUp
+    lastFillupTime
+    fuelLeft
+    travelSince
+    diagnosticIssue
+    diagnosticDetail
+    businessRatio
+    businessTotal
+    averageSpeed
+    travelDistanceTotal
+    travelDistanceThisYear
+    timeInCar
     emissions
-    fueleconomy
+    fuelEconomy
     parking
-    timetraveld
-    startlocation
-    endlocation
+    timeTraveld
+    startLocation
+    endLocation
   }
 }
 `;
 
 
-// mutation($carName: String!, $lastfillup: String!, $lastfilluptime: String!, $fuelleft: Number!, $traveldsince: Number!, $diagnostic: ""!, $diagnosticdetail: ""!, $businessratio: Number!, $businesstotal: Number!, $averagespeed: Number!, $traveldistancetotal: Number!, $traveldistancethisyear: Number!, $timeincar: Number!, $emissions: Number!, $fueleconomy: Number!, $parking: ""!, $timetraveld: Number!, $startlocation: ""!, $endlocation: ""!, $ownerId: ID!){
-//   addCar(carName: $carName, lastfillup: $lastfillup, lastfilluptime: $lastfilluptime, fuelleft: $fuelleft, traveldsince: $traveldistancethisyear, diagnostic: $diagnostic, diagnosticdetail: $diagnosticdetail, businessratio: $businessratio, businesstotal: $businesstotal, averagespeed: $averagespeed, traveldistancetotal: $traveldistancetotal, traveldistancethisyear: $traveldistancethisyear, timeincar: $timeincar, emissions: $emissions, fueleconomy: $fueleconomy, parking: $parking, timetraveld: $timetraveld, startlocation: $startlocation, endlocation: $endlocation, ownerId: $ownerId){
-//     carName
-//     lastfillup
-//     lastfilluptime
-//     fuelleft
-//     traveldsince
-//     diagnostic
-//     diagnosticdetail
-//     businessratio
-//     businesstotal
-//     averagespeed
-//     traveldistancetotal
-//     traveldistancethisyear
-//     timeincar
-//     emissions
-//     fueleconomy
-//     parking
-//     timetraveld
-//     startlocation
-//     endlocation
-//   }
-// }
-
 const AddCarMutation = gql`
 mutation{
-  addCar(carName: "", lastfillup: "", lastfilluptime: "", fuelleft: "", traveldsince: "", diagnostic: "", diagnosticdetail: "", businessratio: "", businesstotal: "", averagespeed: "", traveldistancetotal: "", traveldistancethisyear: "", timeincar: "", emissions: "", fueleconomy: "", parking: "", timetraveld: "", startlocation: "", endlocation: "", ownerId: ID){
+  addCar(carName: "", lastFillUp: "", lastfilluptime: "", fuelleft: "", traveldsince: "", diagnostic: "", diagnosticdetail: "", businessratio: "", businesstotal: "", averagespeed: "", traveldistancetotal: "", traveldistancethisyear: "", timeincar: "", emissions: "", fueleconomy: "", parking: "", timetraveld: "", startlocation: "", endlocation: "", ownerId: ID){
     carName
-    lastfillup
-    lastfilluptime
-    fuelleft
-    traveldsince
-    diagnostic
-    diagnosticdetail
-    businessratio
-    businesstotal
-    averagespeed
-    traveldistancetotal
-    traveldistancethisyear
-    timeincar
+    lastFillUp
+    lastFillupTime
+    fuelLeft
+    travelSince
+    diagnosticIssue
+    diagnosticDetail
+    businessRatio
+    businessTotal
+    averageSpeed
+    travelDistanceTotal
+    travelDistanceThisYear
+    timeInCar
     emissions
-    fueleconomy
+    fuelEconomy
     parking
-    timetraveld
-    startlocation
-    endlocation
+    timeTraveld
+    startLocation
+    endLocation
   }
 }
 `;

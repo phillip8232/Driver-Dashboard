@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import flowright from "lodash.flowright";
 import { getOwnersQuery, AddCarMutation } from "../queris/queris";
-// import { bind } from "@wry/context";
-
 
 class AddCar extends Component {
   constructor(props) {
@@ -69,7 +67,6 @@ class AddCar extends Component {
         ownerId: this.state.ownerId
       }
     });
-
   }
 
 
@@ -173,7 +170,3 @@ export default flowright(
   graphql(getOwnersQuery, { name: "getOwnersQuery" }),
   graphql(AddCarMutation, { name: "AddCarMutation" })
 )(AddCar);
-
-
-
-

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { getDashboardAllDataQuery } from "../../queris/queris";
 
-import { Card } from 'semantic-ui-react';
 import LoadingSpinner from '../../Components/LoadingSpinner';
+import { Card } from 'semantic-ui-react';
 import LastFillUpCard from "../../Components/Card/LastFillUpCard";
 import FuelLeftCard from "../../Components/Card/FuelLeftCard";
 import DiagnosticCard from "../../Components/Card/DiagnosticCard";
@@ -14,70 +14,68 @@ import TimeInCarCard from "../../Components/Card/TimeInCarCard";
 import EmissionsCard from "../../Components/Card/EmissionsCard";
 import FuelEconomyCard from "../../Components/Card/FuelEconomyCard";
 
+
 import GoogleMap from "../../Components/GoogleMap/GoogleMap";
 import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 
 
 class DashboardView extends Component {
 
-  constructor(props) {
-    super(props)
-  }
 
   displayLastFillUpData() {
-    return (this.props.data.car.lastfillup)
+    return (this.props.data.car.lastFillUp)
   }
 
   displayLastFillUpTimeData() {
-    return (this.props.data.car.lastfilluptime)
+    return (this.props.data.car.lastFillUpTime)
   }
 
-  displayEndLocationData() {
-      return (this.props.data.car.endlocation)
+  displayLastLocationData() {
+      return (this.props.data.car.lastLocation)
   }
 
 
   displayFuelLeftData() {
-      return (this.props.data.car.fuelleft)
+      return (this.props.data.car.fuelLeft)
     }
 
 
   displayTraveldinceData() {
-      return (this.props.data.car.traveldsince)
+      return (this.props.data.car.travelSince)
   }
 
   displayDiagnosticData() {
-      return (this.props.data.car.diagnostic)
+    return (this.props.data.car.diagnosticIssue)
   }
 
   displayDiagnosticDetailData() {
-      return (this.props.data.car.diagnosticdetail)
+      return (this.props.data.car.diagnosticDetail)
   }
 
   displayBusinessRatioData() {
-      return (this.props.data.car.businessratio)
+      return (this.props.data.car.businessRatio)
 
   }
 
   displayBusinessTotalData() {
-      return (this.props.data.car.businesstotal)
+      return (this.props.data.car.businessTotal)
   }
 
   displayAverageSpeedData() {
-      return (this.props.data.car.averagespeed)
+      return (this.props.data.car.averageSpeed)
   }
 
 
   displayTimeInCarData() {
-      return (this.props.data.car.timeincar)
+      return (this.props.data.car.timeIncar)
   }
 
   displayTravelDistanceTotalData() {
-      return (this.props.data.car.traveldistancetotal)
+      return (this.props.data.car.travelDistanceTotal)
   }
 
   displayTravelDistanceThisYear() {
-      return (this.props.data.car.traveldistancethisyear)
+      return (this.props.data.car.travelDistanceThisYear)
   }
 
   displayEmissionsData() {
@@ -86,22 +84,22 @@ class DashboardView extends Component {
 
 
   displayFuelEconomyData() {
-      return (this.props.data.car.fueleconomy)
+      return (this.props.data.car.fuelEconomy)
   }
+
 
   render() {
     let data = this.props.data;
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
-
       return (
         <>
           <div className="ui container">
             <Card.Group>
-              <LastFillUpCard fillUp={this.displayLastFillUpData()}
+              <LastFillUpCard lastFillUp={this.displayLastFillUpData()}
                 fillUpTime={this.displayLastFillUpTimeData()}
-                lastParkingSpot={this.displayEndLocationData()}
+                lastLocation={this.displayLastLocationData()}
               />
               <FuelLeftCard fuelleft={this.displayFuelLeftData()}
                 travelSince={this.displayTraveldinceData()}

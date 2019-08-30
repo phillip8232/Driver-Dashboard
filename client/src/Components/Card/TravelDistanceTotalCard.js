@@ -11,11 +11,11 @@ class TravelDistanceTotalCard extends Component {
           <Icon circular inverted color="brown" name="road" size="big" />
           <div className="data-content">
             <p>Total Distance</p>
-            <h2>{this.props.distancetotal}</h2>
+            <h2>{this.props.distanceTotal}</h2>
           </div>
           <Card.Content extra>
             <hr></hr>
-            <h3>{this.props.distancetotalthisyear}</h3>
+            <h3>{this.props.distanceTotalThisYear}</h3>
           </Card.Content>
         </Card.Content>
         <hr></hr>

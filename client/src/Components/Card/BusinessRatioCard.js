@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Card, Icon } from "semantic-ui-react";
 
-
-
-
 class BusinessRatioCard extends Component {
 
   render() {
@@ -13,16 +10,15 @@ class BusinessRatioCard extends Component {
           <Icon circular inverted color="blue" name="handshake" size="big" />
           <div className="data-content">
             <p>Business Travel</p>
-            <h2>{this.props.businessratio}</h2>
+            <h2>{this.props.businessRatio}</h2>
           </div>
           <Card.Content extra>
             <hr></hr>
-            <h3>{this.props.businesstotal}</h3>
+            <h3>{this.props.businessTotal}</h3>
           </Card.Content>
         </Card.Content>
         <hr></hr>
       </Card>
-
     );
   }
 }

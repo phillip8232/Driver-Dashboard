@@ -23,3 +23,4 @@ class EmissionsCard extends Component {
 }
 
 export default EmissionsCard;
+

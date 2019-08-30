@@ -23,3 +23,4 @@ class FuelEconomyCard extends Component {
 }
 
 export default FuelEconomyCard;
+

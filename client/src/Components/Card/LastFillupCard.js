@@ -10,7 +10,7 @@ class LastFillUpCard extends Component {
             <Icon float="left" circular inverted color="teal" name="battery high" size="big" />
             <div className="data-content">
               <p>Last Fill Up:</p>
-            <h2>{this.props.fillUp}</h2>
+            <h2>{this.props.lastFillUp}</h2>
             </div>
             <Card.Content extra>
               <hr></hr>
@@ -24,3 +24,4 @@ class LastFillUpCard extends Component {
 }
 
 export default LastFillUpCard;
+
