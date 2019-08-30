@@ -20,6 +20,10 @@ import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 
 class DashboardView extends Component {
 
+  constructor(props) {
+    super(props)
+  }
+
   displayLastFillUpData() {
     let data = this.props.data;
     if (data.loading) {
@@ -156,48 +160,54 @@ class DashboardView extends Component {
   }
 
   render() {
-    return (
-      <>
-        <div className="ui container">
-          <Card.Group>
-            <LastFillUpCard fillUp={this.displayLastFillUpData()}
-                            fillUpTime={this.displayLastFillUpTimeData()}
-                            lastParkingSpot={this.displayEndLocationData()}
-            />
-            <FuelLeftCard fuelleft={this.displayFuelLeftData()}
-                          travelSince={this.displayTraveldinceData()}
-            />
-            <DiagnosticCard diagnosticissue={this.displayDiagnosticData()}
-                            diagnosticdetail={this.displayDiagnosticDetailData()}
-            />
-            <BusinessRatioCard businessratio={this.displayBusinessRatioData()}
-                               businesstotal={this.displayBusinessTotalData()}
-            />
-          </Card.Group>
-        </div>
-        <div className="ui container">
-          <GoogleMap />
-        </div>
-        <div className="ui container">
-          <Card.Group>
-            <AverageSpeedCard speed={this.displayAverageSpeedData()}/>
-            <TravelDistanceTotalCard distancetotal={this.displayTravelDistanceTotalData()}
-                                     distancetotalthisyear={this.displayTravelDistanceThisYear()}
-            />
-            <TimeInCarCard timeincar={this.displayTimeInCarData()}/>
-          </Card.Group>
-        </div>
-        <div className="ui container">
-          <Card.Group>
-            <EmissionsCard emission={this.displayEmissionsData()} />
-            <FuelEconomyCard fuelEconomy={this.displayFuelEconomyData()}/>
-          </Card.Group>
-        </div>
-        <div className="ui container">
-          <AntdTableComponent/>
-        </div>
-      </>
-    );
+
+    let data = this.props.data;
+    if (data.loading) {
+      return <LoadingSpinner />;
+    } else {
+      return (
+        <>
+          <div className="ui container">
+            <Card.Group>
+              <LastFillUpCard fillUp={this.displayLastFillUpData()}
+                fillUpTime={this.displayLastFillUpTimeData()}
+                lastParkingSpot={this.displayEndLocationData()}
+              />
+              <FuelLeftCard fuelleft={this.displayFuelLeftData()}
+                travelSince={this.displayTraveldinceData()}
+              />
+              <DiagnosticCard diagnosticissue={this.displayDiagnosticData()}
+                diagnosticdetail={this.displayDiagnosticDetailData()}
+              />
+              <BusinessRatioCard businessratio={this.displayBusinessRatioData()}
+                businesstotal={this.displayBusinessTotalData()}
+              />
+            </Card.Group>
+          </div>
+          <div className="ui container">
+            <GoogleMap />
+          </div>
+          <div className="ui container">
+            <Card.Group>
+              <AverageSpeedCard speed={this.displayAverageSpeedData()} />
+              <TravelDistanceTotalCard distancetotal={this.displayTravelDistanceTotalData()}
+                distancetotalthisyear={this.displayTravelDistanceThisYear()}
+              />
+              <TimeInCarCard timeincar={this.displayTimeInCarData()} />
+            </Card.Group>
+          </div>
+          <div className="ui container">
+            <Card.Group>
+              <EmissionsCard emission={this.displayEmissionsData()} />
+              <FuelEconomyCard fuelEconomy={this.displayFuelEconomyData()} />
+            </Card.Group>
+          </div>
+          <div className="ui container">
+            <AntdTableComponent />
+          </div>
+        </>
+      );
+    }
   }
 }
 
