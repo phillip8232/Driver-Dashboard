@@ -18,10 +18,7 @@ import GoogleMap from "../../Components/GoogleMap/GoogleMap";
 import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 
 
-
 class DashboardView extends Component {
-
-
 
   displayLastFillUpData() {
     let data = this.props.data;
@@ -41,7 +38,7 @@ class DashboardView extends Component {
     }
   }
 
-  displayEndlocationData() {
+  displayEndLocationData() {
     let data = this.props.data;
     if (data.loading) {
       return <LoadingSpinner />;
@@ -77,7 +74,6 @@ class DashboardView extends Component {
     }
   }
 
-
   displayDiagnosticDetailData() {
     let data = this.props.data;
     if (data.loading) {
@@ -87,7 +83,6 @@ class DashboardView extends Component {
     }
   }
 
-
   displayBusinessRatioData() {
     let data = this.props.data;
     if (data.loading) {
@@ -96,7 +91,6 @@ class DashboardView extends Component {
       return (data.car.businessratio)
     }
   }
-
 
   displayBusinessTotalData() {
     let data = this.props.data;
@@ -125,7 +119,6 @@ class DashboardView extends Component {
     }
   }
 
-
   displayTravelDistanceTotalData() {
     let data = this.props.data;
     if (data.loading) {
@@ -135,7 +128,6 @@ class DashboardView extends Component {
     }
   }
 
-
   displayTravelDistanceThisYear() {
     let data = this.props.data;
     if (data.loading) {
@@ -144,8 +136,6 @@ class DashboardView extends Component {
       return (data.car.traveldistancethisyear)
     }
   }
-
-
 
   displayEmissionsData() {
     let data = this.props.data;
@@ -165,8 +155,6 @@ class DashboardView extends Component {
     }
   }
 
-
-
   render() {
     return (
       <>
@@ -174,7 +162,7 @@ class DashboardView extends Component {
           <Card.Group>
             <LastFillUpCard fillUp={this.displayLastFillUpData()}
                             fillUpTime={this.displayLastFillUpTimeData()}
-                            lastParkingSpot={this.displayEndlocationData()}
+                            lastParkingSpot={this.displayEndLocationData()}
             />
             <FuelLeftCard fuelleft={this.displayFuelLeftData()}
                           travelSince={this.displayTraveldinceData()}
