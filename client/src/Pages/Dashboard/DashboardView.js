@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
-import { getDashboardAllDataQuery } from "../../queris/queris";
+import { getDashboardAllDataQuery } from "../../queries/queries";
 
 import LoadingSpinner from '../../Components/LoadingSpinner';
 import { Card } from 'semantic-ui-react';
@@ -14,13 +14,11 @@ import TimeInCarCard from "../../Components/Card/TimeInCarCard";
 import EmissionsCard from "../../Components/Card/EmissionsCard";
 import FuelEconomyCard from "../../Components/Card/FuelEconomyCard";
 
-
 import GoogleMap from "../../Components/GoogleMap/GoogleMap";
 import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 
 
 class DashboardView extends Component {
-
 
   displayLastFillUpData() {
     return (this.props.data.car.lastFillUp)
@@ -34,11 +32,9 @@ class DashboardView extends Component {
       return (this.props.data.car.lastLocation)
   }
 
-
   displayFuelLeftData() {
       return (this.props.data.car.fuelLeft)
     }
-
 
   displayTraveldinceData() {
       return (this.props.data.car.travelSince)
@@ -54,7 +50,6 @@ class DashboardView extends Component {
 
   displayBusinessRatioData() {
       return (this.props.data.car.businessRatio)
-
   }
 
   displayBusinessTotalData() {
@@ -65,9 +60,8 @@ class DashboardView extends Component {
       return (this.props.data.car.averageSpeed)
   }
 
-
   displayTimeInCarData() {
-      return (this.props.data.car.timeIncar)
+      return (this.props.data.car.timeInCar)
   }
 
   displayTravelDistanceTotalData() {
@@ -87,7 +81,6 @@ class DashboardView extends Component {
       return (this.props.data.car.fuelEconomy)
   }
 
-
   render() {
     let data = this.props.data;
     if (data.loading) {
@@ -101,14 +94,14 @@ class DashboardView extends Component {
                 fillUpTime={this.displayLastFillUpTimeData()}
                 lastLocation={this.displayLastLocationData()}
               />
-              <FuelLeftCard fuelleft={this.displayFuelLeftData()}
+              <FuelLeftCard fuelLeft={this.displayFuelLeftData()}
                 travelSince={this.displayTraveldinceData()}
               />
-              <DiagnosticCard diagnosticissue={this.displayDiagnosticData()}
-                diagnosticdetail={this.displayDiagnosticDetailData()}
+              <DiagnosticCard diagnosticIssue={this.displayDiagnosticData()}
+                diagnosticDetail={this.displayDiagnosticDetailData()}
               />
-              <BusinessRatioCard businessratio={this.displayBusinessRatioData()}
-                businesstotal={this.displayBusinessTotalData()}
+              <BusinessRatioCard businessRatio={this.displayBusinessRatioData()}
+                businessTotal={this.displayBusinessTotalData()}
               />
             </Card.Group>
           </div>
@@ -118,10 +111,10 @@ class DashboardView extends Component {
           <div className="ui container">
             <Card.Group>
               <AverageSpeedCard speed={this.displayAverageSpeedData()} />
-              <TravelDistanceTotalCard distancetotal={this.displayTravelDistanceTotalData()}
-                distancetotalthisyear={this.displayTravelDistanceThisYear()}
+              <TravelDistanceTotalCard distanceTotal={this.displayTravelDistanceTotalData()}
+                distanceTotalThisYear={this.displayTravelDistanceThisYear()}
               />
-              <TimeInCarCard timeincar={this.displayTimeInCarData()} />
+              <TimeInCarCard timeInCar={this.displayTimeInCarData()} />
             </Card.Group>
           </div>
           <div className="ui container">

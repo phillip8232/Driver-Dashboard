@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import flowright from "lodash.flowright";
-import { getOwnersQuery, AddCarMutation } from "../queris/queris";
+import { getOwnersQuery, AddCarMutation } from "../queries/queries";
 
 class AddCar extends Component {
   constructor(props) {
