@@ -11,10 +11,9 @@ class FuelEconomyCard extends Component {
           <Icon circular inverted color="violet" name="dollar sign" size="big" />
           <div className="data-content">
             <p>Fuel Economy</p>
-            <h2>{this.props.fuelEconomy}</h2>
+            <h2>{this.props.fuelEconomy}/100km</h2>
           </div>
           <Card.Content extra>
-            <hr></hr>
           </Card.Content>
         </Card.Content>
       </Card>
@@ -23,4 +22,7 @@ class FuelEconomyCard extends Component {
 }
 
 export default FuelEconomyCard;
+
+
+
 

@@ -12,15 +12,12 @@ class FuelLeftCard extends Component {
         <Card.Content>
           <Icon circular inverted color="orange" name="tachometer alternate" size="big" />
           <div className="data-content">
-            <p>Estimated Fuel Left</p>
-            <h2>{this.props.fuelLeft}</h2>
+            <p>Esitmated Fuel Left</p>
+            <h2>{this.props.fuelLeft} km</h2>
           </div>
           <Card.Content extra>
             <hr></hr>
-            <p>
-              {this.props.travelSince}
-            </p>
-
+            <p> {this.props.travelSince}km(since last fill up)</p>
           </Card.Content>
         </Card.Content>
       </Card>
@@ -29,4 +26,7 @@ class FuelLeftCard extends Component {
 }
 
 export default FuelLeftCard;
+
+
+
 

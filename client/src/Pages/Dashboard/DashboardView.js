@@ -30,8 +30,8 @@ class DashboardView extends Component {
           <div className="ui container">
             <Card.Group>
               <LastFillUpCard lastFillUp={this.props.data.car.lastFillUp}
-                fillUpTime={this.props.data.car.lastLocation}
-                lastLocation={this.props.data.car.fuelLeft}
+                lastfillUpTime={this.props.data.car.lastFillUpTime}
+                lastLocation={this.props.data.car.lastLocation}
               />
               <FuelLeftCard fuelLeft={this.props.data.car.fuelLeft}
                 travelSince={this.props.data.car.travelSince}
@@ -51,7 +51,7 @@ class DashboardView extends Component {
             <Card.Group>
               <AverageSpeedCard speed={this.props.data.car.averageSpeed} />
               <TravelDistanceTotalCard distanceTotal={this.props.data.car.travelDistanceTotal}
-                distanceTotalThisYear={this.props.data.car.distanceTotalThisYear}
+                distanceTotalThisYear={this.props.data.car.travelDistanceThisYear}
               />
               <TimeInCarCard timeInCar={this.props.data.car.timeInCar} />
             </Card.Group>

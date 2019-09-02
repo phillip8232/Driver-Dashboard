@@ -10,11 +10,10 @@ class BusinessRatioCard extends Component {
           <Icon circular inverted color="blue" name="handshake" size="big" />
           <div className="data-content">
             <p>Business Travel</p>
-            <h2>{this.props.businessRatio}</h2>
+            <h2>{this.props.businessRatio}%</h2>
+            <h2>{this.props.businessTotal}km</h2>
           </div>
           <Card.Content extra>
-            <hr></hr>
-            <h3>{this.props.businessTotal}</h3>
           </Card.Content>
         </Card.Content>
         <hr></hr>

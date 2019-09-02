@@ -15,8 +15,7 @@ class DiagnosticCard extends Component {
           </div>
           <Card.Content extra>
             <hr></hr>
-            <p>{this.props.diagnosticDetail}</p>
-
+            <a>{this.props.diagnosticDetail}</a>
           </Card.Content>
         </Card.Content>
       </Card>
@@ -25,4 +24,3 @@ class DiagnosticCard extends Component {
 }
 
 export default DiagnosticCard;
-

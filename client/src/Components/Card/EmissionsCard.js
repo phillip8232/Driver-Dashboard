@@ -8,14 +8,11 @@ class EmissionsCard extends Component {
     return (
       <Card className="data-cards-r1" >
         <Card.Content>
-          <Icon float="left" circular inverted color="green" name="tree" size="big" />
+          <Icon circular inverted color="green" name="tree" size="big" />
           <div className="data-content">
             <p>Emissions</p>
-            <h2>{this.props.emission}</h2>
+            <h2>{this.props.emission}KG C02</h2>
           </div>
-          <Card.Content extra>
-            <hr></hr>
-          </Card.Content>
         </Card.Content>
       </Card>
     );
@@ -23,4 +20,7 @@ class EmissionsCard extends Component {
 }
 
 export default EmissionsCard;
+
+
+
 
