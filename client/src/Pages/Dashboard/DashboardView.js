@@ -20,67 +20,6 @@ import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 
 class DashboardView extends Component {
 
-  displayLastFillUpData() {
-    return (this.props.data.car.lastFillUp)
-  }
-
-  displayLastFillUpTimeData() {
-    return (this.props.data.car.lastFillUpTime)
-  }
-
-  displayLastLocationData() {
-      return (this.props.data.car.lastLocation)
-  }
-
-  displayFuelLeftData() {
-      return (this.props.data.car.fuelLeft)
-    }
-
-  displayTraveldinceData() {
-      return (this.props.data.car.travelSince)
-  }
-
-  displayDiagnosticData() {
-    return (this.props.data.car.diagnosticIssue)
-  }
-
-  displayDiagnosticDetailData() {
-      return (this.props.data.car.diagnosticDetail)
-  }
-
-  displayBusinessRatioData() {
-      return (this.props.data.car.businessRatio)
-  }
-
-  displayBusinessTotalData() {
-      return (this.props.data.car.businessTotal)
-  }
-
-  displayAverageSpeedData() {
-      return (this.props.data.car.averageSpeed)
-  }
-
-  displayTimeInCarData() {
-      return (this.props.data.car.timeInCar)
-  }
-
-  displayTravelDistanceTotalData() {
-      return (this.props.data.car.travelDistanceTotal)
-  }
-
-  displayTravelDistanceThisYear() {
-      return (this.props.data.car.travelDistanceThisYear)
-  }
-
-  displayEmissionsData() {
-      return (this.props.data.car.emissions)
-    }
-
-
-  displayFuelEconomyData() {
-      return (this.props.data.car.fuelEconomy)
-  }
-
   render() {
     let data = this.props.data;
     if (data.loading) {
@@ -90,18 +29,18 @@ class DashboardView extends Component {
         <>
           <div className="ui container">
             <Card.Group>
-              <LastFillUpCard lastFillUp={this.displayLastFillUpData()}
-                fillUpTime={this.displayLastFillUpTimeData()}
-                lastLocation={this.displayLastLocationData()}
+              <LastFillUpCard lastFillUp={this.props.data.car.lastFillUp}
+                fillUpTime={this.props.data.car.lastLocation}
+                lastLocation={this.props.data.car.fuelLeft}
               />
-              <FuelLeftCard fuelLeft={this.displayFuelLeftData()}
-                travelSince={this.displayTraveldinceData()}
+              <FuelLeftCard fuelLeft={this.props.data.car.fuelLeft}
+                travelSince={this.props.data.car.travelSince}
               />
-              <DiagnosticCard diagnosticIssue={this.displayDiagnosticData()}
-                diagnosticDetail={this.displayDiagnosticDetailData()}
+              <DiagnosticCard diagnosticIssue={this.props.data.car.diagnosticIssue}
+                diagnosticDetail={this.props.data.car.diagnosticDetail}
               />
-              <BusinessRatioCard businessRatio={this.displayBusinessRatioData()}
-                businessTotal={this.displayBusinessTotalData()}
+              <BusinessRatioCard businessRatio={this.props.data.car.businessRatio}
+                businessTotal={this.props.data.car.businessTotal}
               />
             </Card.Group>
           </div>
@@ -110,17 +49,17 @@ class DashboardView extends Component {
           </div>
           <div className="ui container">
             <Card.Group>
-              <AverageSpeedCard speed={this.displayAverageSpeedData()} />
-              <TravelDistanceTotalCard distanceTotal={this.displayTravelDistanceTotalData()}
-                distanceTotalThisYear={this.displayTravelDistanceThisYear()}
+              <AverageSpeedCard speed={this.props.data.car.averageSpeed} />
+              <TravelDistanceTotalCard distanceTotal={this.props.data.car.travelDistanceTotal}
+                distanceTotalThisYear={this.props.data.car.diagnosticDetail}
               />
-              <TimeInCarCard timeInCar={this.displayTimeInCarData()} />
+              <TimeInCarCard timeInCar={this.props.data.car.timeInCar} />
             </Card.Group>
           </div>
           <div className="ui container">
             <Card.Group>
-              <EmissionsCard emission={this.displayEmissionsData()} />
-              <FuelEconomyCard fuelEconomy={this.displayFuelEconomyData()} />
+              <EmissionsCard emission={this.props.data.car.emissions} />
+              <FuelEconomyCard fuelEconomy={this.props.data.car.fuelEconomy} />
             </Card.Group>
           </div>
           <div className="ui container">
