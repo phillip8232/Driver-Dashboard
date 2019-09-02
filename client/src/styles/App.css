@@ -27,6 +27,10 @@ body {
     justify-content: center;
 }
 
+.ui.segment {
+    margin: 0 auto;
+}
+
 .ui.container {
     margin: 0 auto !important;
     width: 100%;
@@ -70,17 +74,13 @@ body {
     text-align: right;
 }
 
-.ui.segment:first-child {
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 86.1%;
-}
-
 /******** LOGINPAGE STYLES *********/
 
-.bg-image {
-    background-image: url('https://unsplash.com/photos/nKg8IsVFMV8');
+
+.test {
+    width: 100%;
+    height: 40vh;
+    background-size: auto;
 }
 
 /******* SIDEBAR STYLES *******/
@@ -90,6 +90,20 @@ body {
 
 .ui.thin.left.sidebar {
     width: 300px;
+}
+
+.ui.fluid.dropdown {
+    margin-bottom: 1vh;
+}
+
+/********* NAVBAR STYLES *********/
+
+.navbar-bg {
+    background-color: #223344;
+}
+
+.navbar-button {
+    background: #223344 !important;
 }
 
 /******* MEDIA BREAKPOINTS ******/
