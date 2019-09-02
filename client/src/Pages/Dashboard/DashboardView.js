@@ -51,7 +51,7 @@ class DashboardView extends Component {
             <Card.Group>
               <AverageSpeedCard speed={this.props.data.car.averageSpeed} />
               <TravelDistanceTotalCard distanceTotal={this.props.data.car.travelDistanceTotal}
-                distanceTotalThisYear={this.props.data.car.diagnosticDetail}
+                distanceTotalThisYear={this.props.data.car.distanceTotalThisYear}
               />
               <TimeInCarCard timeInCar={this.props.data.car.timeInCar} />
             </Card.Group>
