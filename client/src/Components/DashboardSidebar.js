@@ -48,7 +48,7 @@ export default class DashboardSidebar extends Component {
             visible={visible}
             width="thin"
           >
-            <Menu.Item>WELCOME USER!</Menu.Item>
+            <Menu.Item>Welcome User!</Menu.Item>
             <Menu.Item>
               <Icon name="car" size="massive" />
               Cars
