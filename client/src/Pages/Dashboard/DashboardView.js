@@ -19,7 +19,7 @@ import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 
 class DashboardView extends Component {
   render() {
-    let data = this.props.data;
+    const data = this.props.data;
     if (data.loading) {
       return <LoadingSpinner />;
     } else {

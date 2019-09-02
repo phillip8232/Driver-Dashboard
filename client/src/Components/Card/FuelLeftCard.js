@@ -14,12 +14,12 @@ class FuelLeftCard extends Component {
             size="big"
           />
           <div className="data-content">
-            <p>Esitmated Fuel Left</p>
+            <p>Estimated Fuel Left</p>
             <h2>{this.props.fuelLeft} km</h2>
           </div>
           <Card.Content extra>
             <hr></hr>
-            <p> {this.props.travelSince}km(since last fill up)</p>
+            <p> {this.props.travelSince} km (since last fill up)</p>
           </Card.Content>
         </Card.Content>
       </Card>
