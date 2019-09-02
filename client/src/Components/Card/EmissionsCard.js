@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { Card, Icon } from 'semantic-ui-react';
-
+import { Card, Icon } from "semantic-ui-react";
 
 class EmissionsCard extends Component {
-
   render() {
     return (
-      <Card className="data-cards-r1" >
+      <Card className="data-cards-r1">
         <Card.Content>
           <Icon circular inverted color="green" name="tree" size="big" />
           <div className="data-content">
@@ -20,7 +18,3 @@ class EmissionsCard extends Component {
 }
 
 export default EmissionsCard;
-
-
-
-

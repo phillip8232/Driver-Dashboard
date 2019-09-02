@@ -1,7 +1,7 @@
 const graphql = require("graphql");
 const Car = require("../models/car");
 const Owner = require("../models/owner");
-const _ = require('lodash');
+const _ = require("lodash");
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -12,7 +12,7 @@ const {
   GraphQLNonNull
 } = graphql;
 
-const CarType = new GraphQLObjectType ({
+const CarType = new GraphQLObjectType({
   name: "Car",
   fields: () => ({
     id: { type: GraphQLID },
@@ -38,8 +38,8 @@ const CarType = new GraphQLObjectType ({
     endLocation: { type: GraphQLString },
     owner: {
       type: OwnerType,
-      resolve(parent, args){
-        return Owner.findById(parent.ownerId)
+      resolve(parent, args) {
+        return Owner.findById(parent.ownerId);
       }
     }
   })
@@ -52,8 +52,8 @@ const OwnerType = new GraphQLObjectType({
     firstName: { type: GraphQLString },
     cars: {
       type: new GraphQLList(CarType),
-      resolve(parent, args){
-        return Car.find({ ownerId: parent.id })
+      resolve(parent, args) {
+        return Car.find({ ownerId: parent.id });
       }
     }
   })
@@ -64,32 +64,32 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     car: {
       type: CarType,
-      args: { id: { type: GraphQLID}},
+      args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Car.findById(args.id);
       }
     },
     owner: {
       type: OwnerType,
-    args: { id: { type: GraphQLID}},
-    resolve(parent, args){
-      return Owner.findById(args.id);
-    }
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Owner.findById(args.id);
+      }
     },
     cars: {
       type: new GraphQLList(CarType),
-      resolve(parent, args){
+      resolve(parent, args) {
         return Car.find({});
       }
     },
     owners: {
       type: new GraphQLList(OwnerType),
-      resolve(parent, args){
+      resolve(parent, args) {
         return Owner.find({});
       }
     }
   }
-})
+});
 
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
@@ -97,7 +97,7 @@ const Mutation = new GraphQLObjectType({
     addOwner: {
       type: OwnerType,
       args: {
-        firstName: { type: new GraphQLNonNull(GraphQLString)}
+        firstName: { type: new GraphQLNonNull(GraphQLString) }
       },
       resolve(parent, args) {
         let owner = new Owner({
@@ -109,7 +109,7 @@ const Mutation = new GraphQLObjectType({
     addCar: {
       type: CarType,
       args: {
-        carName: { type: new GraphQLNonNull(GraphQLString)},
+        carName: { type: new GraphQLNonNull(GraphQLString) },
         lastFillUp: { type: GraphQLInt },
         lastFillUpTime: { type: GraphQLString },
         lastLocation: { type: GraphQLString },
@@ -131,7 +131,7 @@ const Mutation = new GraphQLObjectType({
         endLocation: { type: GraphQLString },
         ownerId: { type: GraphQLID }
       },
-      resolve(parent, args){
+      resolve(parent, args) {
         let car = new Car({
           carName: args.carName,
           lastFillUp: args.lastFillUp,
@@ -159,7 +159,7 @@ const Mutation = new GraphQLObjectType({
       }
     }
   }
-})
+});
 
 module.exports = new GraphQLSchema({
   query: RootQuery,

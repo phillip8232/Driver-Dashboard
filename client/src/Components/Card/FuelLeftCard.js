@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { Card, Icon } from "semantic-ui-react";
 
-
-
-
 class FuelLeftCard extends Component {
-
   render() {
     return (
-      <Card className="data-cards-r1" >
+      <Card className="data-cards-r1">
         <Card.Content>
-          <Icon circular inverted color="orange" name="tachometer alternate" size="big" />
+          <Icon
+            circular
+            inverted
+            color="orange"
+            name="tachometer alternate"
+            size="big"
+          />
           <div className="data-content">
             <p>Esitmated Fuel Left</p>
             <h2>{this.props.fuelLeft} km</h2>
@@ -26,7 +28,3 @@ class FuelLeftCard extends Component {
 }
 
 export default FuelLeftCard;
-
-
-
-
