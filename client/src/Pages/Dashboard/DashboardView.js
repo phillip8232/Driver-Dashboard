@@ -3,6 +3,7 @@ import { graphql } from "react-apollo";
 import { getDashboardAllDataQuery } from "../../queries/queries";
 
 import LoadingSpinner from "../../Components/LoadingSpinner";
+import DashboardHeader from "../../Components/DashboardHeader";
 import { Card } from "semantic-ui-react";
 import LastFillUpCard from "../../Components/Card/LastFillUpCard";
 import FuelLeftCard from "../../Components/Card/FuelLeftCard";
@@ -16,6 +17,7 @@ import FuelEconomyCard from "../../Components/Card/FuelEconomyCard";
 
 import GoogleMap from "../../Components/GoogleMap/GoogleMap";
 import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
+import Footer from "../../Components/Footer";
 
 class DashboardView extends Component {
   render() {
@@ -25,6 +27,7 @@ class DashboardView extends Component {
     } else {
       return (
         <>
+          <DashboardHeader />
           <div className="ui container">
             <Card.Group>
               <LastFillUpCard
@@ -70,6 +73,7 @@ class DashboardView extends Component {
           <div className="ui container">
             <AntdTableComponent />
           </div>
+          <Footer />
         </>
       );
     }
