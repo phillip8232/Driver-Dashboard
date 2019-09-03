@@ -1,17 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import CarDropDown from "./Dropdown";
 import DashboardView from "../Pages/Dashboard/DashboardView";
 import LogoutModal from "./LogoutModal";
-import {
-  Button,
-  Header,
-  Icon,
-  Image,
-  Menu,
-  Segment,
-  Sidebar
-} from "semantic-ui-react";
+import { Button, Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 
 export default class DashboardSidebar extends Component {
   state = {

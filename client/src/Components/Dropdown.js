@@ -1,5 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { Dropdown } from "semantic-ui-react";
+import { graphql } from "react-apollo";
+import { getDashboardAllDataQuery } from "../queries/queries";
 
 const carOptions = [
   {
@@ -19,14 +21,28 @@ const carOptions = [
   }
 ];
 
-const CarDropDown = () => (
-  <Dropdown
-    className="dd-styles"
-    placeholder="Select Car"
-    fluid
-    selection
-    options={carOptions}
-  />
-);
+// const VideoList = ({ videos, onVideoSelect }) => {
 
-export default CarDropDown;
+//   const renderedList = videos.map(video => {
+//     return <VideoItem key={video.id.videoId} onVideoSelect={onVideoSelect} video={video} />
+//   });
+
+//   return (
+//     <div className="ui relaxed divided list">{renderedList}</div>
+//   )
+// }
+
+class CarDropDown extends Component {
+  render() {
+    return (
+      <Dropdown
+        className="dd-styles"
+        placeholder="Select Car"
+        fluid
+        selection
+        options={carOptions}
+      />
+    );
+  }
+}
+export default graphql(getDashboardAllDataQuery)(CarDropDown);

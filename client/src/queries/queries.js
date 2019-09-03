@@ -42,6 +42,12 @@ const getDashboardAllDataQuery = gql`
       startLocation
       endLocation
     }
+    owner(id: "5d6df6bd671e487c075bf05a") {
+      firstName
+      cars {
+        carName
+      }
+    }
   }
 `;
 
