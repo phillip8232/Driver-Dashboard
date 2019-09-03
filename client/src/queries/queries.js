@@ -20,7 +20,7 @@ const getOwnersQuery = gql`
 
 const getDashboardAllDataQuery = gql`
   {
-    car(id: "5d6923c8360c7eaa32307d37") {
+    car(id: "5d6dc205390783603073489c") {
       carName
       lastFillUp
       lastFillUpTime
@@ -45,57 +45,4 @@ const getDashboardAllDataQuery = gql`
   }
 `;
 
-const AddCarMutation = gql`
-  mutation {
-    addCar(
-      carName: ""
-      lastFillUp: ""
-      lastfilluptime: ""
-      fuelleft: ""
-      traveldsince: ""
-      diagnostic: ""
-      diagnosticdetail: ""
-      businessratio: ""
-      businesstotal: ""
-      averagespeed: ""
-      traveldistancetotal: ""
-      traveldistancethisyear: ""
-      timeincar: ""
-      emissions: ""
-      fueleconomy: ""
-      parking: ""
-      timetraveld: ""
-      startlocation: ""
-      endlocation: ""
-      ownerId: ID
-    ) {
-      carName
-      lastFillUp
-      lastFillupTime
-      LastLocation
-      fuelLeft
-      travelSince
-      diagnosticIssue
-      diagnosticDetail
-      businessRatio
-      businessTotal
-      averageSpeed
-      travelDistanceTotal
-      travelDistanceThisYear
-      timeInCar
-      emissions
-      fuelEconomy
-      parking
-      timeTraveld
-      startLocation
-      endLocation
-    }
-  }
-`;
-
-export {
-  getCarsQuery,
-  getOwnersQuery,
-  AddCarMutation,
-  getDashboardAllDataQuery
-};
+export { getCarsQuery, getOwnersQuery, getDashboardAllDataQuery };
