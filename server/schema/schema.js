@@ -1,7 +1,6 @@
 const graphql = require("graphql");
 const Car = require("../models/car");
 const Owner = require("../models/owner");
-const _ = require("lodash");
 const {
   GraphQLObjectType,
   GraphQLString,

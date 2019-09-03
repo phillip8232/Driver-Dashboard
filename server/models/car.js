@@ -21,7 +21,8 @@ const carSchema = new Schema({
   parking: String,
   timeTraveld: String,
   startLocation: String,
-  endLocation: String
+  endLocation: String,
+  ownerId: String
 });
 
 module.exports = mongoose.model("Car", carSchema);
