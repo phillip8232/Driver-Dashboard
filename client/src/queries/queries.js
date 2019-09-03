@@ -20,7 +20,7 @@ const getOwnersQuery = gql`
 
 const getDashboardAllDataQuery = gql`
   {
-    car(id: "5d6dc205390783603073489c") {
+    car(id: "5d6df712671e487c075bf05c") {
       carName
       lastFillUp
       lastFillUpTime
