@@ -2,40 +2,29 @@ const fetch = require("isomorphic-fetch");
 
 const API_URL = "https://dev.gofar.co/api/";
 
-async function getVehicleData(vehicleId, authToken) {
-  const vehicleDataResponse = await fetch(`${API_URL}vehicles/${vehicleId}`, {
+async function fetchJSON(url, options, authToken) {
+  const rawResponse = await fetch(url, {
     headers: {
       Authorization: authToken
-    }
+    },
+    ...options
   });
-  const vehicleData = await vehicleDataResponse.json();
-  return vehicleData;
+  return await rawResponse.json();
+}
+
+async function getVehicleData(vehicleId, authToken) {
+  return await fetchJSON(`${API_URL}vehicles/${vehicleId}`, {}, authToken);
 }
 
 async function getUserData(userId, authToken) {
-  const userDataResponse = await fetch(`${API_URL}users/${userId}`, {
-    headers: {
-      Authorization: authToken
-    }
-  });
-  const userData = await userDataResponse.json();
-  return userData;
+  return await fetchJSON(`${API_URL}users/${userId}`, {}, authToken);
 }
 
 async function getRefillData(vehicleId, authToken) {
   const baseRefillURL = `${API_URL}vehicles/${vehicleId}/refills`;
   const refillUrl = new URL(baseRefillURL);
-  const urlParams = { filter: { order: "createdAt DESC", limit: 1 } };
-  Object.keys(urlParams).forEach(key =>
-    refillUrl.searchParams.append(key, urlParams[key])
-  );
-  const refillsDataResponse = await fetch(refillUrl.toString(), {
-    headers: {
-      Authorization: authToken
-    }
-  });
-  const refillsData = await refillsDataResponse.json();
-  return refillsData;
+  refillUrl.searchParams.append("filter", JSON.stringify({ order: "createdAt DESC", limit: 1 }));
+  return await fetchJSON(refillUrl.toString(), {}, authToken);
 }
 
 async function getDetailsForVehicle(vehicleId, authToken) {
