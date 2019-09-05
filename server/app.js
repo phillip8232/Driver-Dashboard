@@ -23,12 +23,6 @@ app.use(
   })
 );
 
-//Import Routes
-const authRoute = require("./routes/auth");
-
-//Route MiddleWare
-app.use("api/user", authRoute);
-
 app.listen(4000, () => {
   console.log("Now listeing for requests on port 40000");
 });
