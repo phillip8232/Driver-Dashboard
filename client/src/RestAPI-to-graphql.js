@@ -1,5 +1,4 @@
 const fetch = require("isomorphic-fetch");
-
 const API_URL = "https://dev.gofar.co/api/";
 
 async function fetchJSON(url, options, authToken) {
@@ -23,7 +22,10 @@ async function getUserData(userId, authToken) {
 async function getRefillData(vehicleId, authToken) {
   const baseRefillURL = `${API_URL}vehicles/${vehicleId}/refills`;
   const refillUrl = new URL(baseRefillURL);
-  refillUrl.searchParams.append("filter", JSON.stringify({ order: "createdAt DESC", limit: 1 }));
+  refillUrl.searchParams.append(
+    "filter",
+    JSON.stringify({ order: "createdAt DESC", limit: 1 })
+  );
   return await fetchJSON(refillUrl.toString(), {}, authToken);
 }
 
@@ -45,65 +47,57 @@ getDetailsForVehicle(
   "ut6c6ON9HCADkurhQncOuoWdoReo6oMSpsEHS4yk7muLUu6h1A2YRmEupp9guu0s"
 );
 
-// // GET /users/{id}/parkedVehicles
-
-// //GET /Vehicles/{id}/diagnosticTroubleCodes
-// //diagnosticIssue
-// //diagnosticDetail
-// async function getdiagnosticTroubleCodes(vehicledID, authToken){
-//   const diagnosticTroubleCodes = await Promise.all([
-//     getdiagnosticTroubleCodes(vehicleId, authToken)
-//   ]);
-//   const finalResult = {
-//     id: vehicleId,
-//     carName: vehicleData.displayName
-//   }
-// }
+// lastLocation GET /users/{id}/parkedVehicles
 
 // //businessRatio
 // //businessTotal
 // // Currenlty not supported
 
-// //averageSpeed
-// function getaverageSpeed(vehicledID, authToken){
-//   const baseaverageSpeedURL = `${API_URL}users/${userId}/summanry`;
-//   const averageSpeedUrl = new URL(baseaverageSpeedURL);
+//averageSpeed
+async function getaverageSpeed(userId, authToken) {
+  const baseaverageSpeedURL = `${API_URL}users/${userId}/summanry`;
+  const averageSpeedUrl = new URL(baseaverageSpeedURL);
+  debugger;
+  return await fetchJSON(averageSpeedUrl.toString(), {}, authToken);
+}
 
-//   Object.keys(urlParams).forEach(key => averageSpeedUrl.searchParams.append(key, urlParams[key]));
-//   const averageSpeedDataResponse = await fetch(averageSpeedUrl, {
-//     headers: {
-//       'Authorization': authToken
-//     },
-//   });
-//   const averageSpeedData = await averageSpeedDataResponse.json();
-//   return averageSpeedData;
-// }
-// //travelDistanceTotal
-// function getaverageSpeed(vehicledID, authToken){
-//   const baseaverageSpeedURL = `${API_URL}users/${userId}/summanry`;
-//   const averageSpeedUrl = new URL(baseaverageSpeedURL);
+//travelDistanceTotal get /users/{id}/summary.distance
+async function getTravelDistanceTotalData(userId, authToken) {
+  const baseTravelDistanceTotalURL = `${API_URL}users/${userId}/summanry`;
+  const travelDistanceTotalUrl = new URL(baseTravelDistanceTotalURL);
+  return await fetchJSON(travelDistanceTotalUrl.toString(), {}, authToken);
+}
 
-//   Object.keys(urlParams).forEach(key => averageSpeedUrl.searchParams.append(key, urlParams[key]));
-//   const averageSpeedDataResponse = await fetch(averageSpeedUrl, {
-//     headers: {
-//       'Authorization': authToken
-//     },
-//   });
-//   const averageSpeedData = await averageSpeedDataResponse.json();
-//   return averageSpeedData;
-// }
+//travelDistanceThisYear get /users/{id}/summary.distance
+async function getTravelDistanceThisYearData(userId, authToken) {
+  const baseTravelDistanceThisYearURL = `${API_URL}users/${userId}/summanry`;
+  const travelDistanceThisYearUrl = new URL(baseTravelDistanceThisYearURL);
+  return await fetchJSON(travelDistanceThisYearUrl.toString(), {}, authToken);
+}
 
-// //travelDistanceThisYear
+//timeInCar get /users/{id}/summary.durationInSeconds
+async function getTimeInCarData(userId, authToken) {
+  const baseTimeInCarURL = `${API_URL}users/${userId}/summanry`;
+  const timeInCarUrl = new URL(baseTimeInCarURL);
+  return await fetchJSON(timeInCarUrl.toString(), {}, authToken);
+}
 
-//timeInCar
-//emissions
+//emission get /users/{id}/summary.co2
+function getEmissionData(userId, authToken) {
+  const baseFuelEconomyURL = `${API_URL}users/${userId}/summanry`;
+  const emissionsUrl = new URL(baseEmissionsURL);
+  return await fetchJSON(emissionsUrl.toString(), {}, authToken);
+}
 
-//fuelEconomy
+//fuelEconomy  /users/{id}/summary.economy
+function getFuelEconomyData(userId, authToken) {
+  const baseFuelEconomyURL = `${API_URL}users/${userId}/summanry`;
+  const fuelEconomyUrl = new URL(baseFuelEconomyURL);
+  return await fetchJSON(fuelEconomyUrl.toString(), {}, authToken);
+}
 
-//parking
+//parking //Google Map parking location (lat lng)
 
-//timeTraveld
-
-//startLocation
-
-//endLocation
+//timeTraveld Antd Table for time you have traveld: ex] "2019-01-17T08:00:00Z"
+//startLocation Antd Table for start location for your last latest trip
+//endLocation Antd Table for end location for your last latest trip
