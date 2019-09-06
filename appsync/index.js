@@ -2,10 +2,13 @@ const fetch = require("isomorphic-fetch");
 const API_URL = "https://dev.gofar.co/api/";
 
 async function fetchJSON(url, options, authToken) {
-  const rawResponse = await fetch(url, "GET", {
+  const rawResponse = await fetch(url, {
     headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
       Authorization: authToken
     },
+    method: "GET",
     ...options
   });
   return await rawResponse.json();
@@ -33,6 +36,17 @@ async function getTripSummaryData(userId, authToken) {
   const baseTravelDistanceTotalURL = `${API_URL}users/${userId}/summary`;
   const travelDistanceTotalUrl = new URL(baseTravelDistanceTotalURL);
   return await fetchJSON(travelDistanceTotalUrl.toString(), {}, authToken);
+}
+
+async function tryLogin(email, password) {
+  const loginURL = `${API_URL}users/login`;
+  return await fetchJSON(loginURL.toString(), {
+    method: "POST",
+    body: JSON.stringify({
+      email,
+      password
+    })
+  });
 }
 
 async function getDetailsForVehicle(userId, vehicleId, authToken) {
@@ -76,13 +90,12 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
 }
 
 exports.handler = async (event, context) => {
-  console.log("Received event {}", JSON.stringify(event, 3));
+  console.log("Received event", JSON.stringify(event, 3));
 
   switch (event.field) {
     case "car":
       const vehicleId = event.arguments.id;
       const headers = context.request.headers;
-      console.log(headers);
 
       const vehicleData = await getDetailsForVehicle(
         headers.UserId,
@@ -91,6 +104,16 @@ exports.handler = async (event, context) => {
       );
 
       return vehicleData;
+    case "login":
+      const email = event.arguments.email;
+      const password = event.arguments.password;
+
+      const loginResult = await tryLogin(email, password);
+      return {
+        successful: !!loginResult.id,
+        authToken: loginResult.id,
+        userId: loginResult.userId
+      };
     case "owner":
       return "TODO";
 

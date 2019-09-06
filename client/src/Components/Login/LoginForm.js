@@ -37,7 +37,7 @@ const LoginForm = (props) => {
             icon="lock"
             iconPosition="left"
             placeholder="Password"
-            type="password" 
+            type="password"
             onChange={(e)=> setPassword(e.target.value)}
           />
 
