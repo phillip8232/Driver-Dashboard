@@ -4,7 +4,7 @@ import PrivateRoute from './Components/PrivateRoute';
 
 // import DashboardView from "./Pages/Dashboard/DashboardView";
 import DashboardSidebar from "./Components/DashboardSidebar";
-import LoginView from "./Pages/Login/LoginView";
+import { LoginPage } from "./Pages/Login/LoginPage";
 
 function App() {
   const [loginDetails, setLoginDetails] = useState({});
@@ -13,20 +13,20 @@ function App() {
       <BrowserRouter>
         <div>
           <PrivateRoute
-            exact
-            path="/"
             component={DashboardSidebar}
             userId={loginDetails.userId}
             authToken={loginDetails.authToken}
+            exact
+            path="/"
           />
           <Route
-            exact
-            path="/login"
-            component={LoginView}
-            handleLoggedIn={loginResult => {
+            render={(props) => <LoginPage {...props} handleLoggedIn={loginResult => {
               // TODO - you have auth token and user ID now.
               setLoginDetails(loginResult);
             }}
+            authToken={loginDetails.authToken}/>}
+            exact
+            path="/login"
           />
         </div>
       </BrowserRouter>

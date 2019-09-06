@@ -1,5 +1,15 @@
 import { gql } from "apollo-boost";
 
+const LOGIN_QUERY = gql`
+query Login($email: String! , $password: String!) {
+  login(email: $email, password: $password) {
+    userId
+    authToken
+    successful
+  } 
+}
+`;
+
 const getCarsQuery = gql`
   {
     cars {
@@ -38,11 +48,9 @@ const getDashboardAllDataQuery = gql`
       emissions
       fuelEconomy
       parking
-      timeTraveled
-      trips {
-        startLocation
-        endLocation
-      }
+      timeTraveld
+      startLocation
+      endLocation
     }
     owner(id: "5d6df6bd671e487c075bf05a") {
       firstName
@@ -53,4 +61,4 @@ const getDashboardAllDataQuery = gql`
   }
 `;
 
-export { getCarsQuery, getOwnersQuery, getDashboardAllDataQuery };
+export { getCarsQuery, getOwnersQuery, getDashboardAllDataQuery, LOGIN_QUERY };
