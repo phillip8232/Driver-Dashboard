@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import PrivateRoute from './Components/PrivateRoute';
 
 // import DashboardView from "./Pages/Dashboard/DashboardView";
 import DashboardSidebar from "./Components/DashboardSidebar";
@@ -11,7 +12,7 @@ function App() {
     <>
       <BrowserRouter>
         <div>
-          <Route
+          <PrivateRoute
             exact
             path="/"
             component={DashboardSidebar}
