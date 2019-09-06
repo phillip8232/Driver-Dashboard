@@ -1,45 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "semantic-ui-react";
 import LoginForm from "../../Components/Login/LoginForm";
 import Navbar from "../../Components/Navbar";
 import LoginHeroImage from "../../Images/loginHeroImage.jpg";
 import LoadingSpinner from "../../Components/LoadingSpinner";
-import { loginUser } from "../../api/loginUser";
+import { LOGIN_QUERY } from "../../queries/queries";
+import { useLazyQuery } from '@apollo/react-hooks';
 
-const handleLogin = async (
-  props,
-  email,
-  password,
-  setLoading,
-  setValidPassword
-) => {
-  setLoading(true);
-  const loginResult = await loginUser(email, password);
-  setLoading(false);
-  if (!loginResult.id) {
-    return setValidPassword(false);
-  }
-
-  setValidPassword(true);
-  props.handleLoggedIn({
-    authToken: loginResult.id,
-    userId: loginResult.userId
-  });
-};
-
-const renderBody = (props, setLoading, setValidPassword) => {
+const renderBody = (executeLogin) => {
   return (
     <LoginForm
       handleLogin={(email, password) => {
-        handleLogin(props, email, password, setLoading, setValidPassword);
+        executeLogin({ variables: {
+          email, password
+        }});
       }}
     />
   );
 };
 
 const LoginView = props => {
-  const [isLoading, setLoading] = useState(false);
-  const [isValidPassword, setValidPassword] = useState(true);
+  const [executeLogin, { loading, data }] = useLazyQuery(LOGIN_QUERY);
+  const enteredInvalidPassword = data && data.login && !data.login.successful;
+
+  if (!loading && data && data.login && data.login.successful) {
+    props.handleLoggedIn({
+      authToken: data.login.authToken,
+      userId: data.login.userId
+    });
+  }
 
   return (
     <>
@@ -48,10 +37,10 @@ const LoginView = props => {
         style={{ backgroundImage: `url(${LoginHeroImage})` }}
       >
         <Navbar />
-        {/* todo proper error bar  */}
-        {!isValidPassword && <p>Invalid Password</p>}
-        {isLoading && <LoadingSpinner />}
-        {renderBody(props, setLoading, setValidPassword)}
+        { /* todo proper error bar  */}
+        {enteredInvalidPassword && <p>Invalid Password</p>}
+        {loading && <LoadingSpinner />}
+        {renderBody(executeLogin)}
       </Container>
     </>
   );
