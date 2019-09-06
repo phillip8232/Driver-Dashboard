@@ -19,7 +19,7 @@ import GoogleMap from "../../Components/GoogleMap/GoogleMap";
 import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 import Footer from "../../Components/Footer";
 
-import Sample from "../../Components/Sample";
+
 
 class DashboardView extends Component {
   render() {
@@ -31,7 +31,6 @@ class DashboardView extends Component {
       return (
         <>
           <DashboardHeader />
-          <Sample />
           <div className="ui container">
             <Card.Group>
               <LastFillUpCard

@@ -13,7 +13,7 @@ class DiagnosticCard extends Component {
           </div>
           <Card.Content extra>
             <hr></hr>
-            <a>{this.props.diagnosticDetail}</a>
+            <a href="/#">{this.props.diagnosticDetail}</a>
           </Card.Content>
         </Card.Content>
       </Card>

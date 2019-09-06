@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Logo from "../../Images/GoFarlogo.png";
-import LoadingSpinner from '../LoadingSpinner';
 import {
   Button,
   Form,
@@ -50,7 +49,7 @@ const LoginForm = (props) => {
         </Segment>
       </Form>
       <Message>
-        New to us? <a href="#">Sign Up</a>
+        New to us? <a href="/#">Sign Up</a>
       </Message>
     </Grid.Column>
   </Grid>
