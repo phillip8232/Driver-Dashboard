@@ -64,31 +64,31 @@ const data = [
   }
 ];
 
-const columns = [
-  {
-    title: "Time",
-    dataIndex: "time"
-  },
+// const columns = [
+//   {
+//     title: "Time",
+//     dataIndex: "time"
+//   },
 
-  {
-    title: "Distance",
-    dataIndex: "ditance"
-  },
+//   {
+//     title: "Distance",
+//     dataIndex: "ditance"
+//   },
 
-  {
-    title: "Tags",
-    dataIndex: "tags"
-  },
+//   {
+//     title: "Tags",
+//     dataIndex: "tags"
+//   },
 
-  {
-    title: "Start Loocation",
-    dataIndex: "startlocation"
-  },
-  {
-    title: "End Location",
-    dataIndex: "endlocation"
-  }
-];
+//   {
+//     title: "Start Loocation",
+//     dataIndex: "startlocation"
+//   },
+//   {
+//     title: "End Location",
+//     dataIndex: "endlocation"
+//   }
+// ];
 
 class AntdTableComponent extends React.Component {
   state = {

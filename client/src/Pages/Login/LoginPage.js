@@ -2,7 +2,7 @@ import LoginView from './LoginView';
 import React from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import { Route, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 export function LoginPage(props) {
   if (props.authToken) {
