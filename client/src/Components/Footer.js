@@ -5,16 +5,32 @@ const Footer = () => {
   return (
     <div className="footer-content">
       <div className="media-content">
-        <a href="https://www.facebook.com/GoFarCar/" target="_blank">
+        <a
+          href="https://www.facebook.com/GoFarCar/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon className="icon-color" size="big" name="facebook official" />
         </a>
-        <a href="https://twitter.com/gofarcar" target="_blank">
+        <a
+          href="https://twitter.com/gofarcar"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon size="big" className="icon-color" name="twitter square" />
         </a>
-        <a href="https://www.youtube.com/c/GofarCar" target="_blank">
+        <a
+          href="https://www.youtube.com/c/GofarCar"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon size="big" className="icon-color" name="youtube" />
         </a>
-        <a href="https://www.linkedin.com/company/gofar/" target="_blank">
+        <a
+          href="https://www.linkedin.com/company/gofar/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon size="big" className="icon-color" name="linkedin" />
         </a>
       </div>
@@ -38,6 +54,7 @@ const Footer = () => {
             as="a"
             href="https://www.gofar.co/fleets-government-corporations/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Fleets,Governments,Coporations
           </List.Item>
