@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../Images/GoFarlogo.png";
+import LoadingSpinner from '../LoadingSpinner';
 import {
   Button,
   Form,
@@ -10,7 +11,10 @@ import {
   Segment
 } from "semantic-ui-react";
 
-const LoginForm = () => (
+const LoginForm = (props) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  return (
   <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
     <Grid.Column style={{ maxWidth: 450 }}>
       <Header as="h2" color="teal" textAlign="center">
@@ -23,16 +27,24 @@ const LoginForm = () => (
             icon="user"
             iconPosition="left"
             placeholder="E-mail address"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value)
+            }}
           />
           <Form.Input
             fluid
             icon="lock"
             iconPosition="left"
             placeholder="Password"
-            type="password"
+            type="password" 
+            onChange={(e)=> setPassword(e.target.value)}
           />
 
-          <Button color="blue" fluid size="large">
+          <Button onClick={(e) => {
+            props.handleLogin(email, password);
+            e.preventDefault();
+          }} color="blue" fluid size="large">
             Login
           </Button>
         </Segment>
@@ -42,6 +54,8 @@ const LoginForm = () => (
       </Message>
     </Grid.Column>
   </Grid>
-);
+  );
+}
+
 
 export default LoginForm;

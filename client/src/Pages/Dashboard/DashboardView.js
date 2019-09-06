@@ -27,6 +27,7 @@ class DashboardView extends Component {
     if (data.loading) {
       return <LoadingSpinner />;
     } else {
+      debugger;
       return (
         <>
           <DashboardHeader />
