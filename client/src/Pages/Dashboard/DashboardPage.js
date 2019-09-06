@@ -4,7 +4,6 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
 export function DashboardPage(props) {
-  debugger
   // Apollo client setup
   const client = new ApolloClient({
     uri:

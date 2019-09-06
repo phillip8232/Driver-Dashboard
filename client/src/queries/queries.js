@@ -6,7 +6,7 @@ query Login($email: String! , $password: String!) {
     userId
     authToken
     successful
-  } 
+  }
 }
 `;
 
@@ -29,10 +29,13 @@ const getOwnersQuery = gql`
 `;
 
 const getDashboardAllDataQuery = gql`
-  {
-    car(id: "5d6df712671e487c075bf05c") {
-      carName
-      lastFillUp
+  query getDataForCar($vehicleId: ID!) {
+    car(id: $vehicleId) {
+      vehicleName
+      lastFillUp {
+        lat
+        lon
+      }
       lastFillUpTime
       lastLocation
       fuelLeft
@@ -47,15 +50,20 @@ const getDashboardAllDataQuery = gql`
       timeInCar
       emissions
       fuelEconomy
-      parking
-      timeTraveld
-      startLocation
-      endLocation
-    }
-    owner(id: "5d6df6bd671e487c075bf05a") {
-      firstName
-      cars {
-        carName
+      parking {
+        lat
+        lon
+      }
+      timeTraveled
+      trips {
+        startLocation {
+          lat
+          lon
+        }
+        endLocation {
+          lat
+          lon
+        }
       }
     }
   }

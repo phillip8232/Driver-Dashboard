@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { graphql } from "react-apollo";
+import React from "react";
+import { useQuery } from "@apollo/react-hooks";
 import { getDashboardAllDataQuery } from "../../queries/queries";
 
 import LoadingSpinner from "../../Components/LoadingSpinner";
@@ -19,68 +19,68 @@ import GoogleMap from "../../Components/GoogleMap/GoogleMap";
 import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 import Footer from "../../Components/Footer";
 
-
-
-class DashboardView extends Component {
-  render() {
-    const data = this.props.data;
-    if (data.loading) {
-      return <LoadingSpinner />;
-    } else {
-      debugger;
-      return (
-        <>
-          <DashboardHeader />
-          <div className="ui container">
-            <Card.Group>
-              <LastFillUpCard
-                lastFillUp={this.props.data.car.lastFillUp}
-                lastfillUpTime={this.props.data.car.lastFillUpTime}
-                lastLocation={this.props.data.car.lastLocation}
-              />
-              <FuelLeftCard
-                fuelLeft={this.props.data.car.fuelLeft}
-                travelSince={this.props.data.car.travelSince}
-              />
-              <DiagnosticCard
-                diagnosticIssue={this.props.data.car.diagnosticIssue}
-                diagnosticDetail={this.props.data.car.diagnosticDetail}
-              />
-              <BusinessRatioCard
-                businessRatio={this.props.data.car.businessRatio}
-                businessTotal={this.props.data.car.businessTotal}
-              />
-            </Card.Group>
-          </div>
-          <div className="ui container">
-            <GoogleMap />
-          </div>
-          <div className="ui container">
-            <Card.Group>
-              <AverageSpeedCard speed={this.props.data.car.averageSpeed} />
-              <TravelDistanceTotalCard
-                distanceTotal={this.props.data.car.travelDistanceTotal}
-                distanceTotalThisYear={
-                  this.props.data.car.travelDistanceThisYear
-                }
-              />
-              <TimeInCarCard timeInCar={this.props.data.car.timeInCar} />
-            </Card.Group>
-          </div>
-          <div className="ui container">
-            <Card.Group>
-              <EmissionsCard emission={this.props.data.car.emissions} />
-              <FuelEconomyCard fuelEconomy={this.props.data.car.fuelEconomy} />
-            </Card.Group>
-          </div>
-          <div className="ui container">
-            <AntdTableComponent />
-          </div>
-          <Footer />
-        </>
-      );
+export default function DashboardView(props) {
+  const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
+    variables: {
+      vehicleId: '28be5b90-8d4f-4f0b-8f4f-8c60b2ef3896'
     }
+  });
+  if (loading) {
+    return <LoadingSpinner />;
+  } else if (error) {
+    debugger;
+    return <p>Error! {error}</p>
+  } else {
+    debugger;
+    return (
+      <>
+        <DashboardHeader />
+        <Sample />
+        <div className="ui container">
+          <Card.Group>
+            <LastFillUpCard
+              lastFillUp={data.car.lastFillUp}
+              lastfillUpTime={data.car.lastFillUpTime}
+              lastLocation={data.car.lastLocation}
+            />
+            <FuelLeftCard
+              fuelLeft={data.car.fuelLeft}
+              travelSince={data.car.travelSince}
+            />
+            <DiagnosticCard
+              diagnosticIssue={data.car.diagnosticIssue}
+              diagnosticDetail={data.car.diagnosticDetail}
+            />
+            <BusinessRatioCard
+              businessRatio={data.car.businessRatio}
+              businessTotal={data.car.businessTotal}
+            />
+          </Card.Group>
+        </div>
+        <div className="ui container">
+          <GoogleMap />
+        </div>
+        <div className="ui container">
+          <Card.Group>
+            <AverageSpeedCard speed={data.car.averageSpeed} />
+            <TravelDistanceTotalCard
+              distanceTotal={data.car.travelDistanceTotal}
+              distanceTotalThisYear={data.car.travelDistanceThisYear}
+            />
+            <TimeInCarCard timeInCar={data.car.timeInCar} />
+          </Card.Group>
+        </div>
+        <div className="ui container">
+          <Card.Group>
+            <EmissionsCard emission={data.car.emissions} />
+            <FuelEconomyCard fuelEconomy={data.car.fuelEconomy} />
+          </Card.Group>
+        </div>
+        <div className="ui container">
+          <AntdTableComponent />
+        </div>
+        <Footer />
+      </>
+    );
   }
 }
-
-export default graphql(getDashboardAllDataQuery)(DashboardView);

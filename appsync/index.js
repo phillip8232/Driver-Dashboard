@@ -1,5 +1,5 @@
 const fetch = require("isomorphic-fetch");
-const API_URL = "https://dev.gofar.co/api/";
+const API_URL = "https://api.gofar.co/api/";
 
 async function fetchJSON(url, options, authToken) {
   const rawResponse = await fetch(url, {
@@ -50,11 +50,14 @@ async function tryLogin(email, password) {
 }
 
 async function getDetailsForVehicle(userId, vehicleId, authToken) {
+  console.log("getDetailsForVehicle", userId, vehicleId, authToken);
   const [vehicleData, refillData, tripSummaryData] = await Promise.all([
     getVehicleData(vehicleId, authToken),
     getRefillData(vehicleId, authToken),
     getTripSummaryData(userId, authToken)
   ]);
+
+  console.log(vehicleData, refillData, tripSummaryData);
 
   const finalResult = {
     id: vehicleId,
@@ -62,45 +65,42 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
     lastFillUp: refillData.litres,
     lastFillUpTime: refillData.timestamp,
     lastLocation: refillData.location,
-    fuelLeft: "TODO",
+    fuelLeft: 123,
     travelSince: tripSummaryData.TODO,
-    diagnosticIssue: ["TODO"],
-    diagnosticDetail: ["TODO"],
+    diagnosticIssue: [123],
+    diagnosticDetail: [123],
     businessRatio: tripSummaryData.TODO,
     businessTotal: tripSummaryData.TODO,
     averageSpeed: tripSummaryData.averageSpeed,
     travelDistanceTotal: tripSummaryData.distance,
-    travelDistanceThisYear: "TODO",
+    travelDistanceThisYear: 123,
     timeInCar: tripSummaryData.durationInSeconds,
     emissions: tripSummaryData.co2,
     fuelEconomy: tripSummaryData.litresPerHundredKm,
     parking: {
-      lat: "TODO",
-      lon: "TODO"
+      lat: 123,
+      lon: 123
     },
     timeTraveled: tripSummaryData.TODO,
     trips: [
       {
-        startLocation: "TODO",
-        endLocation: "TODO"
+        startLocation: 123,
+        endLocation: 123
       }
     ]
   };
   return finalResult;
 }
 
-exports.handler = async (event, context) => {
-  console.log("Received event", JSON.stringify(event, 3));
-
+exports.handler = async (event) => {
   switch (event.field) {
     case "car":
       const vehicleId = event.arguments.id;
-      const headers = context.request.headers;
 
       const vehicleData = await getDetailsForVehicle(
-        headers.UserId,
+        event.userId,
         vehicleId,
-        headers.Authorization
+        event.authToken
       );
 
       return vehicleData;
