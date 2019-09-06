@@ -4,9 +4,15 @@ import LoginForm from "../../Components/Login/LoginForm";
 import Navbar from "../../Components/Navbar";
 import LoginHeroImage from "../../Images/loginHeroImage.jpg";
 import LoadingSpinner from "../../Components/LoadingSpinner";
-import { loginUser } from '../../api/loginUser';
+import { loginUser } from "../../api/loginUser";
 
-const handleLogin = async (props, email, password, setLoading, setValidPassword) => {
+const handleLogin = async (
+  props,
+  email,
+  password,
+  setLoading,
+  setValidPassword
+) => {
   setLoading(true);
   const loginResult = await loginUser(email, password);
   setLoading(false);
@@ -24,9 +30,9 @@ const handleLogin = async (props, email, password, setLoading, setValidPassword)
 const renderBody = (props, setLoading, setValidPassword) => {
   return (
     <LoginForm
-      handleLogin={(email, password) =>
-        handleLogin(props, email, password, setLoading, setValidPassword)
-      }
+      handleLogin={(email, password) => {
+        handleLogin(props, email, password, setLoading, setValidPassword);
+      }}
     />
   );
 };
@@ -42,7 +48,7 @@ const LoginView = props => {
         style={{ backgroundImage: `url(${LoginHeroImage})` }}
       >
         <Navbar />
-        { /* todo proper error bar  */}
+        {/* todo proper error bar  */}
         {!isValidPassword && <p>Invalid Password</p>}
         {isLoading && <LoadingSpinner />}
         {renderBody(props, setLoading, setValidPassword)}
