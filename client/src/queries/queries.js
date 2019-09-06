@@ -3,7 +3,7 @@ import { gql } from "apollo-boost";
 const getCarsQuery = gql`
   {
     cars {
-      vehicleName
+      carName
       id
     }
   }
@@ -18,10 +18,15 @@ const getOwnersQuery = gql`
   }
 `;
 
+
+carId = 
+
+
+
 const getDashboardAllDataQuery = gql`
   {
-    car(id: "$vehicleId") {
-      vehicleName
+    car(id: "5d6df712671e487c075bf05c") {
+      carName
       lastFillUp
       lastFillUpTime
       lastLocation
@@ -47,7 +52,7 @@ const getDashboardAllDataQuery = gql`
     owner(id: "5d6df6bd671e487c075bf05a") {
       firstName
       cars {
-        vehicleName
+        carName
       }
     }
   }
