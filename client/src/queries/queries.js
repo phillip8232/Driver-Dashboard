@@ -18,11 +18,6 @@ const getOwnersQuery = gql`
   }
 `;
 
-
-carId = 
-
-
-
 const getDashboardAllDataQuery = gql`
   {
     car(id: "5d6df712671e487c075bf05c") {

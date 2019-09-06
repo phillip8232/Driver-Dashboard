@@ -42,7 +42,7 @@ const LoginView = props => {
         style={{ backgroundImage: `url(${LoginHeroImage})` }}
       >
         <Navbar />
-        { // todo proper error bar }
+        { /* todo proper error bar  */}
         {!isValidPassword && <p>Invalid Password</p>}
         {isLoading && <LoadingSpinner />}
         {renderBody(props, setLoading, setValidPassword)}
