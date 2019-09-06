@@ -26,7 +26,7 @@ class Sample extends Component {
     console.log(carLists);
 
     const ownerCarList = carLists.map(car => {
-      return car.carName;
+      return car.vehicleName;
     });
 
     return (

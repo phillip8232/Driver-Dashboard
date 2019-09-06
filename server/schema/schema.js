@@ -15,7 +15,7 @@ const CarType = new GraphQLObjectType({
   name: "Car",
   fields: () => ({
     id: { type: GraphQLID },
-    carName: { type: GraphQLString },
+    vehicleName: { type: GraphQLString },
     lastFillUp: { type: GraphQLInt },
     lastFillUpTime: { type: GraphQLString },
     lastLocation: { type: GraphQLString },
@@ -32,7 +32,7 @@ const CarType = new GraphQLObjectType({
     emissions: { type: GraphQLInt },
     fuelEconomy: { type: GraphQLInt },
     parking: { type: GraphQLString },
-    timeTraveld: { type: GraphQLString },
+    timeTraveled: { type: GraphQLString },
     startLocation: { type: GraphQLString },
     endLocation: { type: GraphQLString },
     owner: {
@@ -108,7 +108,7 @@ const Mutation = new GraphQLObjectType({
     addCar: {
       type: CarType,
       args: {
-        carName: { type: new GraphQLNonNull(GraphQLString) },
+        vehicleName: { type: new GraphQLNonNull(GraphQLString) },
         lastFillUp: { type: GraphQLInt },
         lastFillUpTime: { type: GraphQLString },
         lastLocation: { type: GraphQLString },
@@ -125,14 +125,14 @@ const Mutation = new GraphQLObjectType({
         emissions: { type: GraphQLInt },
         fuelEconomy: { type: GraphQLInt },
         parking: { type: GraphQLString },
-        timeTraveld: { type: GraphQLString },
+        timeTraveled: { type: GraphQLString },
         startLocation: { type: GraphQLString },
         endLocation: { type: GraphQLString },
         ownerId: { type: GraphQLID }
       },
       resolve(parent, args) {
         let car = new Car({
-          carName: args.carName,
+          vehicleName: args.vehicleName,
           lastFillUp: args.lastFillUp,
           lastFillUpTime: args.lastFillUpTime,
           lastLocation: args.lastLocation,
@@ -149,7 +149,7 @@ const Mutation = new GraphQLObjectType({
           emissions: args.emissions,
           fuelEconomy: args.fuelEconomy,
           parking: args.parking,
-          timeTraveld: args.timeTraveld,
+          timeTraveled: args.timeTraveled,
           startLocation: args.startLocation,
           endLocation: args.endLocation,
           ownerId: args.ownerId
