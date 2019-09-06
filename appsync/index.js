@@ -90,13 +90,12 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
 }
 
 exports.handler = async (event, context) => {
-  console.log("Received event {}", JSON.stringify(event, 3));
+  console.log("Received event", JSON.stringify(event, 3));
 
   switch (event.field) {
     case "car":
       const vehicleId = event.arguments.id;
       const headers = context.request.headers;
-      console.log(headers);
 
       const vehicleData = await getDetailsForVehicle(
         headers.UserId,
@@ -113,7 +112,7 @@ exports.handler = async (event, context) => {
       return {
         successful: !!loginResult.id,
         authToken: loginResult.id,
-        userID: loginResult.userId
+        userId: loginResult.userId
       };
     case "owner":
       return "TODO";
