@@ -11,12 +11,12 @@
 
 
 
-### Instruction for running your lcoal computer
+### Instruction for running your local computer
 
-#### Backend(Node, Express, MongoDB) (will be running port4000)
+#### Backend(Node, Express, MongoDB) (will be running port 4000)
 ```
 
-$ git clone https://github.com/keshibat/dogtrain_react.git
+$ git clone git@bitbucket.org:gofar/driver-dashboard.git
 $ cd graphql-carlist/server
 $ npm install
 $ nodemon app.js
