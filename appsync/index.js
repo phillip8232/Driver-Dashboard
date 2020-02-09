@@ -1,14 +1,11 @@
 const fetch = require("isomorphic-fetch");
-const API_URL = "https://api.gofar.co/api/";
+const API_URL = "https://dev.gofar.co/api/";
 
 async function fetchJSON(url, options, authToken) {
-  const rawResponse = await fetch(url, {
+  const rawResponse = await fetch(url, "GET", {
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
       Authorization: authToken
     },
-    method: "GET",
     ...options
   });
   return await rawResponse.json();
@@ -20,6 +17,10 @@ async function getVehicleData(vehicleId, authToken) {
 
 async function getUserData(userId, authToken) {
   return await fetchJSON(`${API_URL}users/${userId}`, {}, authToken);
+}
+
+async function getOwnedVehicles(userId, authToken) {
+  return await fetchJSON(`${API_URL}users/${userId}/ownedVehicles`, {}, authToken);
 }
 
 async function getRefillData(vehicleId, authToken) {
@@ -38,26 +39,12 @@ async function getTripSummaryData(userId, authToken) {
   return await fetchJSON(travelDistanceTotalUrl.toString(), {}, authToken);
 }
 
-async function tryLogin(email, password) {
-  const loginURL = `${API_URL}users/login`;
-  return await fetchJSON(loginURL.toString(), {
-    method: "POST",
-    body: JSON.stringify({
-      email,
-      password
-    })
-  });
-}
-
 async function getDetailsForVehicle(userId, vehicleId, authToken) {
-  console.log("getDetailsForVehicle", userId, vehicleId, authToken);
   const [vehicleData, refillData, tripSummaryData] = await Promise.all([
     getVehicleData(vehicleId, authToken),
     getRefillData(vehicleId, authToken),
     getTripSummaryData(userId, authToken)
   ]);
-
-  console.log(vehicleData, refillData, tripSummaryData);
 
   const finalResult = {
     id: vehicleId,
@@ -65,58 +52,58 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
     lastFillUp: refillData.litres,
     lastFillUpTime: refillData.timestamp,
     lastLocation: refillData.location,
-    fuelLeft: 123,
+    fuelLeft: "TODO",
     travelSince: tripSummaryData.TODO,
-    diagnosticIssue: [123],
-    diagnosticDetail: [123],
+    diagnosticIssue: ["TODO"],
+    diagnosticDetail: ["TODO"],
     businessRatio: tripSummaryData.TODO,
     businessTotal: tripSummaryData.TODO,
     averageSpeed: tripSummaryData.averageSpeed,
     travelDistanceTotal: tripSummaryData.distance,
-    travelDistanceThisYear: 123,
+    travelDistanceThisYear: "TODO",
     timeInCar: tripSummaryData.durationInSeconds,
     emissions: tripSummaryData.co2,
     fuelEconomy: tripSummaryData.litresPerHundredKm,
     parking: {
-      lat: 123,
-      lon: 123
+      lat: "TODO",
+      lon: "TODO"
     },
     timeTraveled: tripSummaryData.TODO,
     trips: [
       {
-        startLocation: 123,
-        endLocation: 123
+        startLocation: "TODO",
+        endLocation: "TODO"
       }
     ]
   };
   return finalResult;
 }
 
-exports.handler = async (event) => {
+exports.handler = async (event, context) => {
+  console.log("Received event {}", JSON.stringify(event, 3));
+
   switch (event.field) {
-    case "car":
+    case "car": {
       const vehicleId = event.arguments.id;
+      const headers = context.request.headers;
+      console.log(headers);
 
       const vehicleData = await getDetailsForVehicle(
-        event.userId,
+        headers.UserId,
         vehicleId,
-        event.authToken
+        headers.Authorization
       );
 
       return vehicleData;
-    case "login":
-      const email = event.arguments.email;
-      const password = event.arguments.password;
-
-      const loginResult = await tryLogin(email, password);
+    }
+    case "owner": {
+      const ownerData = await getUserData(headers.UserId, headers.Authorization);
+      const ownedVehicles = await getOwnedVehicles(headers.UserId, headers.Authorization);
       return {
-        successful: !!loginResult.id,
-        authToken: loginResult.id,
-        userId: loginResult.userId
+        ownerData,
+        ownedVehicles
       };
-    case "owner":
-      return "TODO";
-
+    }
     default:
       return "Unknown field, unable to resolve" + event.field;
   }

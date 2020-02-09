@@ -22,7 +22,7 @@ import Footer from "../../Components/Footer";
 export default function DashboardView(props) {
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: '28be5b90-8d4f-4f0b-8f4f-8c60b2ef3896'
+      vehicleId: "71427823-ebeb-4836-945d-802adc14779d"
     }
   });
   if (loading) {
@@ -35,7 +35,6 @@ export default function DashboardView(props) {
     return (
       <>
         <DashboardHeader />
-        <Sample />
         <div className="ui container">
           <Card.Group>
             <LastFillUpCard

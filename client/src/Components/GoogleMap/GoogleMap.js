@@ -45,7 +45,6 @@ class SimpleMap extends Component {
             zoom={9}
             initialCenter={{ lat: 45.4211, lng: -75.6903 }}
           >
-            {this.displayMarkers()}
           </Map>
         </div>
       </Segment>
