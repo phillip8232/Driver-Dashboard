@@ -19,11 +19,15 @@ const getCarsQuery = gql`
   }
 `;
 
-const getOwnersQuery = gql`
+const getUserDataQuery = gql`
   {
-    owners {
+    userData {
       firstName
       id
+      cars {
+        carName
+        id
+      }
     }
   }
 `;
@@ -69,4 +73,4 @@ const getDashboardAllDataQuery = gql`
   }
 `;
 
-export { getCarsQuery, getOwnersQuery, getDashboardAllDataQuery, LOGIN_QUERY };
+export { getCarsQuery, getUserDataQuery, getDashboardAllDataQuery, LOGIN_QUERY };

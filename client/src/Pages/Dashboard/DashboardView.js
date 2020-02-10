@@ -1,8 +1,11 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { getDashboardAllDataQuery } from "../../queries/queries";
+import {
+  getDashboardAllDataQuery,
+} from "../../queries/queries";
 
 import LoadingSpinner from "../../Components/LoadingSpinner";
+import CarList from "../../Components/CarList";
 import DashboardHeader from "../../Components/DashboardHeader";
 import { Card } from "semantic-ui-react";
 import LastFillUpCard from "../../Components/Card/LastFillUpCard";
@@ -31,10 +34,12 @@ export default function DashboardView(props) {
     debugger;
     return <p>Error! {error}</p>
   } else {
-    debugger;
     return (
       <>
         <DashboardHeader />
+        <CarList>
+
+        </CarList>
         <div className="ui container">
           <Card.Group>
             <LastFillUpCard

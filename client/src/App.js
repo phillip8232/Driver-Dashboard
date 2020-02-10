@@ -20,6 +20,7 @@ function App() {
           />
           <Route
             render={(props) => <LoginPage {...props} handleLoggedIn={loginResult => {
+              debugger;
               // TODO - you have auth token and user ID now.
               setLoginDetails(loginResult);
             }}

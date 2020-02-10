@@ -20,7 +20,11 @@ async function getUserData(userId, authToken) {
 }
 
 async function getOwnedVehicles(userId, authToken) {
-  return await fetchJSON(`${API_URL}users/${userId}/ownedVehicles`, {}, authToken);
+  return await fetchJSON(
+    `${API_URL}users/${userId}/ownedVehicles`,
+    {},
+    authToken
+  );
 }
 
 async function getRefillData(vehicleId, authToken) {
@@ -96,12 +100,18 @@ exports.handler = async (event, context) => {
 
       return vehicleData;
     }
-    case "owner": {
-      const ownerData = await getUserData(headers.UserId, headers.Authorization);
-      const ownedVehicles = await getOwnedVehicles(headers.UserId, headers.Authorization);
+    case "userData": {
+      const ownerData = await getUserData(
+        headers.UserId,
+        headers.Authorization
+      );
+      const ownedVehicles = await getOwnedVehicles(
+        headers.UserId,
+        headers.Authorization
+      );
       return {
-        ownerData,
-        ownedVehicles
+        ...ownerData,
+        cars: ownedVehicles
       };
     }
     default:
