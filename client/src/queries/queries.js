@@ -19,11 +19,17 @@ const getCarsQuery = gql`
   }
 `;
 
-const getOwnersQuery = gql`
+const getUserDataQuery = gql`
   {
-    owners {
+    userData {
       firstName
       id
+      cars {
+        displayName
+        model
+        make
+        id
+      }
     }
   }
 `;
@@ -31,7 +37,9 @@ const getOwnersQuery = gql`
 const getDashboardAllDataQuery = gql`
   query getDataForCar($vehicleId: ID!) {
     car(id: $vehicleId) {
-      vehicleName
+      displayName
+      make
+      model
       lastFillUp {
         lat
         lon
@@ -69,4 +77,4 @@ const getDashboardAllDataQuery = gql`
   }
 `;
 
-export { getCarsQuery, getOwnersQuery, getDashboardAllDataQuery, LOGIN_QUERY };
+export { getCarsQuery, getUserDataQuery, getDashboardAllDataQuery, LOGIN_QUERY };
