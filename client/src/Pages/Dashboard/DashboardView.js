@@ -1,11 +1,9 @@
-import React, { Component } from "react";
-import Select from 'react-select'
+import React from "react";
 
 import { useQuery } from "@apollo/react-hooks";
 import {
   getDashboardAllDataQuery,
 } from "../../queries/queries";
-import ReactSelect from "../../Components/ReactSelect"
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import CarList from "../../Components/CarList";
 import DashboardHeader from "../../Components/DashboardHeader";
@@ -40,7 +38,6 @@ export default function DashboardView(props) {
     return (
       <>
         <DashboardHeader />
-        {/* <ReactSelect /> */}
 
         <CarList>
         </CarList>
