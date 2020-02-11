@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
+import Select from 'react-select'
+
 import { useQuery } from "@apollo/react-hooks";
 import {
   getDashboardAllDataQuery,
 } from "../../queries/queries";
-
+import ReactSelect from "../../Components/ReactSelect"
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import CarList from "../../Components/CarList";
 import DashboardHeader from "../../Components/DashboardHeader";
@@ -23,6 +25,7 @@ import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 import Footer from "../../Components/Footer";
 
 export default function DashboardView(props) {
+  
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
       vehicleId: "71427823-ebeb-4836-945d-802adc14779d"
@@ -37,8 +40,9 @@ export default function DashboardView(props) {
     return (
       <>
         <DashboardHeader />
-        <CarList>
+        {/* <ReactSelect /> */}
 
+        <CarList>
         </CarList>
         <div className="ui container">
           <Card.Group>

@@ -1,14 +1,15 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
+import Select from 'react-select';
 
 import { getUserDataQuery } from "../queries/queries";
 import LoadingSpinner from "./LoadingSpinner";
 
 function displayCars(data) {
   return data.cars.map(car => {
-    return (<li key={car.id}>
+    return (<ul key={car.id}>
       {car.displayName}({car.make} - {car.model})
-    </li>);
+    </ul>);
   });
 }
 
@@ -24,8 +25,11 @@ export default function() {
 
     return (
       <div>
-        <ul>{displayCars(data.userData)}</ul>
+        <Select
+          options={displayCars(data.userData)}
+        />
       </div>
     );
   }
-}
+};
+
