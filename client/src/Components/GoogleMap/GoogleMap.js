@@ -39,7 +39,7 @@ class SimpleMap extends Component {
           <Icon color="red" name="map marker alternate" size="big" />
           Parking Location
         </Header>
-        <div class="ui embed">
+        <div className="ui embed">
           <Map
             google={this.props.google}
             zoom={9}

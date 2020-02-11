@@ -6,7 +6,9 @@ import LoadingSpinner from "./LoadingSpinner";
 
 function displayCars(data) {
   return data.cars.map(car => {
-    return <li key={car.id}>{car.vehicleName}</li>;
+    return (<li key={car.id}>
+      {car.displayName}({car.make} - {car.model})
+    </li>);
   });
 }
 
@@ -22,7 +24,7 @@ export default function() {
 
     return (
       <div>
-        <ul>{displayCars(data)}</ul>
+        <ul>{displayCars(data.userData)}</ul>
       </div>
     );
   }
