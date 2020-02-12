@@ -11,7 +11,6 @@ function displayCars(data) {
 }
 
 export default function() {
-  
   const [selectedOption , setSelectedOption] = useState(null)
   const handleChange = selectedOption => {
     setSelectedOption(selectedOption)
@@ -25,14 +24,17 @@ export default function() {
     debugger;
     return <p>Error! {error}</p>;
   } else {
+
     return (
       <div>
         {console.log(displayCars(data.userData))}
+
         <Select 
           value = {selectedOption}
           onChange={handleChange}
           options={displayCars(data.userData)}
         />
+        
       </div>
     );
   }
