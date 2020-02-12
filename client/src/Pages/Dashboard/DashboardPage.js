@@ -17,7 +17,7 @@ export function DashboardPage(props) {
 
   return (
     <ApolloProvider client={client}>
-      <DashboardView {...props} />
+        <DashboardView  />
     </ApolloProvider>
   );
 }
