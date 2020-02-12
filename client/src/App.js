@@ -6,7 +6,7 @@ import DashboardSidebar from "./Components/DashboardSidebar";
 import { LoginPage } from "./Pages/Login/LoginPage";
 
 function App() {
-  const [loginDetails, setLoginDetails] = useState({});
+  const [loginDetails, setLoginDetails, ] = useState({});
   return (
     <>
       <BrowserRouter>

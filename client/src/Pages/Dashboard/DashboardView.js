@@ -2,7 +2,7 @@ import React from "react";
 
 import { useQuery } from "@apollo/react-hooks";
 import {
-  getDashboardAllDataQuery,
+  getDashboardAllDataQuery
 } from "../../queries/queries";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import CarList from "../../Components/CarList";
@@ -22,12 +22,14 @@ import GoogleMap from "../../Components/GoogleMap/GoogleMap";
 import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 import Footer from "../../Components/Footer";
 
+
+
 export default function DashboardView(props) {
   
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: "71427823-ebeb-4836-945d-802adc14779d"
-    }
+      vehicleId: 'hellothisisid'
+    },
   });
   if (loading) {
     return <LoadingSpinner />;
@@ -38,9 +40,12 @@ export default function DashboardView(props) {
     return (
       <>
         <DashboardHeader />
+   
+        <CarList
+          carid={data.car.id}
+        />
+        {console.log('this is data for car variable', )}
 
-        <CarList>
-        </CarList>
         <div className="ui container">
           <Card.Group>
             <LastFillUpCard
