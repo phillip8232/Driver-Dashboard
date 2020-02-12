@@ -19,70 +19,70 @@ import FuelEconomyCard from "../../Components/Card/FuelEconomyCard";
 import GoogleMap from "../../Components/GoogleMap/GoogleMap";
 import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
 import Footer from "../../Components/Footer";
-export default function DashboardView(props) {
-    const [selectedOption , setSelectedOption] = useState(null)
-    const handleChange = selectedOption => {
-      setSelectedOption(selectedOption)
-      console.log(`Option selected:`, selectedOption.value);
+
+export default function DashboardView() {
+    const [dropdownSelection , setDropdownSelection] = useState(null)
+    const handleChange = dropdownSelection => {
+      setDropdownSelection(dropdownSelection)
     }
     const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: `${selectedOption}`
+      vehicleId: `${dropdownSelection}`
     }
   });
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
-    debugger;
+      debugger;
     return <p>Error! {error}</p>
   } else {
     return (
       <>
         <DashboardHeader />
         <CarList action={handleChange} />
-        <div className="ui container">
-          <Card.Group>
-            <LastFillUpCard
-              lastFillUp={data.car.lastFillUp}
-              lastfillUpTime={data.car.lastFillUpTime}
-              lastLocation={data.car.lastLocation}
-            />
-            <FuelLeftCard
-              fuelLeft={data.car.fuelLeft}
-              travelSince={data.car.travelSince}
-            />
-            <DiagnosticCard
-              diagnosticIssue={data.car.diagnosticIssue}
-              diagnosticDetail={data.car.diagnosticDetail}
-            />
-            <BusinessRatioCard
-              businessRatio={data.car.businessRatio}
-              businessTotal={data.car.businessTotal}
-            />
-          </Card.Group>
-        </div>
-        <div className="ui container">
-          <GoogleMap />
-        </div>
-        <div className="ui container">
-          <Card.Group>
-            <AverageSpeedCard speed={data.car.averageSpeed} />
-            <TravelDistanceTotalCard
-              distanceTotal={data.car.travelDistanceTotal}
-              distanceTotalThisYear={data.car.travelDistanceThisYear}
-            />
-            <TimeInCarCard timeInCar={data.car.timeInCar} />
-          </Card.Group>
-        </div>
-        <div className="ui container">
-          <Card.Group>
-            <EmissionsCard emission={data.car.emissions} />
-            <FuelEconomyCard fuelEconomy={data.car.fuelEconomy} />
-          </Card.Group>
-        </div>
-        <div className="ui container">
-          <AntdTableComponent />
-        </div>
+          <div className="ui container">
+            <Card.Group>
+              <LastFillUpCard
+                lastFillUp={data.car.lastFillUp}
+                lastfillUpTime={data.car.lastFillUpTime}
+                lastLocation={data.car.lastLocation}
+              />
+              <FuelLeftCard
+                fuelLeft={data.car.fuelLeft}
+                travelSince={data.car.travelSince}
+              />
+              <DiagnosticCard
+                diagnosticIssue={data.car.diagnosticIssue}
+                diagnosticDetail={data.car.diagnosticDetail}
+              />
+              <BusinessRatioCard
+                businessRatio={data.car.businessRatio}
+                businessTotal={data.car.businessTotal}
+              />
+            </Card.Group>
+          </div>
+          <div className="ui container">
+            <GoogleMap />
+          </div>
+          <div className="ui container">
+            <Card.Group>
+              <AverageSpeedCard speed={data.car.averageSpeed} />
+              <TravelDistanceTotalCard
+                distanceTotal={data.car.travelDistanceTotal}
+                distanceTotalThisYear={data.car.travelDistanceThisYear}
+              />
+              <TimeInCarCard timeInCar={data.car.timeInCar} />
+            </Card.Group>
+          </div>
+          <div className="ui container">
+            <Card.Group>
+              <EmissionsCard emission={data.car.emissions} />
+              <FuelEconomyCard fuelEconomy={data.car.fuelEconomy} />
+            </Card.Group>
+          </div>
+          <div className="ui container">
+            <AntdTableComponent />
+          </div>
         <Footer />
       </>
     );
