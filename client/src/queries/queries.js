@@ -1,13 +1,13 @@
-import { gql } from "apollo-boost";
+import { gql } from 'apollo-boost';
 
 const LOGIN_QUERY = gql`
-query Login($email: String! , $password: String!) {
-  login(email: $email, password: $password) {
-    userId
-    authToken
-    successful
+  query Login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      userId
+      authToken
+      successful
+    }
   }
-}
 `;
 
 const getCarsQuery = gql`
@@ -77,4 +77,9 @@ const getDashboardAllDataQuery = gql`
   }
 `;
 
-export { getCarsQuery, getUserDataQuery, getDashboardAllDataQuery, LOGIN_QUERY };
+export {
+  getCarsQuery,
+  getUserDataQuery,
+  getDashboardAllDataQuery,
+  LOGIN_QUERY,
+};
