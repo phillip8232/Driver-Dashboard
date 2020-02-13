@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import PrivateRoute from './Components/PrivateRoute';
-
 import DashboardSidebar from './Components/DashboardSidebar';
 import { LoginPage } from './Pages/Login/LoginPage';
 

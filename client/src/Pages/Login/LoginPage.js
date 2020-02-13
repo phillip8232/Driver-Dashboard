@@ -5,14 +5,9 @@ import { ApolloProvider } from 'react-apollo';
 import { Redirect } from "react-router-dom";
 
 export function LoginPage(props) {
-  document.cookie = `user_session=${props.authToken}`
-  const x = document.cookie.user_session
-  console.log(x)
-
   if (props.authToken) {
     return <Redirect to="/" />
   }
-
   const client = new ApolloClient({
     uri:
       "https://jt63wdhqqre6rpjo5lnylfhjqm.appsync-api.ap-southeast-2.amazonaws.com/graphql",

@@ -24,8 +24,10 @@ const LoginView = props => {
   const enteredInvalidPassword = data && data.login && !data.login.successful;
 
   if (!loading && data && data.login && data.login.successful) {
+    sessionStorage.setItem('s_user', data.login.authToken)
+    const userSession = sessionStorage.getItem('s_user')
     props.handleLoggedIn({
-      authToken: data.login.authToken,
+      authToken: userSession,
       userId: data.login.userId
     });
   }
