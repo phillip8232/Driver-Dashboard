@@ -5,6 +5,10 @@ import { ApolloProvider } from 'react-apollo';
 import { Redirect } from "react-router-dom";
 
 export function LoginPage(props) {
+  document.cookie = `user_session=${props.authToken}`
+  const x = document.cookie.user_session
+  console.log(x)
+
   if (props.authToken) {
     return <Redirect to="/" />
   }
