@@ -25,7 +25,9 @@ const getUserDataQuery = gql`
       firstName
       id
       cars {
-        carName
+        displayName
+        model
+        make
         id
       }
     }
@@ -35,7 +37,9 @@ const getUserDataQuery = gql`
 const getDashboardAllDataQuery = gql`
   query getDataForCar($vehicleId: ID!) {
     car(id: $vehicleId) {
-      vehicleName
+      displayName
+      make
+      model
       lastFillUp {
         lat
         lon
