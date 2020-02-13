@@ -6,8 +6,8 @@ import { LoginPage } from './Pages/Login/LoginPage';
 
 function App() {
   const [loginDetails, setLoginDetails] = useState({});
-  const user_session = document.cookie.replace(/(?:(?:^|.*;\s*)user_session\s*=\s*([^;]*).*$)|^.*$/, "$1");
-  const user_Id = document.cookie.replace(/(?:(?:^|.*;\s*)user_Id\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  const userSession = document.cookie.replace(/(?:(?:^|.*;\s*)userSession\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  const userId = document.cookie.replace(/(?:(?:^|.*;\s*)userId\s*=\s*([^;]*).*$)|^.*$/, "$1");
 
   return (
     <>
@@ -15,8 +15,8 @@ function App() {
         <div>
           <PrivateRoute
             component={DashboardSidebar}
-            userId={user_Id}
-            authToken={user_session}
+            userId={userId}
+            authToken={userSession}
             exact
             path="/"
           />

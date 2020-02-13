@@ -6,22 +6,19 @@ import { Redirect } from "react-router-dom";
 
 export function LoginPage(props) {
   // using regex to get the remove the strings and only getting the value that is stored
-  const user_session = document.cookie.replace(/(?:(?:^|.*;\s*)user_session\s*=\s*([^;]*).*$)|^.*$/, "$1");
-  const user_Id = document.cookie.replace(/(?:(?:^|.*;\s*)user_Id\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  const userSession = document.cookie.replace(/(?:(?:^|.*;\s*)userSession\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  const userId = document.cookie.replace(/(?:(?:^|.*;\s*)userId\s*=\s*([^;]*).*$)|^.*$/, "$1");
 
   if (props.authToken) {
     return <Redirect to="/" />
   }
 
-
-
-
   const client = new ApolloClient({
     uri:
       "https://jt63wdhqqre6rpjo5lnylfhjqm.appsync-api.ap-southeast-2.amazonaws.com/graphql",
     headers: {
-      Authorization: user_session,
-      UserID: user_Id,
+      Authorization: userSession,
+      UserID: userId,
       "X-API-KEY": "da2-qxhe36kwhjaqjnlal4jxoeahbe"
     }
   });

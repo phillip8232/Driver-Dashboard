@@ -29,12 +29,12 @@ const LoginView = props => {
       document.cookie = `user_Id=${data.login.userId}`
     }
     // using regex to get the remove the strings and only getting the value that is stored
-    const user_session = document.cookie.replace(/(?:(?:^|.*;\s*)user_session\s*=\s*([^;]*).*$)|^.*$/, "$1");
-    const user_Id = document.cookie.replace(/(?:(?:^|.*;\s*)user_Id\s*=\s*([^;]*).*$)|^.*$/, "$1");
+    const userSession = document.cookie.replace(/(?:(?:^|.*;\s*)userSession\s*=\s*([^;]*).*$)|^.*$/, "$1");
+    const userId = document.cookie.replace(/(?:(?:^|.*;\s*)userId\s*=\s*([^;]*).*$)|^.*$/, "$1");
 
     props.handleLoggedIn({
-      authToken: user_session,
-      userId: user_Id
+      authToken: userSession,
+      userId: userId
     });
     
   }
