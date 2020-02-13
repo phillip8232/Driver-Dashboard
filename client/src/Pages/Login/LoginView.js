@@ -24,12 +24,19 @@ const LoginView = props => {
   const enteredInvalidPassword = data && data.login && !data.login.successful;
 
   if (!loading && data && data.login && data.login.successful) {
-    sessionStorage.setItem('s_user', data.login.authToken)
-    const userSession = sessionStorage.getItem('s_user')
+    if(data.login.authToken != null && data.login.userId != null){
+      document.cookie = `user_session=${data.login.authToken}`
+      document.cookie = `user_Id=${data.login.userId}`
+    }
+    // using regex to get the remove the strings and only getting the value that is stored
+    const user_session = document.cookie.replace(/(?:(?:^|.*;\s*)user_session\s*=\s*([^;]*).*$)|^.*$/, "$1");
+    const user_Id = document.cookie.replace(/(?:(?:^|.*;\s*)user_Id\s*=\s*([^;]*).*$)|^.*$/, "$1");
+
     props.handleLoggedIn({
-      authToken: userSession,
-      userId: data.login.userId
+      authToken: user_session,
+      userId: user_Id
     });
+    
   }
 
   return (

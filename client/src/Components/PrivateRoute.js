@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 
 const PrivateRoute = originalProps => {
   const { component: Component, authToken, ...rest } = originalProps;
+
   return (
     <Route
       {...rest}

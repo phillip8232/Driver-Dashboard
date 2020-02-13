@@ -6,14 +6,17 @@ import { LoginPage } from './Pages/Login/LoginPage';
 
 function App() {
   const [loginDetails, setLoginDetails] = useState({});
+  const user_session = document.cookie.replace(/(?:(?:^|.*;\s*)user_session\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  const user_Id = document.cookie.replace(/(?:(?:^|.*;\s*)user_Id\s*=\s*([^;]*).*$)|^.*$/, "$1");
+
   return (
     <>
       <BrowserRouter>
         <div>
           <PrivateRoute
             component={DashboardSidebar}
-            userId={loginDetails.userId}
-            authToken={loginDetails.authToken}
+            userId={user_Id}
+            authToken={user_session}
             exact
             path="/"
           />
