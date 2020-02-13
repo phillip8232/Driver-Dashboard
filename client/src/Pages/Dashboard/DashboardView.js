@@ -1,45 +1,43 @@
-import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import {
-  getDashboardAllDataQuery,
-} from "../../queries/queries";
+import React, { useState } from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { getDashboardAllDataQuery } from '../../queries/queries';
+import LoadingSpinner from '../../Components/LoadingSpinner';
+import CarList from '../../Components/CarList';
+import DashboardHeader from '../../Components/DashboardHeader';
+import { Card } from 'semantic-ui-react';
+import LastFillUpCard from '../../Components/Card/LastFillUpCard';
+import FuelLeftCard from '../../Components/Card/FuelLeftCard';
+import DiagnosticCard from '../../Components/Card/DiagnosticCard';
+import BusinessRatioCard from '../../Components/Card/BusinessRatioCard';
+import AverageSpeedCard from '../../Components/Card/AverageSpeedCard';
+import TravelDistanceTotalCard from '../../Components/Card/TravelDistanceTotalCard';
+import TimeInCarCard from '../../Components/Card/TimeInCarCard';
+import EmissionsCard from '../../Components/Card/EmissionsCard';
+import FuelEconomyCard from '../../Components/Card/FuelEconomyCard';
+import GoogleMap from '../../Components/GoogleMap/GoogleMap';
+import AntdTableComponent from '../../Components/AntdTable/AntdTableComponent';
+import Footer from '../../Components/Footer';
 
-import LoadingSpinner from "../../Components/LoadingSpinner";
-import CarList from "../../Components/CarList";
-import DashboardHeader from "../../Components/DashboardHeader";
-import { Card } from "semantic-ui-react";
-import LastFillUpCard from "../../Components/Card/LastFillUpCard";
-import FuelLeftCard from "../../Components/Card/FuelLeftCard";
-import DiagnosticCard from "../../Components/Card/DiagnosticCard";
-import BusinessRatioCard from "../../Components/Card/BusinessRatioCard";
-import AverageSpeedCard from "../../Components/Card/AverageSpeedCard";
-import TravelDistanceTotalCard from "../../Components/Card/TravelDistanceTotalCard";
-import TimeInCarCard from "../../Components/Card/TimeInCarCard";
-import EmissionsCard from "../../Components/Card/EmissionsCard";
-import FuelEconomyCard from "../../Components/Card/FuelEconomyCard";
-
-import GoogleMap from "../../Components/GoogleMap/GoogleMap";
-import AntdTableComponent from "../../Components/AntdTable/AntdTableComponent";
-import Footer from "../../Components/Footer";
-
-export default function DashboardView(props) {
+export default function DashboardView() {
+  const [vehicleIdSelectionState, setVehicleIdSelectionState] = useState('');
+  const handleChangeOnVehicleDropdown = vehicleIdSelectionState => {
+    setVehicleIdSelectionState(vehicleIdSelectionState);
+  };
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: "71427823-ebeb-4836-945d-802adc14779d"
-    }
+      vehicleId: `${vehicleIdSelectionState}`,
+    },
   });
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
     debugger;
-    return <p>Error! {error}</p>
+    return <p>Error! {error}</p>;
   } else {
     return (
       <>
         <DashboardHeader />
-        <CarList>
-
-        </CarList>
+        <CarList action={handleChangeOnVehicleDropdown} />
         <div className="ui container">
           <Card.Group>
             <LastFillUpCard

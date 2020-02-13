@@ -1,30 +1,30 @@
-import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-
-import { getUserDataQuery } from "../queries/queries";
-import LoadingSpinner from "./LoadingSpinner";
-
+import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import Select from 'react-select';
+import { getUserDataQuery } from '../queries/queries';
+import LoadingSpinner from './LoadingSpinner';
 function displayCars(data) {
   return data.cars.map(car => {
-    return (<li key={car.id}>
-      {car.displayName}({car.make} - {car.model})
-    </li>);
+    return {
+      value: car.id,
+      label: `${car.displayName} ${car.make} (${car.model})`,
+    };
   });
 }
-
-export default function() {
+export default function(props) {
   const { loading, error, data } = useQuery(getUserDataQuery);
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
-    debugger;
     return <p>Error! {error}</p>;
   } else {
-    debugger;
-
     return (
       <div>
-        <ul>{displayCars(data.userData)}</ul>
+        <Select
+          value={props.vehicleIdSelectionState}
+          onChange={props.action}
+          options={displayCars(data.userData)}
+        />
       </div>
     );
   }

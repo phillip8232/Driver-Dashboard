@@ -1,5 +1,5 @@
-import React from "react";
-import { Statistic, Header, Divider } from "semantic-ui-react";
+import React from 'react';
+import { Statistic, Header, Divider } from 'semantic-ui-react';
 
 const DashboardHeader = () => {
   return (
