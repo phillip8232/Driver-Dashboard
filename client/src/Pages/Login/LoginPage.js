@@ -5,13 +5,17 @@ import { ApolloProvider } from 'react-apollo';
 import { Redirect } from "react-router-dom";
 
 export function LoginPage(props) {
-  // using regex to get the remove the strings and only getting the value that is stored
-  const userSession = document.cookie.replace(/(?:(?:^|.*;\s*)userSession\s*=\s*([^;]*).*$)|^.*$/, "$1");
-  const userId = document.cookie.replace(/(?:(?:^|.*;\s*)userId\s*=\s*([^;]*).*$)|^.*$/, "$1");
+      // using regex to get the remove the strings and only getting the value that is stored
+
+  const userSession = document.cookie.replace(/(?:(?:^|.*;\s*)user_session\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  const userId = document.cookie.replace(/(?:(?:^|.*;\s*)user_Id\s*=\s*([^;]*).*$)|^.*$/, "$1");
 
   if (props.authToken) {
     return <Redirect to="/" />
   }
+
+
+
 
   const client = new ApolloClient({
     uri:

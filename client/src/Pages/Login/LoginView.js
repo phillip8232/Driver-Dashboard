@@ -25,8 +25,8 @@ const LoginView = props => {
 
   if (!loading && data && data.login && data.login.successful) {
     if(data.login.authToken != null && data.login.userId != null){
-      document.cookie = `user_session=${data.login.authToken}`
-      document.cookie = `user_Id=${data.login.userId}`
+      document.cookie = `userSession=${data.login.authToken}`
+      document.cookie = `userId=${data.login.userId}`
     }
     // using regex to get the remove the strings and only getting the value that is stored
     const userSession = document.cookie.replace(/(?:(?:^|.*;\s*)userSession\s*=\s*([^;]*).*$)|^.*$/, "$1");
