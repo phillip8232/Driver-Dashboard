@@ -19,7 +19,9 @@ import AntdTableComponent from '../../Components/AntdTable/AntdTableComponent';
 import Footer from '../../Components/Footer';
 
 export default function DashboardView() {
-  const [vehicleIdSelectionState, setVehicleIdSelectionState] = useState('');
+  const [vehicleIdSelectionState, setVehicleIdSelectionState] = useState(
+    '27e1dabc-a89a-444d-bcc3-ace5a33a3d26'
+  );
   const handleChangeOnVehicleDropdown = vehicleIdSelectionState => {
     setVehicleIdSelectionState(vehicleIdSelectionState);
   };
