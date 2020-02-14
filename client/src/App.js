@@ -7,14 +7,16 @@ import { LoginPage } from './Pages/Login/LoginPage';
 
 function App() {
   const [loginDetails, setLoginDetails] = useState({});
+  const localToken = localStorage.getItem('token');
+  const localUserId = localStorage.getItem('userId');
   return (
     <>
       <BrowserRouter>
         <div>
           <PrivateRoute
             component={DashboardSidebar}
-            userId={loginDetails.userId}
-            authToken={loginDetails.authToken}
+            userId={localUserId}
+            authToken={localToken}
             exact
             path="/"
           />
@@ -25,6 +27,11 @@ function App() {
                 handleLoggedIn={loginResult => {
                   // TODO - you have auth token and user ID now.
                   setLoginDetails(loginResult);
+                  const token = 'token';
+                  window.localStorage.setItem(token, loginResult.authToken);
+
+                  const userId = 'userId';
+                  window.localStorage.setItem(userId, loginResult.userId);
                 }}
                 authToken={loginDetails.authToken}
               />
