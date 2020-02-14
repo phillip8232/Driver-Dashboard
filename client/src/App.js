@@ -7,8 +7,8 @@ import { LoginPage } from './Pages/Login/LoginPage';
 
 function App() {
   const [loginDetails, setLoginDetails] = useState({});
-  const localToken = localStorage.getItem('token');
-  const localUserId = localStorage.getItem('userId');
+  const localToken = localStorage.getItem('GofarDashboardToken');
+  const localUserId = localStorage.getItem('GofarDashboardUserId');
   return (
     <>
       <BrowserRouter>
@@ -27,11 +27,14 @@ function App() {
                 handleLoggedIn={loginResult => {
                   // TODO - you have auth token and user ID now.
                   setLoginDetails(loginResult);
-                  const token = 'token';
-                  window.localStorage.setItem(token, loginResult.authToken);
-
-                  const userId = 'userId';
-                  window.localStorage.setItem(userId, loginResult.userId);
+                  window.localStorage.setItem(
+                    'GofarDashboardToken',
+                    loginResult.authToken
+                  );
+                  window.localStorage.setItem(
+                    'GofarDashboardUserId',
+                    loginResult.userId
+                  );
                 }}
                 authToken={loginDetails.authToken}
               />
