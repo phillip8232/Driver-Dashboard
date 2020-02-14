@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Button, Header, Icon, Modal, Menu } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Header, Icon, Modal, Menu } from 'semantic-ui-react';
 
 class LogOutModal extends Component {
   render() {
@@ -28,7 +28,16 @@ class LogOutModal extends Component {
           >
             No
           </Button>
-          <Button as={Link} to="/login" basic color="green" inverted>
+          <Button
+            basic
+            color="green"
+            inverted
+            onClick={() => {
+              localStorage.clear();
+            }}
+            as={Link}
+            to="/login"
+          >
             Yes
           </Button>
         </Modal.Actions>
