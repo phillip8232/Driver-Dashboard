@@ -38,7 +38,6 @@ export default function DashboardView() {
   } else {
     return (
       <>
-        <DashboardHeader car={data} />
         <CarList action={handleChangeOnVehicleDropdown} />
         <div className="ui container">
           <Card.Group>

@@ -9,25 +9,6 @@ const LOGIN_QUERY = gql`
     }
   }
 `;
-const dashboardHeaderQuery = gql`
-  {
-    userData {
-      firstName
-      cars {
-        displayName
-        lastFillUpTime
-        travelDistanceTotal
-        timeInCar
-        trips {
-          startLocation {
-            lat
-            lon
-          }
-        }
-      }
-    }
-  }
-`;
 
 const getCarsQuery = gql`
   {
@@ -101,5 +82,4 @@ export {
   getUserDataQuery,
   getDashboardAllDataQuery,
   LOGIN_QUERY,
-  dashboardHeaderQuery,
 };
