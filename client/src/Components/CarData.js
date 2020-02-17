@@ -18,7 +18,7 @@ import AntdTableComponent from './AntdTable/AntdTableComponent';
 export default function CarData(props) {
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: `${props.state}`,
+      vehicleId: props.vehicleIdState.value,
     },
   });
 

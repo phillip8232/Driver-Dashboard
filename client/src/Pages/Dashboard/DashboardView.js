@@ -7,15 +7,15 @@ import Footer from '../../Components/Footer';
 export default function DashboardView() {
   const [vehicleIdSelectionState, setVehicleIdSelectionState] = useState(null);
   const selectVehicle = vehicleIdSelectionState => {
-    setVehicleIdSelectionState(vehicleIdSelectionState.value);
+    setVehicleIdSelectionState(vehicleIdSelectionState);
   };
 
   if (vehicleIdSelectionState != null) {
     return (
       <>
-        <DashboardHeader state={vehicleIdSelectionState} />
+        <DashboardHeader vehicleIdState={vehicleIdSelectionState} />
         <CarList test={selectVehicle} />
-        <CarData state={vehicleIdSelectionState} />
+        <CarData vehicleIdState={vehicleIdSelectionState} />
         <Footer />
       </>
     );
@@ -23,8 +23,14 @@ export default function DashboardView() {
     return (
       <>
         <CarList test={selectVehicle} />
-        <div style={{ height: '500px', textAlign: 'center' }}>
-          <h1>You must select a car</h1>
+        <div
+          style={{ height: '500px', textAlign: 'center', paddingTop: '50px' }}
+        >
+          <h1>You have to chose a vehicle</h1>
+          <img
+            src="https://media.giphy.com/media/xT3i0ZscbtF5DvLrGg/giphy.gif"
+            alt="Patrick-Gif"
+          />
         </div>
         <Footer />
       </>

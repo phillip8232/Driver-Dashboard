@@ -9,7 +9,7 @@ export default function DashboardHeader(props) {
     getDashboardAllDataQuery,
     {
       variables: {
-        vehicleId: `${props.state}`,
+        vehicleId: props.vehicleIdState.value,
       },
     }
   );
