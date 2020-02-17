@@ -1,10 +1,11 @@
 import React from 'react';
 import { Statistic, Header, Divider } from 'semantic-ui-react';
 
-const DashboardHeader = () => {
+const DashboardHeader = props => {
   return (
     <div className="hero-img">
-      <Header as="h1">Welcome back TODO!</Header>
+      {console.log('dashboardHeader props', props)}
+      <Header as="h1">Welcome back {props.firstName}!</Header>
       <div className="hero-img-car-data">
         <h3>TODO</h3>
         <Divider hidden />

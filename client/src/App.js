@@ -7,14 +7,16 @@ import { LoginPage } from './Pages/Login/LoginPage';
 
 function App() {
   const [loginDetails, setLoginDetails] = useState({});
+  const localToken = localStorage.getItem('GofarDashboardToken');
+  const localUserId = localStorage.getItem('GofarDashboardUserId');
   return (
     <>
       <BrowserRouter>
         <div>
           <PrivateRoute
             component={DashboardSidebar}
-            userId={loginDetails.userId}
-            authToken={loginDetails.authToken}
+            userId={localUserId}
+            authToken={localToken}
             exact
             path="/"
           />
@@ -25,6 +27,14 @@ function App() {
                 handleLoggedIn={loginResult => {
                   // TODO - you have auth token and user ID now.
                   setLoginDetails(loginResult);
+                  window.localStorage.setItem(
+                    'GofarDashboardToken',
+                    loginResult.authToken
+                  );
+                  window.localStorage.setItem(
+                    'GofarDashboardUserId',
+                    loginResult.userId
+                  );
                 }}
                 authToken={loginDetails.authToken}
               />
