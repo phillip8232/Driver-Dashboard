@@ -22,7 +22,6 @@ export default function(props) {
   } else {
     return (
       <div>
-        <DashboardHeader data={data} />
         <Select
           value={props.vehicleIdSelectionState}
           onChange={props.action}

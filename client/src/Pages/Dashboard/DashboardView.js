@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { getDashboardAllDataQuery } from '../../queries/queries';
 import LoadingSpinner from '../../Components/LoadingSpinner';
 import CarList from '../../Components/CarList';
+import DashboardHeader from '../../Components/DashboardHeader';
 import { Card } from 'semantic-ui-react';
 import LastFillUpCard from '../../Components/Card/LastFillUpCard';
 import FuelLeftCard from '../../Components/Card/FuelLeftCard';
@@ -37,6 +38,7 @@ export default function DashboardView() {
   } else {
     return (
       <>
+        <DashboardHeader car={data} />
         <CarList action={handleChangeOnVehicleDropdown} />
         <div className="ui container">
           <Card.Group>
