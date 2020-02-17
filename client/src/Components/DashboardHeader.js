@@ -22,7 +22,6 @@ export default function DashboardHeader(props) {
   } else {
     return (
       <div className="hero-img">
-        {console.log(carData, props, userData)}
         <Header as="h1">Welcome back! {userData.firstName}</Header>
         <div className="hero-img-car-data">
           <h3>Car's Lifetime Statistics from GOFAR</h3>
