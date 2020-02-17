@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/react-hooks';
 import Select from 'react-select';
 import { getUserDataQuery } from '../queries/queries';
 import LoadingSpinner from './LoadingSpinner';
-import DashboardHeader from './DashboardHeader';
 
 function displayCars(data) {
   return data.cars.map(car => {
@@ -13,19 +12,20 @@ function displayCars(data) {
     };
   });
 }
+
 export default function(props) {
   const { loading, error, data } = useQuery(getUserDataQuery);
+
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
     return <p>Error! {error}</p>;
   } else {
     return (
-      <div>
-        <DashboardHeader data={data} />
+      <div style={{ padding: '10px 140px 0px 140px' }}>
         <Select
-          value={props.vehicleIdSelectionState}
-          onChange={props.action}
+          placeholder={'Select a vehicle'}
+          onChange={props.test}
           options={displayCars(data.userData)}
         />
       </div>
