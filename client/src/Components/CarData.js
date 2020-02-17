@@ -13,19 +13,18 @@ import TimeInCarCard from './Card/TimeInCarCard';
 import EmissionsCard from './Card/EmissionsCard';
 import FuelEconomyCard from './Card/FuelEconomyCard';
 import GoogleMap from './GoogleMap/GoogleMap';
-import AntdTableComponent from './TripTable/TripTable';
+import AntdTableComponent from './AntdTable/AntdTableComponent';
 
 export default function CarData(props) {
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: props.vehicleId.value,
+      vehicleId: `${props.state}`,
     },
   });
 
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
-    debugger;
     return <p>Error! {error}</p>;
   } else {
     return (

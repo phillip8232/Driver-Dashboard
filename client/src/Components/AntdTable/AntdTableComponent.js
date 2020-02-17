@@ -1,8 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
-// import { useQuery } from '@apollo/react-hooks';
-// import { getDashboardAllDataQuery } from '../../queries/queries';
 import { Table, Button, Tag } from "antd";
+
 import { Segment } from "semantic-ui-react";
 
 const data = [
