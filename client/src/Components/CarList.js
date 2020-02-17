@@ -27,7 +27,7 @@ export default function(props) {
         <DashboardHeader data={data} />
         <Select
           placeholder={'Select a vehicle'}
-          onChange={props.action}
+          onChange={props.test}
           options={displayCars(data.userData)}
         />
       </div>
