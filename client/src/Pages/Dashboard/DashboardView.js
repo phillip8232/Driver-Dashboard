@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/react-hooks';
 import { getDashboardAllDataQuery } from '../../queries/queries';
 import LoadingSpinner from '../../Components/LoadingSpinner';
 import CarList from '../../Components/CarList';
-import DashboardHeader from '../../Components/DashboardHeader';
 import { Card } from 'semantic-ui-react';
 import LastFillUpCard from '../../Components/Card/LastFillUpCard';
 import FuelLeftCard from '../../Components/Card/FuelLeftCard';
@@ -25,6 +24,7 @@ export default function DashboardView() {
   const handleChangeOnVehicleDropdown = vehicleIdSelectionState => {
     setVehicleIdSelectionState(vehicleIdSelectionState);
   };
+
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
       vehicleId: `${vehicleIdSelectionState}`,
@@ -33,12 +33,10 @@ export default function DashboardView() {
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
-    debugger;
     return <p>Error! {error}</p>;
   } else {
     return (
       <>
-        <DashboardHeader />
         <CarList action={handleChangeOnVehicleDropdown} />
         <div className="ui container">
           <Card.Group>

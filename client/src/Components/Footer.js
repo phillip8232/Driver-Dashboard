@@ -1,5 +1,5 @@
-import React from "react";
-import { List, Icon } from "semantic-ui-react";
+import React from 'react';
+import { List, Icon } from 'semantic-ui-react';
 
 const Footer = () => {
   return (
@@ -66,7 +66,7 @@ const Footer = () => {
             href="https://www.gofar.co/press-reviews/"
             target="_blank"
           >
-            Press &#38; Reviews{" "}
+            Press &#38; Reviews{' '}
           </List.Item>
         </List>
         <List>

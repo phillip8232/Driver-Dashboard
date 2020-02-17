@@ -3,6 +3,8 @@ import { useQuery } from '@apollo/react-hooks';
 import Select from 'react-select';
 import { getUserDataQuery } from '../queries/queries';
 import LoadingSpinner from './LoadingSpinner';
+import DashboardHeader from './DashboardHeader';
+
 function displayCars(data) {
   return data.cars.map(car => {
     return {
@@ -20,6 +22,7 @@ export default function(props) {
   } else {
     return (
       <div>
+        <DashboardHeader data={data} />
         <Select
           value={props.vehicleIdSelectionState}
           onChange={props.action}
