@@ -8,6 +8,7 @@ import { LoginPage } from './Pages/Login/LoginPage';
 function App() {
   const [loginDetails, setLoginDetails] = useState({});
   const localToken = localStorage.getItem('GofarDashboardToken');
+  console.log(localToken)
   const localUserId = localStorage.getItem('GofarDashboardUserId');
   return (
     <>

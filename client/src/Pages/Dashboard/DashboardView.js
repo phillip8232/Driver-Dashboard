@@ -19,15 +19,20 @@ import AntdTableComponent from '../../Components/AntdTable/AntdTableComponent';
 import Footer from '../../Components/Footer';
 
 export default function DashboardView() {
-  const [vehicleIdSelectionState, setVehicleIdSelectionState] = useState(
-    '27e1dabc-a89a-444d-bcc3-ace5a33a3d26'
-  );
-  const handleChangeOnVehicleDropdown = vehicleIdSelectionState => {
-    setVehicleIdSelectionState(vehicleIdSelectionState);
-  };
+  const [vehicleIdSelectionState, setVehicleIdSelectionState] = useState(null);
+
+  if (vehicleIdSelectionState === 'undefined' ||vehicleIdSelectionState === null) {
+    setVehicleIdSelectionState(`27e1dabc-a89a-444d-bcc3-ace5a33a3d26`);
+  }
+
+  // const action = vehicleIdSelectionState => {
+  //   setVehicleIdSelectionState(vehicleIdSelectionState.value);
+  //   console.log(vehicleIdSelectionState);
+  // };
+
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: `${vehicleIdSelectionState}`,
+      vehicleId: `27e1dabc-a89a-444d-bcc3-ace5a33a3d26` ,
     },
   });
   if (loading) {
@@ -39,7 +44,7 @@ export default function DashboardView() {
     return (
       <>
         <DashboardHeader />
-        <CarList action={handleChangeOnVehicleDropdown} />
+        <CarList />
         <div className="ui container">
           <Card.Group>
             <LastFillUpCard
