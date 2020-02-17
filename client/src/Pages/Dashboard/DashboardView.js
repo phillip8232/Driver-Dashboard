@@ -5,10 +5,7 @@ import LoadingSpinner from '../../Components/LoadingSpinner';
 import CarList from '../../Components/CarList';
 import DashboardHeader from '../../Components/DashboardHeader';
 import { Card } from 'semantic-ui-react';
-import LastFillUpCard from '../../Components/Card/LastFillUpCard';
-import FuelLeftCard from '../../Components/Card/FuelLeftCard';
-import DiagnosticCard from '../../Components/Card/DiagnosticCard';
-import BusinessRatioCard from '../../Components/Card/BusinessRatioCard';
+import CarData1 from '../../Components/CarData1'
 import AverageSpeedCard from '../../Components/Card/AverageSpeedCard';
 import TravelDistanceTotalCard from '../../Components/Card/TravelDistanceTotalCard';
 import TimeInCarCard from '../../Components/Card/TimeInCarCard';
@@ -32,7 +29,7 @@ export default function DashboardView() {
 
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: `27e1dabc-a89a-444d-bcc3-ace5a33a3d26` ,
+      vehicleId: vehicleIdSelectionState ,
     },
   });
   if (loading) {
@@ -45,27 +42,8 @@ export default function DashboardView() {
       <>
         <DashboardHeader />
         <CarList />
-        <div className="ui container">
-          <Card.Group>
-            <LastFillUpCard
-              lastFillUp={data.car.lastFillUp}
-              lastfillUpTime={data.car.lastFillUpTime}
-              lastLocation={data.car.lastLocation}
-            />
-            <FuelLeftCard
-              fuelLeft={data.car.fuelLeft}
-              travelSince={data.car.travelSince}
-            />
-            <DiagnosticCard
-              diagnosticIssue={data.car.diagnosticIssue}
-              diagnosticDetail={data.car.diagnosticDetail}
-            />
-            <BusinessRatioCard
-              businessRatio={data.car.businessRatio}
-              businessTotal={data.car.businessTotal}
-            />
-          </Card.Group>
-        </div>
+        {/* Will add CarData1 here */}
+        <CarData1 />
         <div className="ui container">
           <GoogleMap />
         </div>
