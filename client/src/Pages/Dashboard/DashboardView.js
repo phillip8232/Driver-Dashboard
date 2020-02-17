@@ -8,7 +8,6 @@ export default function DashboardView() {
   const [vehicleIdSelectionState, setVehicleIdSelectionState] = useState(null);
   const selectVehicle = vehicleIdSelectionState => {
     setVehicleIdSelectionState(vehicleIdSelectionState);
-    console.log(vehicleIdSelectionState)
   };
 
   if (vehicleIdSelectionState != null){
