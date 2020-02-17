@@ -13,18 +13,20 @@ function displayCars(data) {
     };
   });
 }
+
 export default function(props) {
   const { loading, error, data } = useQuery(getUserDataQuery);
+
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
     return <p>Error! {error}</p>;
   } else {
     return (
-      <div>
+      <div style={{ padding: '10px 140px 0px 140px' }}>
         <DashboardHeader data={data} />
         <Select
-          value={props.vehicleIdSelectionState}
+          placeholder={'Select a vehicle'}
           onChange={props.action}
           options={displayCars(data.userData)}
         />
