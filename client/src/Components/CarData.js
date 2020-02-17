@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { getDashboardAllDataQuery } from '../queries/queries';
 import { Card } from 'semantic-ui-react';
@@ -13,15 +13,14 @@ import TimeInCarCard from './Card/TimeInCarCard';
 import EmissionsCard from './Card/EmissionsCard';
 import FuelEconomyCard from './Card/FuelEconomyCard';
 import GoogleMap from './GoogleMap/GoogleMap';
-import AntdTableComponent from './AntdTable/AntdTableComponent';
+import AntdTableComponent from './TripTable/TripTable';
 
 
 
-export default function CarData() {
-
+export default function CarData(props) {
     const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
       variables: {
-        vehicleId: `27e1dabc-a89a-444d-bcc3-ace5a33a3d26`,
+        vehicleId: props.vehicleId.value,
       },
     });
     
