@@ -19,7 +19,7 @@ export default function DashboardHeader(props) {
       <div className="hero-img">
         <Header as="h1">Welcome back!</Header>
         <div className="hero-img-car-data">
-          <h3> Cars Life Statistics</h3>
+          <h3>Car's Lifetime Statistics from GOFAR</h3>
           <Divider hidden />
           <Statistic.Group size="mini">
             <Statistic>
