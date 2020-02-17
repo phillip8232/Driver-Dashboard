@@ -6,9 +6,9 @@ import Footer from '../../Components/Footer';
 
 export default function DashboardView() {
   const [vehicleIdSelectionState, setVehicleIdSelectionState] = useState(null);
-
   const selectVehicle = vehicleIdSelectionState => {
     setVehicleIdSelectionState(vehicleIdSelectionState.value);
+    setVehicleIdSelectionState(vehicleIdSelectionState);
   };
 
   if (vehicleIdSelectionState != null) {
