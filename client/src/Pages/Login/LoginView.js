@@ -35,7 +35,6 @@ const LoginView = props => {
 
   return (
     <>
-      {console.log(data, 'this is the data from loginviewq')}
       <Container
         className="bg-image"
         style={{ backgroundImage: `url(${LoginHeroImage})` }}

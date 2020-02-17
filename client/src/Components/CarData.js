@@ -15,17 +15,16 @@ import FuelEconomyCard from './Card/FuelEconomyCard';
 import GoogleMap from './GoogleMap/GoogleMap';
 import AntdTableComponent from './AntdTable/AntdTableComponent';
 
-export default function CarData() {
+export default function CarData(props) {
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: `27e1dabc-a89a-444d-bcc3-ace5a33a3d26`,
+      vehicleId: `${props.state}`,
     },
   });
 
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
-    debugger;
     return <p>Error! {error}</p>;
   } else {
     return (

@@ -9,16 +9,14 @@ export default function DashboardView() {
 
   const selectVehicle = vehicleIdSelectionState => {
     setVehicleIdSelectionState(vehicleIdSelectionState.value);
-    console.log(vehicleIdSelectionState);
   };
 
   if (vehicleIdSelectionState != null) {
     return (
       <>
         <DashboardHeader state={vehicleIdSelectionState} />
-
         <CarList test={selectVehicle} />
-        <CarData />
+        <CarData state={vehicleIdSelectionState} />
         <Footer />
       </>
     );
@@ -27,7 +25,7 @@ export default function DashboardView() {
       <>
         <CarList test={selectVehicle} />
         <div style={{ height: '500px', textAlign: 'center' }}>
-          <h1>you must select a car</h1>
+          <h1>You must select a car</h1>
         </div>
         <Footer />
       </>
