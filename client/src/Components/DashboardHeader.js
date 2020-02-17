@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { getDashboardAllDataQuery } from '../queries/queries';
 import LoadingSpinner from './LoadingSpinner';
@@ -7,7 +7,7 @@ import { Statistic, Header, Divider } from 'semantic-ui-react';
 export default function DashboardHeader(props) {
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
-      vehicleId: `27e1dabc-a89a-444d-bcc3-ace5a33a3d26`,
+      vehicleId: `${props.state}`,
     },
   });
   if (loading) {
@@ -17,8 +17,7 @@ export default function DashboardHeader(props) {
   } else {
     return (
       <div className="hero-img">
-        {console.log('dashboardHeader data', data, props)}
-        <Header as="h1">Welcome back {props.firstName}!</Header>
+        <Header as="h1">Welcome back!</Header>
         <div className="hero-img-car-data">
           <h3> Cars Life Statistics</h3>
           <Divider hidden />

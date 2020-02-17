@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/react-hooks';
 import Select from 'react-select';
 import { getUserDataQuery } from '../queries/queries';
 import LoadingSpinner from './LoadingSpinner';
-import DashboardHeader from './DashboardHeader';
 
 function displayCars(data) {
   return data.cars.map(car => {
@@ -24,7 +23,6 @@ export default function(props) {
   } else {
     return (
       <div style={{ padding: '10px 140px 0px 140px' }}>
-        <DashboardHeader data={data} />
         <Select
           placeholder={'Select a vehicle'}
           onChange={props.test}

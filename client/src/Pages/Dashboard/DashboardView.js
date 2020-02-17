@@ -15,7 +15,8 @@ export default function DashboardView() {
   if (vehicleIdSelectionState != null) {
     return (
       <>
-        {/* <DashboardHeader /> */}
+        <DashboardHeader state={vehicleIdSelectionState} />
+
         <CarList test={selectVehicle} />
         <CarData />
         <Footer />
@@ -24,8 +25,6 @@ export default function DashboardView() {
   } else {
     return (
       <>
-        {/* <CarList action={handleChangeOnVehicleDropdown} /> */}
-        {/* <DashboardHeader /> */}
         <CarList test={selectVehicle} />
         <div style={{ height: '500px', textAlign: 'center' }}>
           <h1>you must select a car</h1>
