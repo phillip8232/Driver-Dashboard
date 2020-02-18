@@ -11,7 +11,7 @@ export function DashboardPage(props) {
     headers: {
       Authorization: props.authToken,
       UserID: props.userId,
-      'X-API-KEY': 'da2-qxhe36kwhjaqjnlal4jxoeahbe',
+      'X-API-KEY': 'da2-d5trhzrnqraznclr2teue2bmmu',
     },
   });
 

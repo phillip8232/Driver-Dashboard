@@ -1,19 +1,22 @@
-import React from "react";
-import { Container } from "semantic-ui-react";
-import LoginForm from "../../Components/Login/LoginForm";
-import Navbar from "../../Components/Navbar";
-import LoginHeroImage from "../../Images/loginHeroImage.jpg";
-import LoadingSpinner from "../../Components/LoadingSpinner";
-import { LOGIN_QUERY } from "../../queries/queries";
+import React from 'react';
+import { Container } from 'semantic-ui-react';
+import LoginForm from '../../Components/Login/LoginForm';
+import Navbar from '../../Components/Navbar';
+import LoginHeroImage from '../../Images/loginHeroImage.jpg';
+import LoadingSpinner from '../../Components/LoadingSpinner';
+import { LOGIN_QUERY } from '../../queries/queries';
 import { useLazyQuery } from '@apollo/react-hooks';
 
-const renderBody = (executeLogin) => {
+const renderBody = executeLogin => {
   return (
     <LoginForm
       handleLogin={(email, password) => {
-        executeLogin({ variables: {
-          email, password
-        }});
+        executeLogin({
+          variables: {
+            email,
+            password,
+          },
+        });
       }}
     />
   );
@@ -26,7 +29,7 @@ const LoginView = props => {
   if (!loading && data && data.login && data.login.successful) {
     props.handleLoggedIn({
       authToken: data.login.authToken,
-      userId: data.login.userId
+      userId: data.login.userId,
     });
   }
 
@@ -37,7 +40,7 @@ const LoginView = props => {
         style={{ backgroundImage: `url(${LoginHeroImage})` }}
       >
         <Navbar />
-        { /* todo proper error bar  */}
+        {/* todo proper error bar  */}
         {enteredInvalidPassword && <p>Invalid Password</p>}
         {loading && <LoadingSpinner />}
         {renderBody(executeLogin)}
