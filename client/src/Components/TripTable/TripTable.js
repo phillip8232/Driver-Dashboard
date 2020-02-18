@@ -1,8 +1,11 @@
 import React from "react";
 import "antd/dist/antd.css";
 import { Table, Button, Tag } from "antd";
-
+// import { useQuery } from '@apollo/react-hooks';
+// import { getDashboardAllDataQuery } from '../../queries/queries';
 import { Segment } from "semantic-ui-react";
+
+
 
 const data = [
   {
@@ -90,7 +93,7 @@ const data = [
 //   }
 // ];
 
-class AntdTableComponent extends React.Component {
+class TripTable extends React.Component {
   state = {
     filteredInfo: null,
     sortedInfo: null
@@ -222,4 +225,4 @@ class AntdTableComponent extends React.Component {
   }
 }
 
-export default AntdTableComponent;
+export default TripTable;

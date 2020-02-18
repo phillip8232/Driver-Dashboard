@@ -14,7 +14,7 @@ export default function DashboardView() {
     return (
       <>
         <DashboardHeader vehicleIdState={vehicleIdSelectionState} />
-        <CarList test={selectVehicle} />
+        <CarList vehicle={selectVehicle} />
         <CarData vehicleIdState={vehicleIdSelectionState} />
         <Footer />
       </>
@@ -22,9 +22,9 @@ export default function DashboardView() {
   } else {
     return (
       <>
-        <CarList test={selectVehicle} />
+        <CarList vehicle={selectVehicle} />
         <div
-          style={{ height: '500px', textAlign: 'center', paddingTop: '50px' }}
+          style={{ height: '570px', textAlign: 'center', paddingTop: '50px' }}
         >
           <h1>You have to chose a vehicle</h1>
           <img

@@ -60,6 +60,15 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
     getTripSummaryData(userId, authToken)
   ]);
 
+  // const fuelLeft = () => {
+  //     // Number of liter to fill
+  //     // km driven since last fill
+  //     // number/km driven * 100
+  // }
+  
+
+
+
   const finalResult = {
     id: vehicleId,
     vehicleName: vehicleData.displayName,
@@ -92,6 +101,7 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
   };
   return finalResult;
 }
+
 
 async function getLogin(email, password) {
   const loginURL = `${API_URL}users/login`;

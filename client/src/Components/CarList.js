@@ -4,14 +4,16 @@ import Select from 'react-select';
 import { getUserDataQuery } from '../queries/queries';
 import LoadingSpinner from './LoadingSpinner';
 
+
 function displayCars(data) {
   return data.cars.map(car => {
-    return {
+      return {
       value: car.id,
       label: `${car.displayName} ${car.make} (${car.model})`,
-    };
+    }
   });
 }
+
 
 export default function(props) {
   const { loading, error, data } = useQuery(getUserDataQuery);
@@ -22,10 +24,10 @@ export default function(props) {
     return <p>Error! {error}</p>;
   } else {
     return (
-      <div style={{ padding: '10px 140px 0px 140px' }}>
+      <div style={{padding:"10px 140px 0px 140px"}}>
         <Select
           placeholder={'Select a vehicle'}
-          onChange={props.test}
+          onChange={props.vehicle}
           options={displayCars(data.userData)}
         />
       </div>

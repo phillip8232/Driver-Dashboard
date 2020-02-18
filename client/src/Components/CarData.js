@@ -13,7 +13,7 @@ import TimeInCarCard from './Card/TimeInCarCard';
 import EmissionsCard from './Card/EmissionsCard';
 import FuelEconomyCard from './Card/FuelEconomyCard';
 import GoogleMap from './GoogleMap/GoogleMap';
-import AntdTableComponent from './AntdTable/AntdTableComponent';
+import TripTable from './TripTable/TripTable';
 
 export default function CarData(props) {
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
@@ -69,7 +69,7 @@ export default function CarData(props) {
           </Card.Group>
         </div>
         <div className="ui container">
-          <AntdTableComponent />
+          <TripTable />
         </div>
       </div>
     );
