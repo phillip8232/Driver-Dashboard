@@ -29,7 +29,6 @@ export default function CarData(props) {
   } else {
     return (
       <div className="ui container">
-        {console.log(data)}
         <Card.Group>
           <LastFillUpCard
             lastFillUp={data.car.lastFillUp}
