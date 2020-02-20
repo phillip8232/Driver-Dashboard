@@ -40,11 +40,11 @@ const getTripsDataQuery = gql`
       trips {
         startLocation {
           lat
-          lon
+          lng
         }
         endLocation {
           lat
-          lon
+          lng
         }
       }
     }
@@ -65,12 +65,16 @@ const getDashboardAllDataQuery = gql`
         timestamp
         location {
           lat
-          lon
+          lng
         }
       }
+      odometerAtRefill
       lastFillUp
       lastFillUpTime
-      lastLocation
+      lastLocation {
+        lat
+        lng
+      }
       fuelLeft
       travelSince
       diagnosticIssue {
@@ -89,9 +93,26 @@ const getDashboardAllDataQuery = gql`
       fuelEconomy
       parking {
         lat
-        lon
+        lng
       }
       timeTraveled
+      recentTrip {
+        id
+        score
+        litres
+        litresPerHundredKm
+        distance
+        averageSpeed
+        durationInSeconds
+        startTime
+        endTime
+        tags {
+          name
+          id
+          tagType
+          createdAt
+        }
+      }
       trips {
         id
         score
@@ -100,10 +121,17 @@ const getDashboardAllDataQuery = gql`
         distance
         averageSpeed
         durationInSeconds
+        startTime
+        endTime
+        tags {
+          name
+          id
+          tagType
+          createdAt
+        }
       }
     }
   }
-  
 `;
 
 export {

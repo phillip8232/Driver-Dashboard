@@ -27,3 +27,6 @@ yarn-error.log*
 .env.local
 .history
 
+# hidden GoogleApiKey
+GoogleApiKey.js
+now.json

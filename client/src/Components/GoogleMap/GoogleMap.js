@@ -34,7 +34,7 @@ class SimpleMap extends Component {
 
   render() {
     return (
-      <Segment>
+      <Segment >
         <Header icon>
           <Icon color="red" name="map marker alternate" size="big" />
           Parking Location
@@ -53,5 +53,5 @@ class SimpleMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_GOOGLE_KEY
+  apiKey: process.env.GoogleApiKey
 })(SimpleMap);
