@@ -22,8 +22,8 @@ const getCarsQuery = gql`
 const getUserDataQuery = gql`
   {
     userData {
-      firstName
       id
+      firstName
       cars {
         displayName
         model
@@ -38,17 +38,32 @@ const getDashboardAllDataQuery = gql`
   query getDataForCar($vehicleId: ID!) {
     car(id: $vehicleId) {
       displayName
+      odometer
       make
       model
-      lastFillUp {
-        lat
-        lon
+      refillData {
+        litres
+        totalCost
+        odometerKms
+        timestamp
+        location {
+          lat
+          lng
+        }
       }
+      lastFillUp
       lastFillUpTime
-      lastLocation
+      lastLocation {
+        lat
+        lng
+      }
       fuelLeft
       travelSince
-      diagnosticIssue
+      diagnosticIssue {
+        code
+        isActive
+        createdAt
+      }
       diagnosticDetail
       businessRatio
       businessTotal
@@ -60,17 +75,22 @@ const getDashboardAllDataQuery = gql`
       fuelEconomy
       parking {
         lat
-        lon
+        lng
       }
       timeTraveled
       trips {
-        startLocation {
-          lat
-          lon
-        }
-        endLocation {
-          lat
-          lon
+        id
+        score
+        litres
+        litresPerHundredKm
+        distance
+        averageSpeed
+        durationInSeconds
+        tags {
+          name
+          id
+          tagType
+          createdAt
         }
       }
     }

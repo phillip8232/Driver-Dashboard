@@ -41,6 +41,10 @@ export default function DashboardHeader(props) {
               <Statistic.Value>{carData.car.timeInCar} </Statistic.Value>
               <Statistic.Label>Time in Car (hrs) </Statistic.Label>
             </Statistic>
+            <Statistic>
+              <Statistic.Value>{carData.car.odometer} KM</Statistic.Value>
+              <Statistic.Label>Current Odometer</Statistic.Label>
+            </Statistic>
           </Statistic.Group>
         </div>
       </div>

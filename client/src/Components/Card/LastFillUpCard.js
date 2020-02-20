@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Card, Icon } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Card, Icon } from 'semantic-ui-react';
 
 class LastFillUpCard extends Component {
   render() {
@@ -21,7 +21,8 @@ class LastFillUpCard extends Component {
           <Card.Content extra>
             <hr></hr>
             <p>{this.props.lastfillUpTime}</p>
-            <p>Last Location: {this.props.lastLocation}</p>
+            <p>Last Location: {this.props.lastLocation.lat}</p>
+            <p>Last Location: {this.props.lastLocation.lng}</p>
           </Card.Content>
         </Card.Content>
       </Card>
