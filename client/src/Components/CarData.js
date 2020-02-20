@@ -32,6 +32,7 @@ export default function CarData(props) {
         {console.log(data.car)}
         {console.log(data.car.lastFillUp)}
         {console.log(data.car.refillData)}
+        {console.log(data.car.refillData.litres)}
 
         <Card.Group>
           <LastFillUpCard

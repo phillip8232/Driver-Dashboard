@@ -51,6 +51,7 @@ const getDashboardAllDataQuery = gql`
           lng
         }
       }
+      odometerAtRefill
       lastFillUp
       lastFillUpTime
       lastLocation {
@@ -78,6 +79,23 @@ const getDashboardAllDataQuery = gql`
         lng
       }
       timeTraveled
+      recentTrip {
+        id
+        score
+        litres
+        litresPerHundredKm
+        distance
+        averageSpeed
+        durationInSeconds
+        startTime
+        endTime
+        tags {
+          name
+          id
+          tagType
+          createdAt
+        }
+      }
       trips {
         id
         score
@@ -86,6 +104,8 @@ const getDashboardAllDataQuery = gql`
         distance
         averageSpeed
         durationInSeconds
+        startTime
+        endTime
         tags {
           name
           id

@@ -15,7 +15,7 @@ class LastFillUpCard extends Component {
             size="big"
           />
           <div className="data-content">
-            <p>Last Fill Up</p>
+            <p>Litres input last fillup </p>
             <h2>{this.props.lastFillUp} L</h2>
           </div>
           <Card.Content extra>
