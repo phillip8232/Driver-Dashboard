@@ -14,7 +14,7 @@ export default function DashboardView() {
     return (
       <>
         <DashboardHeader vehicleIdState={vehicleIdSelectionState} />
-        <CarList vehicle={selectVehicle} />
+        <CarList vehicleSelection={selectVehicle} />
         <CarData vehicleIdState={vehicleIdSelectionState} />
         <Footer />
       </>
@@ -22,7 +22,7 @@ export default function DashboardView() {
   } else {
     return (
       <>
-        <CarList vehicle={selectVehicle} />
+        <CarList vehicleSelection={selectVehicle} />
         <div
           style={{ height: '570px', textAlign: 'center', paddingTop: '50px' }}
         >

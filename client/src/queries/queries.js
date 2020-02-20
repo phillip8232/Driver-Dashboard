@@ -34,21 +34,50 @@ const getUserDataQuery = gql`
   }
 `;
 
+const getTripsDataQuery = gql`
+  query getDataForCar($vehicleId: ID!) {
+    car(id: $vehicleId) {
+      trips {
+        startLocation {
+          lat
+          lon
+        }
+        endLocation {
+          lat
+          lon
+        }
+      }
+    }
+  }
+`;
+
 const getDashboardAllDataQuery = gql`
   query getDataForCar($vehicleId: ID!) {
     car(id: $vehicleId) {
       displayName
+      odometer
       make
       model
-      lastFillUp {
-        lat
-        lon
+      refillData {
+        litres
+        totalCost
+        odometerKms
+        timestamp
+        location {
+          lat
+          lon
+        }
       }
+      lastFillUp
       lastFillUpTime
       lastLocation
       fuelLeft
       travelSince
-      diagnosticIssue
+      diagnosticIssue {
+        code
+        isActive
+        createdAt
+      }
       diagnosticDetail
       businessRatio
       businessTotal
@@ -64,17 +93,17 @@ const getDashboardAllDataQuery = gql`
       }
       timeTraveled
       trips {
-        startLocation {
-          lat
-          lon
-        }
-        endLocation {
-          lat
-          lon
-        }
+        id
+        score
+        litres
+        litresPerHundredKm
+        distance
+        averageSpeed
+        durationInSeconds
       }
     }
   }
+  
 `;
 
 export {
@@ -82,4 +111,5 @@ export {
   getUserDataQuery,
   getDashboardAllDataQuery,
   LOGIN_QUERY,
+  getTripsDataQuery
 };

@@ -6,7 +6,6 @@ import { Table, Button, Tag } from "antd";
 import { Segment } from "semantic-ui-react";
 
 
-
 const data = [
   {
     key: "1",
@@ -130,7 +129,7 @@ class TripTable extends React.Component {
       }
     });
   };
-
+  
   render() {
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};

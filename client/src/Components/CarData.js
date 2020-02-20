@@ -13,9 +13,10 @@ import TimeInCarCard from './Card/TimeInCarCard';
 import EmissionsCard from './Card/EmissionsCard';
 import FuelEconomyCard from './Card/FuelEconomyCard';
 import GoogleMap from './GoogleMap/GoogleMap';
-import TripTable from './TripTable/TripTable';
+import TripTable from './TripTable/TripTableTest';
 
 export default function CarData(props) {
+
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
     variables: {
       vehicleId: props.vehicleIdState.value,
@@ -29,7 +30,6 @@ export default function CarData(props) {
   } else {
     return (
       <div className="ui container">
-        {console.log(data)}
         <Card.Group>
           <LastFillUpCard
             lastFillUp={data.car.lastFillUp}
@@ -69,7 +69,7 @@ export default function CarData(props) {
           </Card.Group>
         </div>
         <div className="ui container">
-          <TripTable />
+          <TripTable vehicleIdState={props.vehicleIdState} />
         </div>
       </div>
     );
