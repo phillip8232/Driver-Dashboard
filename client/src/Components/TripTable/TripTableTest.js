@@ -1,7 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 // import { Table, Button, Tag } from "antd";
-import { useQuery } from '@apollo/react-hooks';
+// import { useQuery } from '@apollo/react-hooks';
 // import { getTripsDataQuery } from '../../queries/queries';
 // import { Segment } from "semantic-ui-react";
 

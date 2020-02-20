@@ -30,18 +30,24 @@ export default function CarData(props) {
   } else {
     return (
       <div className="ui container">
+        {console.log(data.car)}
+        {console.log(data.car.lastFillUp)}
+        {console.log(data.car.refillData)}
+        {console.log(data.car.refillData.litres)}
+
         <Card.Group>
           <LastFillUpCard
             lastFillUp={data.car.lastFillUp}
             lastfillUpTime={data.car.lastFillUpTime}
             lastLocation={data.car.lastLocation}
           />
+
           <FuelLeftCard
             fuelLeft={data.car.fuelLeft}
             travelSince={data.car.travelSince}
           />
           <DiagnosticCard
-            diagnosticIssue={data.car.diagnosticIssue}
+            // diagnosticIssue={data.car.diagnosticIssue}
             diagnosticDetail={data.car.diagnosticDetail}
           />
           <BusinessRatioCard
@@ -69,7 +75,7 @@ export default function CarData(props) {
           </Card.Group>
         </div>
         <div className="ui container">
-          <TripTable vehicleIdState={props.vehicleIdState} />
+          <TripTable tripData={data.car.trips} />
         </div>
       </div>
     );

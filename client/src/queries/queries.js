@@ -22,8 +22,8 @@ const getCarsQuery = gql`
 const getUserDataQuery = gql`
   {
     userData {
-      firstName
       id
+      firstName
       cars {
         displayName
         model
