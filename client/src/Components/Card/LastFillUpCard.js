@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, Icon } from 'semantic-ui-react';
 import reverse from 'reverse-geocode';
 
@@ -27,7 +27,11 @@ class LastFillUpCard extends React.Component {
           <Card.Content extra>
             <hr></hr>
             <p>{this.props.lastfillUpTime}</p>
-            <p>Last Location: {console.log(this.reverseGeo)} </p>
+            <p>
+              Last Location: <br></br>
+              {this.reverseGeo.city}
+              {console.log(this.reverseGeo)}
+            </p>
           </Card.Content>
         </Card.Content>
       </Card>
