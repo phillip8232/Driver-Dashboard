@@ -4,7 +4,7 @@ import { Card, Icon } from 'semantic-ui-react';
 class FuelLeftCard extends Component {
   odometer = this.props.currentOdo;
   lastRefillOdo = this.props.lastRefillOdo;
-  kmsLeft = this.odometer - this.lastRefillOdo;
+  kmSinceLastRefill = this.odometer - this.lastRefillOdo;
   render() {
     console.log(this.odometer, this.lastRefillOdo);
 
@@ -24,7 +24,7 @@ class FuelLeftCard extends Component {
           </div>
           <Card.Content extra>
             <hr></hr>
-            <p> {Math.floor(this.kmsLeft)} km (since last fill up)</p>
+            <p> {Math.floor(this.kmSinceLastRefill)} km (since last fill up)</p>
           </Card.Content>
         </Card.Content>
       </Card>
