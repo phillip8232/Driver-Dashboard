@@ -28,8 +28,7 @@ class LastFillUpCard extends React.Component {
             <hr></hr>
             <p>{this.props.lastfillUpTime}</p>
             <p>
-              Last Location: <br></br>
-              {this.reverseGeo.city}
+              Last Location: {this.reverseGeo.city}
               {console.log(this.reverseGeo)}
             </p>
           </Card.Content>

@@ -1,8 +1,13 @@
-import React, { Component } from "react";
-import { Card, Icon } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Card, Icon } from 'semantic-ui-react';
 
 class FuelLeftCard extends Component {
+  odometer = this.props.currentOdo;
+  lastRefillOdo = this.props.lastRefillOdo;
+  kmsLeft = this.odometer - this.lastRefillOdo;
   render() {
+    console.log(this.odometer, this.lastRefillOdo);
+
     return (
       <Card className="data-cards-r1">
         <Card.Content>
@@ -19,7 +24,7 @@ class FuelLeftCard extends Component {
           </div>
           <Card.Content extra>
             <hr></hr>
-            <p> {this.props.travelSince} km (since last fill up)</p>
+            <p> {Math.floor(this.kmsLeft)} km (since last fill up)</p>
           </Card.Content>
         </Card.Content>
       </Card>

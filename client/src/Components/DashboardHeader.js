@@ -22,9 +22,13 @@ export default function DashboardHeader(props) {
   } else {
     return (
       <div className="hero-img">
+        {console.log(userData, carData, 'coming from dash')}
         <Header as="h1">Welcome back! {userData.firstName}</Header>
         <div className="hero-img-car-data">
-          <h3>Car's Lifetime Statistics from GOFAR</h3>
+          <h3>
+            {carData.car.make} {carData.car.model}'s Lifetime Statistics from
+            GOFAR
+          </h3>
           <Divider hidden />
           <Statistic.Group size="mini">
             <Statistic>
