@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { Card, Icon } from 'semantic-ui-react';
+import reverse from 'reverse-geocode';
 
-class LastFillUpCard extends Component {
+class LastFillUpCard extends React.Component {
+  lat = this.props.lastLocation.lat;
+  lng = this.props.lastLocation.lng;
+
+  reverseGeo = reverse.lookup(this.lat, this.lng, 'au');
+
   render() {
     return (
       <Card className="data-cards-r1">
@@ -21,8 +27,7 @@ class LastFillUpCard extends Component {
           <Card.Content extra>
             <hr></hr>
             <p>{this.props.lastfillUpTime}</p>
-            <p>Last Location: {this.props.lastLocation.lat}</p>
-            <p>Last Location: {this.props.lastLocation.lng}</p>
+            <p>Last Location: {console.log(this.reverseGeo)} </p>
           </Card.Content>
         </Card.Content>
       </Card>

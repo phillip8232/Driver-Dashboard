@@ -63,7 +63,6 @@ const getDashboardAllDataQuery = gql`
       diagnosticIssue {
         code
         isActive
-        createdAt
       }
       diagnosticDetail
       businessRatio
@@ -74,6 +73,9 @@ const getDashboardAllDataQuery = gql`
       timeInCar
       emissions
       fuelEconomy
+      lifeLitresPerHundredKm {
+        litresPerHundredKm
+      }
       parking {
         lat
         lng
@@ -93,12 +95,9 @@ const getDashboardAllDataQuery = gql`
           name
           id
           tagType
-          createdAt
         }
       }
       trips {
-        id
-        score
         litres
         litresPerHundredKm
         distance
@@ -110,7 +109,6 @@ const getDashboardAllDataQuery = gql`
           name
           id
           tagType
-          createdAt
         }
       }
     }
