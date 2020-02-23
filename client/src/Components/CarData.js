@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { getDashboardAllDataQuery } from '../queries/queries';
 import { Card } from 'semantic-ui-react';
@@ -30,19 +30,18 @@ export default function CarData(props) {
     return (
       <div className="ui container">
         {console.log(data.car)}
-        {console.log(data.car.refillData[0].odometerKms)}
         {console.log(data.car.recentTrip)}
         <Card.Group>
-          <LastFillUpCard
+          {/* <LastFillUpCard
             lastFillUp={data.car.refillData[0].litres}
             lastfillUpTime={data.car.refillData[0].timestamp}
             lastLocation={data.car.refillData[0].location}
-          />
+          /> */}
 
           <FuelLeftCard
             fuelLeft={data.car.fuelLeft}
             travelSince={data.car.recentTrip}
-            lastRefillOdo={data.car.refillData[0].odometerKms}
+            lastRefillOdo={data.car.refillData}
             currentOdo={data.car.odometer}
           />
           <DiagnosticCard
