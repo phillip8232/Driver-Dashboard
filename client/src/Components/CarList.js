@@ -25,7 +25,7 @@ export default function(props) {
       <div style={{ padding: '10px 140px 0px 140px' }}>
         <Select
           placeholder={'Select a vehicle'}
-          onChange={props.test}
+          onChange={props.vehicleSelection}
           options={displayCars(data.userData)}
         />
       </div>

@@ -24,7 +24,12 @@ export default function DashboardHeader(props) {
       <div className="hero-img">
         <Header as="h1">Welcome back! {userData.firstName}</Header>
         <div className="hero-img-car-data">
-          <h3>Car's Lifetime Statistics from GOFAR</h3>
+
+          <h3>
+            {carData.car.make} {carData.car.model}'s Lifetime Statistics from
+            GOFAR
+          </h3>
+
           <Divider hidden />
           <Statistic.Group size="mini">
             <Statistic>
@@ -40,6 +45,12 @@ export default function DashboardHeader(props) {
             <Statistic>
               <Statistic.Value>{carData.car.timeInCar} </Statistic.Value>
               <Statistic.Label>Time in Car (hrs) </Statistic.Label>
+            </Statistic>
+            <Statistic>
+              <Statistic.Value>
+                {Math.floor(carData.car.odometer)} KM
+              </Statistic.Value>
+              <Statistic.Label>Current Odometer</Statistic.Label>
             </Statistic>
           </Statistic.Group>
         </div>
