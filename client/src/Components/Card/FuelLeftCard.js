@@ -18,12 +18,10 @@ class FuelLeftCard extends Component {
               size="big"
             />
             <div className="data-content">
-              <p>Estimated Fuel Left</p>
-              <h2> No data </h2>
+              <h2>You have no data</h2>
             </div>
             <Card.Content extra>
               <hr></hr>
-              <p> No Data </p>
             </Card.Content>
           </Card.Content>
         </Card>
