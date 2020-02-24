@@ -30,12 +30,7 @@ export default function CarData(props) {
     return (
       <div className="ui container">
         <Card.Group>
-          <LastFillUpCard
-            lastFillUpData={data.car.refillData}
-            // lastFillUp={data.car.refillData[0].litres}
-            // lastfillUpTime={data.car.refillData[0].timestamp}
-            // lastLocation={data.car.refillData[0].location}
-          />
+          <LastFillUpCard lastFillUpData={data.car.refillData} />
 
           <FuelLeftCard
             fuelLeft={data.car.fuelLeft}
