@@ -24,10 +24,12 @@ export default function DashboardHeader(props) {
       <div className="hero-img">
         <Header as="h1">Welcome back! {userData.firstName}</Header>
         <div className="hero-img-car-data">
+
           <h3>
             {carData.car.make} {carData.car.model}'s Lifetime Statistics from
             GOFAR
           </h3>
+
           <Divider hidden />
           <Statistic.Group size="mini">
             <Statistic>

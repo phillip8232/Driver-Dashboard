@@ -68,7 +68,6 @@ export default function CarData(props) {
         </div>
         <div className="ui container">
           <AntdTableComponent />
-          <AntdTableComponent tripData={data.car.trips} />
         </div>
       </div>
     );
