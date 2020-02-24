@@ -4,7 +4,10 @@ import reverse from 'reverse-geocode';
 
 class LastFillUpCard extends React.Component {
   render(props) {
-    if (!this.props.lastRefillOdo[0]) {
+    if (
+      this.props.lastFillUpData[0] === undefined ||
+      this.props.lastFillUpData[0] === null
+    ) {
       return (
         <Card className="data-cards-r1">
           <Card.Content>
