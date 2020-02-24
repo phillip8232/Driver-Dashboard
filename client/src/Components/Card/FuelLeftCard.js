@@ -3,10 +3,7 @@ import { Card, Icon } from 'semantic-ui-react';
 
 class FuelLeftCard extends Component {
   render(props) {
-    if (
-      this.props.lastRefillOdo[0] === undefined ||
-      this.props.lastRefillOdo[0] === null
-    ) {
+    if (!this.props.lastRefillOdo[0]) {
       return (
         <Card className="data-cards-r1">
           <Card.Content>
