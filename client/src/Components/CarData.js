@@ -31,16 +31,20 @@ export default function CarData(props) {
       <div className="ui container">
         <Card.Group>
           <LastFillUpCard
-            lastFillUp={data.car.lastFillUp}
-            lastfillUpTime={data.car.lastFillUpTime}
-            lastLocation={data.car.lastLocation}
+            lastFillUpData={data.car.refillData}
+            // lastFillUp={data.car.refillData[0].litres}
+            // lastfillUpTime={data.car.refillData[0].timestamp}
+            // lastLocation={data.car.refillData[0].location}
           />
+
           <FuelLeftCard
             fuelLeft={data.car.fuelLeft}
-            travelSince={data.car.travelSince}
+            travelSince={data.car.recentTrip}
+            lastRefillOdo={data.car.refillData}
+            currentOdo={data.car.odometer}
           />
           <DiagnosticCard
-            diagnosticIssue={data.car.diagnosticIssue}
+            // diagnosticIssue={data.car.diagnosticIssue}
             diagnosticDetail={data.car.diagnosticDetail}
           />
           <BusinessRatioCard
@@ -69,6 +73,7 @@ export default function CarData(props) {
         </div>
         <div className="ui container">
           <AntdTableComponent />
+          <AntdTableComponent tripData={data.car.trips} />
         </div>
       </div>
     );
