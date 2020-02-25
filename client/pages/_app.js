@@ -9,6 +9,8 @@ import { LoginPage } from './Pages/Login/LoginPage';
 
 function App() {
   const [loginDetails, setLoginDetails] = useState({});
+  const [localUserId] = useState(cookies().GofarDashboardUserId);
+  const [localToken] = useState(cookies().GofarDashboardToken);
 
   return (
     <>
@@ -28,7 +30,7 @@ function App() {
                 handleLoggedIn={loginResult => {
                   // TODO - you have auth token and user ID now.
                   setLoginDetails(loginResult);
-                  document.cokie = `GofarDashboardToken=${loginResult.authToken}`;
+                  document.cookie = `GofarDashboardToken=${loginResult.authToken}`;
                   document.cookie = `GofarDashboardUserId=${loginResult.userId}`;
                 }}
                 authToken={loginDetails.authToken}
