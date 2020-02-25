@@ -1,6 +1,5 @@
 import React from 'react';
 
-import 'antd/dist/antd.css';
 import { Table, Button, Tag } from 'antd';
 
 import { Segment } from 'semantic-ui-react';
