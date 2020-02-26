@@ -67,7 +67,7 @@ async function getRecentTrip(vehicleId, authToken) {
 async function getDiagnosticIssueForVehicle(vehicleId, authToken) {
   console.log(`${API_URL}/Vehicles/${vehicleId}/diagnosticTroubleCodes`);
   return await fetchJSON(
-    `${API_URL}/vehicles/${vehicleId}/diagnosticTroubleCodes`,
+    `${API_URL}/vehicles/${vehicleId}/diagnosticTroubleCodes?filter={"where": { "active": true }}`,
     {},
     authToken
   );

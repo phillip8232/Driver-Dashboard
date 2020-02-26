@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import LoginForm from '../../Components/Login/LoginForm';
-import Navbar from '../../Components/Navbar';
 import LoginHeroImage from '../../Images/loginHeroImage.jpg';
 import LoadingSpinner from '../../Components/LoadingSpinner';
 import { LOGIN_QUERY } from '../../queries/queries';
@@ -39,7 +38,6 @@ const LoginView = props => {
         className="bg-image"
         style={{ backgroundImage: `url(${LoginHeroImage})` }}
       >
-        <Navbar />
         {/* todo proper error bar  */}
         {enteredInvalidPassword && <p>Invalid Password</p>}
         {loading && <LoadingSpinner />}

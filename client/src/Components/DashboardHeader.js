@@ -22,9 +22,8 @@ export default function DashboardHeader(props) {
   } else {
     return (
       <div className="hero-img">
-        <Header as="h1">Welcome back! {userData.firstName}</Header>
+        <Header as="h1">Welcome back {userData.userData.firstName}!</Header>
         <div className="hero-img-car-data">
-
           <h3>
             {carData.car.make} {carData.car.model}'s Lifetime Statistics from
             GOFAR

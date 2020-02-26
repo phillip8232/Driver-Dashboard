@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { getDashboardAllDataQuery } from '../queries/queries';
 import { Card } from 'semantic-ui-react';
@@ -14,6 +14,7 @@ import EmissionsCard from './Card/EmissionsCard';
 import FuelEconomyCard from './Card/FuelEconomyCard';
 import GoogleMap from './GoogleMap/GoogleMap';
 import AntdTableComponent from './AntdTable/AntdTableComponent';
+import TripList from './TripList';
 
 export default function CarData(props) {
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
@@ -30,8 +31,8 @@ export default function CarData(props) {
     return (
       <div className="ui container">
         <Card.Group>
+          <TripList trips={data.car.trips} />
           <LastFillUpCard lastFillUpData={data.car.refillData} />
-
           <FuelLeftCard
             fuelLeft={data.car.fuelLeft}
             travelSince={data.car.recentTrip}
