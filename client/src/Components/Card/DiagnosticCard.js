@@ -9,8 +9,9 @@ class DiagnosticCard extends Component {
           <Icon circular inverted color="red" name="wrench" size="big" />
           <div className="data-content">
             <p>Diagnostic Issues</p>
-            <h2>{this.props.diagnosticIssue}</h2>
+            <h2>{this.props.diagnosticIssue[0].code}</h2>
           </div>
+          {console.log(this.props.diagnosticIssue, 'diag card')}
           <Card.Content extra>
             <hr></hr>
             <a href="/#">{this.props.diagnosticDetail}</a>
