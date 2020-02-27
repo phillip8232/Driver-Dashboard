@@ -25,7 +25,7 @@ export default function DashboardHeader(props) {
         <Header as="h1">Welcome back! {userData.firstName}</Header>
         <div className="hero-img-car-data">
 
-          <h3>
+          <h3 style={{color:"#fff"}}>
             {carData.car.make} {carData.car.model}'s Lifetime Statistics from
             GOFAR
           </h3>
