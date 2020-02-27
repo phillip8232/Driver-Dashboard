@@ -183,7 +183,6 @@ function DashboardPage(props) {
 }
 
 DashboardPage.getInitialProps = ctx => {
-  console.log(`Dashboard GetinitialProps`, ctx);
   return {
     cookiez: next_cookies__WEBPACK_IMPORTED_MODULE_3___default()(ctx) || ''
   };
@@ -266,9 +265,6 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
 
   render() {
     const trips = this.props.tripData;
-    {
-      console.log(trips);
-    }
     let {
       sortedInfo,
       filteredInfo
@@ -293,7 +289,7 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
       render: tags => __jsx("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 75
         },
         __self: this
       }, tags.map(tag => {
@@ -310,7 +306,7 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
           key: tag,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 87
+            lineNumber: 84
           },
           __self: this
         }, tag.toUpperCase());
@@ -355,48 +351,48 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
     return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Segment"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 125
       },
       __self: this
     }, __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129
+        lineNumber: 126
       },
       __self: this
     }, __jsx("div", {
       className: "table-operations",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 130
+        lineNumber: 127
       },
       __self: this
     }, __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       onClick: this.setTimeSort,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131
+        lineNumber: 128
       },
       __self: this
     }, "Sort time"), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       onClick: this.setDistanceSort,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 132
+        lineNumber: 129
       },
       __self: this
     }, "Sort Distance"), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       onClick: this.clearFilters,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 133
+        lineNumber: 130
       },
       __self: this
     }, "Clear filters"), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       onClick: this.clearAll,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 134
+        lineNumber: 131
       },
       __self: this
     }, "Clear filters and sorters")), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Table"], {
@@ -405,7 +401,7 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
       onChange: this.handleChange,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 136
+        lineNumber: 133
       },
       __self: this
     })));
@@ -507,18 +503,18 @@ function CarData(props) {
         lineNumber: 33
       },
       __self: this
-    }, console.log(data.car), __jsx(_TripList__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    }, __jsx(_TripList__WEBPACK_IMPORTED_MODULE_16__["default"], {
       trips: data.car.trips,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 34
       },
       __self: this
     }), __jsx(_Card_LastFillUpCard__WEBPACK_IMPORTED_MODULE_5__["default"], {
       lastFillUpData: data.car.refillData,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 35
       },
       __self: this
     }), __jsx(_Card_FuelLeftCard__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -528,7 +524,7 @@ function CarData(props) {
       currentOdo: data.car.odometer,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 36
       },
       __self: this
     }), __jsx(_Card_DiagnosticCard__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -536,7 +532,7 @@ function CarData(props) {
       ,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 42
       },
       __self: this
     }), __jsx(_Card_BusinessRatioCard__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -544,40 +540,40 @@ function CarData(props) {
       businessTotal: data.car.businessTotal,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 46
       },
       __self: this
     })), __jsx("div", {
       className: "ui container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
+        lineNumber: 51
       },
       __self: this
     }, __jsx(_GoogleMap_GoogleMap__WEBPACK_IMPORTED_MODULE_14__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
+        lineNumber: 52
       },
       __self: this
     })), __jsx("div", {
       className: "ui container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56
+        lineNumber: 54
       },
       __self: this
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["Card"].Group, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57
+        lineNumber: 55
       },
       __self: this
     }, __jsx(_Card_AverageSpeedCard__WEBPACK_IMPORTED_MODULE_9__["default"], {
       speed: data.car.averageSpeed,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 56
       },
       __self: this
     }), __jsx(_Card_TravelDistanceTotalCard__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -585,55 +581,55 @@ function CarData(props) {
       distanceTotalThisYear: data.car.travelDistanceThisYear,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 57
       },
       __self: this
     }), __jsx(_Card_TimeInCarCard__WEBPACK_IMPORTED_MODULE_11__["default"], {
       timeInCar: data.car.timeInCar,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 61
       },
       __self: this
     }))), __jsx("div", {
       className: "ui container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 64
       },
       __self: this
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["Card"].Group, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 65
       },
       __self: this
     }, __jsx(_Card_EmissionsCard__WEBPACK_IMPORTED_MODULE_12__["default"], {
       emission: data.car.emissions,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68
+        lineNumber: 66
       },
       __self: this
     }), __jsx(_Card_FuelEconomyCard__WEBPACK_IMPORTED_MODULE_13__["default"], {
       fuelEconomy: data.car.fuelEconomy,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 67
       },
       __self: this
     }))), __jsx("div", {
       className: "ui container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 70
       },
       __self: this
     }, __jsx(_AntdTable_AntdTableComponent__WEBPACK_IMPORTED_MODULE_15__["default"], {
       tripData: data.car.trips,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73
+        lineNumber: 71
       },
       __self: this
     })));
@@ -2556,7 +2552,6 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
         code
         isActive
       }
-      diagnosticDetail
       businessRatio
       businessTotal
       averageSpeed
@@ -2565,13 +2560,6 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
       timeInCar
       emissions
       fuelEconomy
-      lifeLitresPerHundredKm {
-        litresPerHundredKm
-      }
-      parking {
-        lat
-        lng
-      }
       timeTraveled
       recentTrip {
         id

@@ -48,9 +48,6 @@ class AntdTableComponent extends React.Component {
 
   render() {
     const trips = this.props.tripData;
-    {
-      console.log(trips);
-    }
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};

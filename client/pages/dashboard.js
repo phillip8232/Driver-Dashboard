@@ -40,7 +40,6 @@ export default function DashboardPage(props) {
 }
 
 DashboardPage.getInitialProps = ctx => {
-  console.log(`Dashboard GetinitialProps`, ctx);
   return {
     cookiez: Cookiez(ctx) || '',
   };

@@ -186,7 +186,6 @@ function LoginPage(props) {
 }
 
 LoginPage.getInitialProps = ctx => {
-  console.log(`This is coming from login page getInitalProps`, ctx);
   return {
     cookiez: next_cookies__WEBPACK_IMPORTED_MODULE_3___default()(ctx) || ''
   };
@@ -584,7 +583,6 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
         code
         isActive
       }
-      diagnosticDetail
       businessRatio
       businessTotal
       averageSpeed
@@ -593,13 +591,6 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
       timeInCar
       emissions
       fuelEconomy
-      lifeLitresPerHundredKm {
-        litresPerHundredKm
-      }
-      parking {
-        lat
-        lng
-      }
       timeTraveled
       recentTrip {
         id

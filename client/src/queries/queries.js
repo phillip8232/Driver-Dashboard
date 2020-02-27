@@ -64,7 +64,6 @@ const getDashboardAllDataQuery = gql`
         code
         isActive
       }
-      diagnosticDetail
       businessRatio
       businessTotal
       averageSpeed
@@ -73,13 +72,6 @@ const getDashboardAllDataQuery = gql`
       timeInCar
       emissions
       fuelEconomy
-      lifeLitresPerHundredKm {
-        litresPerHundredKm
-      }
-      parking {
-        lat
-        lng
-      }
       timeTraveled
       recentTrip {
         id
