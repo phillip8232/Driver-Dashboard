@@ -11,7 +11,6 @@ class DiagnosticCard extends Component {
             <p>Diagnostic Issues</p>
             <h2>{this.props.diagnosticIssue[0].code}</h2>
           </div>
-          {console.log(this.props.diagnosticIssue, 'diag card')}
           <Card.Content extra>
             <hr></hr>
             <a href="/#">{this.props.diagnosticDetail}</a>

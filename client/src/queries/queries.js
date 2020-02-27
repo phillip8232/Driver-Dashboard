@@ -111,6 +111,14 @@ const getDashboardAllDataQuery = gql`
           tagType
         }
       }
+      parkedVehicle {
+        name
+        location {
+          lat
+          lng
+        }
+        timestamp
+      }
     }
   }
 `;

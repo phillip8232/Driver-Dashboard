@@ -31,9 +31,6 @@ export default function CarData(props) {
     return (
       <div className="ui container">
         <Card.Group>
-          {console.log(data.car)}
-          {console.log(data.car.diagnosticIssue)}
-
           <TripList trips={data.car.trips} />
           <LastFillUpCard lastFillUpData={data.car.refillData} />
           <FuelLeftCard

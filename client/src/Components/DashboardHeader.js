@@ -28,7 +28,6 @@ export default function DashboardHeader(props) {
             {carData.car.make} {carData.car.model}'s Lifetime Statistics from
             GOFAR
           </h3>
-
           <Divider hidden />
           <Statistic.Group size="mini">
             <Statistic>
