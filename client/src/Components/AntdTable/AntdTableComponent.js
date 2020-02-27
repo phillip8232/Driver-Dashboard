@@ -100,7 +100,7 @@ class AntdTableComponent extends React.Component {
       {
         title: 'Start Location',
         dataIndex: 'startLocation',
-        key: 'geoPoint',
+        key: 'displayName',
         filters: [
           { text: 'Sydney', value: 'Sydney' },
           { text: 'Brisbane', value: 'Brisbane' },

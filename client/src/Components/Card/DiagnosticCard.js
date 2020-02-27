@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Icon } from 'semantic-ui-react';
 
 class DiagnosticCard extends Component {
-  render(props) {
+  render() {
     if (
       this.props.diagnosticIssue[0] === undefined ||
       this.props.diagnosticIssue[0] === null
