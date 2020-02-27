@@ -136,15 +136,13 @@ const link = Object(apollo_link_http__WEBPACK_IMPORTED_MODULE_8__["createHttpLin
   fetch: node_fetch__WEBPACK_IMPORTED_MODULE_4___default.a
 });
 function DashboardPage(props) {
-  console.log(`THIS IS COMING FROM DASH BOARD PAGE`, js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('GofarDashboardToken'));
-  debugger; // TODO if not logged in redirect to login
-
+  // TODO if not logged in redirect to login
   if (js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('GofarDashboardToken') && js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('GofarDashboardUserId')) {
     __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Redirect"], {
       to: "/dashboard",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 19
       },
       __self: this
     });
@@ -153,7 +151,7 @@ function DashboardPage(props) {
       to: "/login",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 21
       },
       __self: this
     });
@@ -172,13 +170,13 @@ function DashboardPage(props) {
     client: client,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 36
     },
     __self: this
   }, __jsx(_src_pages_Dashboard_DashboardView__WEBPACK_IMPORTED_MODULE_0__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 37
     },
     __self: this
   }));
@@ -216,77 +214,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-const data = [{
-  key: '1',
-  time: '2019-01-17T08:00:00Z',
-  distance: 20,
-  tags: ['vacation'],
-  startlocation: 'Sydney',
-  endlocation: 'Melbourne'
-}, {
-  key: '2',
-  time: '2019-04-17T09:52:00Z',
-  distance: 22,
-  tags: [],
-  startlocation: 'Melbourne',
-  endlocation: 'Sydney'
-}, {
-  key: '3',
-  time: '2019-05-17T12:32:00Z',
-  distance: 23,
-  tags: ['busuiness'],
-  startlocation: 'Brisbane',
-  endlocation: 'Gold Coast'
-}, {
-  key: '4',
-  time: '2019-07-17T11:00:00Z',
-  distance: 40,
-  tags: [],
-  startlocation: 'Gold Coast',
-  endlocation: 'Brisbane'
-}, {
-  key: '5',
-  time: '2019-07-21T11:33:00Z',
-  distance: 33,
-  tags: ['busuiness'],
-  startlocation: 'lennox head',
-  endlocation: 'Margaret River'
-}, {
-  key: '6',
-  time: '2019-08-01T19:41:00Z',
-  distance: 21,
-  tags: ['commute'],
-  startlocation: 'Perth',
-  endlocation: 'Adelaide'
-}, {
-  key: '7',
-  time: '2019-08-15T15:21:00Z',
-  distance: 19,
-  tags: ['commute'],
-  startlocation: 'Adelaide',
-  endlocation: 'Brisbane'
-}]; // const columns = [
-//   {
-//     title: "Time",
-//     dataIndex: "time"
-//   },
-//   {
-//     title: "Distance",
-//     dataIndex: "ditance"
-//   },
-//   {
-//     title: "Tags",
-//     dataIndex: "tags"
-//   },
-//   {
-//     title: "Start Loocation",
-//     dataIndex: "startlocation"
-//   },
-//   {
-//     title: "End Location",
-//     dataIndex: "endlocation"
-//   }
-// ];
 
 class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   constructor(props) {
@@ -338,7 +265,10 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
   }
 
   render() {
-    {}
+    const trips = this.props.tripData;
+    {
+      console.log(trips);
+    }
     let {
       sortedInfo,
       filteredInfo
@@ -347,10 +277,10 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
     filteredInfo = filteredInfo || {};
     const columns = [{
       title: 'Time',
-      dataIndex: 'time',
-      key: 'time',
+      dataIndex: 'startTime',
+      key: 'startTime',
       sorter: (a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0,
-      sortOrder: sortedInfo.columnKey === 'time' && sortedInfo.order
+      sortOrder: sortedInfo.columnKey === 'startTime' && sortedInfo.order
     }, {
       title: 'Distance',
       dataIndex: 'distance',
@@ -363,7 +293,7 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
       render: tags => __jsx("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 162
+          lineNumber: 78
         },
         __self: this
       }, tags.map(tag => {
@@ -380,12 +310,12 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
           key: tag,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 171
+            lineNumber: 87
           },
           __self: this
         }, tag.toUpperCase());
       })),
-      key: 'tags',
+      key: 'tagType',
       filters: [{
         text: 'busuiness',
         value: 'busuiness'
@@ -397,8 +327,8 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
       onFilter: (value, record) => record.tags.includes(value)
     }, {
       title: 'Start Location',
-      dataIndex: 'startlocation',
-      key: 'startlocation',
+      dataIndex: 'startLocation',
+      key: 'geoPoint',
       filters: [{
         text: 'Sydney',
         value: 'Sydney'
@@ -406,8 +336,8 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
         text: 'Brisbane',
         value: 'Brisbane'
       }],
-      filteredValue: filteredInfo.startlocation || null,
-      onFilter: (value, record) => record.startlocation.includes(value)
+      filteredValue: filteredInfo.startLocation || null,
+      onFilter: (value, record) => record.startLocation.includes(value)
     }, {
       title: 'End Location',
       dataIndex: 'endlocation',
@@ -425,57 +355,57 @@ class AntdTableComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
     return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Segment"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 212
+        lineNumber: 128
       },
       __self: this
     }, __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 213
+        lineNumber: 129
       },
       __self: this
     }, __jsx("div", {
       className: "table-operations",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 214
+        lineNumber: 130
       },
       __self: this
     }, __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       onClick: this.setTimeSort,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 215
+        lineNumber: 131
       },
       __self: this
     }, "Sort time"), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       onClick: this.setDistanceSort,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 216
+        lineNumber: 132
       },
       __self: this
     }, "Sort Distance"), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       onClick: this.clearFilters,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 217
+        lineNumber: 133
       },
       __self: this
     }, "Clear filters"), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       onClick: this.clearAll,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 218
+        lineNumber: 134
       },
       __self: this
     }, "Clear filters and sorters")), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Table"], {
       columns: columns,
-      dataSource: data,
+      dataSource: trips,
       onChange: this.handleChange,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 220
+        lineNumber: 136
       },
       __self: this
     })));
@@ -977,71 +907,138 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 class DiagnosticCard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
-  render() {
-    return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"], {
-      className: "data-cards-r1",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 7
-      },
-      __self: this
-    }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Content, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 8
-      },
-      __self: this
-    }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
-      circular: true,
-      inverted: true,
-      color: "red",
-      name: "wrench",
-      size: "big",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 9
-      },
-      __self: this
-    }), __jsx("div", {
-      className: "data-content",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 10
-      },
-      __self: this
-    }, __jsx("p", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 11
-      },
-      __self: this
-    }, "Diagnostic Issues"), __jsx("h2", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 12
-      },
-      __self: this
-    }, this.props.diagnosticIssue[0].code)), __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Content, {
-      extra: true,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 14
-      },
-      __self: this
-    }, __jsx("hr", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 15
-      },
-      __self: this
-    }), __jsx("a", {
-      href: "/#",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 16
-      },
-      __self: this
-    }, this.props.diagnosticDetail))));
+  render(props) {
+    if (this.props.diagnosticIssue[0] === undefined || this.props.diagnosticIssue[0] === null) {
+      return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"], {
+        className: "data-cards-r1",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        },
+        __self: this
+      }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Content, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        },
+        __self: this
+      }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
+        circular: true,
+        inverted: true,
+        color: "red",
+        name: "wrench",
+        size: "big",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        },
+        __self: this
+      }), __jsx("div", {
+        className: "data-content",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        },
+        __self: this
+      }, __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        },
+        __self: this
+      }, "Diagnostic Issues"), __jsx("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 16
+        },
+        __self: this
+      }, "No Data")), __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Content, {
+        extra: true,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        },
+        __self: this
+      }, __jsx("hr", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        },
+        __self: this
+      }), __jsx("a", {
+        href: "/#",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20
+        },
+        __self: this
+      }, this.props.diagnosticDetail))));
+    } else {
+      return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"], {
+        className: "data-cards-r1",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Content, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        },
+        __self: this
+      }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
+        circular: true,
+        inverted: true,
+        color: "red",
+        name: "wrench",
+        size: "big",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        },
+        __self: this
+      }), __jsx("div", {
+        className: "data-content",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        },
+        __self: this
+      }, __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        },
+        __self: this
+      }, "Diagnostic Issues"), __jsx("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32
+        },
+        __self: this
+      }, this.props.diagnosticIssue[0].code)), __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Content, {
+        extra: true,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 34
+        },
+        __self: this
+      }, __jsx("hr", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35
+        },
+        __self: this
+      }), __jsx("a", {
+        href: "/#",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36
+        },
+        __self: this
+      }, this.props.diagnosticDetail))));
+    }
   }
 
 }

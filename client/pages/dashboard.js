@@ -11,11 +11,6 @@ import { createHttpLink } from 'apollo-link-http';
 const link = createHttpLink({ uri: '/graphql', fetch: fetch });
 
 export default function DashboardPage(props) {
-  console.log(
-    `THIS IS COMING FROM DASH BOARD PAGE`,
-    Cookies.get('GofarDashboardToken')
-  );
-  debugger;
   // TODO if not logged in redirect to login
   if (
     Cookies.get('GofarDashboardToken') &&
