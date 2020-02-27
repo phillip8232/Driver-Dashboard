@@ -42,9 +42,12 @@ async function getOwnedVehicles(userId, authToken) {
 }
 
 async function getTripsForVehicle(vehicleId, authToken) {
-  console.log(`${API_URL}vehicles/${vehicleId}/trips`, authToken);
+  console.log(
+    `${API_URL}vehicles/${vehicleId}/trips?filter={"include":["tags", "startLocation", "endLocation"],"order": "createdAt DESC"}`,
+    authToken
+  );
   return await fetchJSON(
-    `${API_URL}vehicles/${vehicleId}/trips?filter={"include":["tags"]}`,
+    `${API_URL}vehicles/${vehicleId}/trips?filter={"include":["tags", "startLocation", "endLocation"]}`,
     {},
     authToken
   );
@@ -108,17 +111,6 @@ async function getTripSummaryData(userId, authToken) {
     JSON.stringify({ order: "createdAt DESC", limit: 1 })
   );
   return await fetchJSON(travelDistanceTotalUrl.toString(), {}, authToken);
-}
-
-async function getDetailsForTrip(authToken, tripId) {
-  const [tripDetailsforVehicle] = await Promise.all([
-    getDetailsForTrip(authToken, tripId)
-  ]);
-  console.log(`PLEASE LOOK FOR ME GETDETAILS FOR TRIP`);
-  const finalTrip = {
-    id: tripDetailsforVehicle
-  };
-  return finalTrip;
 }
 
 async function getDetailsForVehicle(userId, vehicleId, authToken) {
