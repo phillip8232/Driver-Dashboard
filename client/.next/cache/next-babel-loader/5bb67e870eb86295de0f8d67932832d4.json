@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from \"react\";\nimport { Dimmer, Loader, Segment } from \"semantic-ui-react\";\n\nconst LoadingSpinner = () => __jsx(Segment, null, __jsx(Dimmer, {\n  active: true\n}, __jsx(Loader, {\n  size: \"massive\"\n}, \"Loading\")));\n\nexport default LoadingSpinner;","map":null,"metadata":{},"sourceType":"module"}
