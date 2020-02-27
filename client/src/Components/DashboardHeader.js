@@ -22,14 +22,12 @@ export default function DashboardHeader(props) {
   } else {
     return (
       <div className="hero-img">
-        <Header as="h1">Welcome back! {userData.firstName}</Header>
+        <Header as="h1">Welcome back {userData.userData.firstName}!</Header>
         <div className="hero-img-car-data">
-
-          <h3>
+          <h3 style={{ color: '#fff' }}>
             {carData.car.make} {carData.car.model}'s Lifetime Statistics from
             GOFAR
           </h3>
-
           <Divider hidden />
           <Statistic.Group size="mini">
             <Statistic>
