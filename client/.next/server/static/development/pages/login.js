@@ -120,7 +120,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_pages_Login_LoginView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/pages/Login/LoginView */ "./src/pages/Login/LoginView.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_8__);
+<<<<<<< HEAD
 var _jsxFileName = "/home/phillip/Desktop/work/Driver-Dashboard/client/pages/login.js";
+=======
+var _jsxFileName = "/Users/haydenfuller/Documents/Hayden/Own Projects/gofar/Driver-Dashboard/client/pages/login.js";
+>>>>>>> 3db07fb7139b49b0129a9dec48318c72f459eebd
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -207,7 +211,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "/home/phillip/Desktop/work/Driver-Dashboard/client/src/Components/LoadingSpinner.js";
+=======
+var _jsxFileName = "/Users/haydenfuller/Documents/Hayden/Own Projects/gofar/Driver-Dashboard/client/src/Components/LoadingSpinner.js";
+>>>>>>> 3db07fb7139b49b0129a9dec48318c72f459eebd
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -253,7 +261,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Images_GoFarlogo_png__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Images_GoFarlogo_png__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
 var _jsxFileName = "/home/phillip/Desktop/work/Driver-Dashboard/client/src/Components/Login/LoginForm.js";
+=======
+var _jsxFileName = "/Users/haydenfuller/Documents/Hayden/Own Projects/gofar/Driver-Dashboard/client/src/Components/Login/LoginForm.js";
+>>>>>>> 3db07fb7139b49b0129a9dec48318c72f459eebd
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -425,7 +437,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_7__);
+<<<<<<< HEAD
 var _jsxFileName = "/home/phillip/Desktop/work/Driver-Dashboard/client/src/pages/Login/LoginView.js";
+=======
+var _jsxFileName = "/Users/haydenfuller/Documents/Hayden/Own Projects/gofar/Driver-Dashboard/client/src/pages/Login/LoginView.js";
+>>>>>>> 3db07fb7139b49b0129a9dec48318c72f459eebd
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -665,7 +681,11 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /home/phillip/Desktop/work/Driver-Dashboard/client/pages/login.js */"./pages/login.js");
+=======
+module.exports = __webpack_require__(/*! /Users/haydenfuller/Documents/Hayden/Own Projects/gofar/Driver-Dashboard/client/pages/login.js */"./pages/login.js");
+>>>>>>> 3db07fb7139b49b0129a9dec48318c72f459eebd
 
 
 /***/ }),

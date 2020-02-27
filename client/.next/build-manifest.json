@@ -24,6 +24,13 @@
     "/login": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+<<<<<<< HEAD
+=======
+    ],
+    "/next/dist/pages/_error": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+>>>>>>> 3db07fb7139b49b0129a9dec48318c72f459eebd
     ]
   }
 }

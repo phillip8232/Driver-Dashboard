@@ -4,92 +4,6 @@ import { Table, Button, Tag } from 'antd';
 
 import { Segment } from 'semantic-ui-react';
 
-const data = [
-  {
-    key: '1',
-    time: '2019-01-17T08:00:00Z',
-    distance: 20,
-    tags: ['vacation'],
-    startlocation: 'Sydney',
-    endlocation: 'Melbourne',
-  },
-  {
-    key: '2',
-    time: '2019-04-17T09:52:00Z',
-    distance: 22,
-    tags: [],
-    startlocation: 'Melbourne',
-    endlocation: 'Sydney',
-  },
-  {
-    key: '3',
-    time: '2019-05-17T12:32:00Z',
-    distance: 23,
-    tags: ['busuiness'],
-    startlocation: 'Brisbane',
-    endlocation: 'Gold Coast',
-  },
-  {
-    key: '4',
-    time: '2019-07-17T11:00:00Z',
-    distance: 40,
-    tags: [],
-    startlocation: 'Gold Coast',
-    endlocation: 'Brisbane',
-  },
-
-  {
-    key: '5',
-    time: '2019-07-21T11:33:00Z',
-    distance: 33,
-    tags: ['busuiness'],
-    startlocation: 'lennox head',
-    endlocation: 'Margaret River',
-  },
-  {
-    key: '6',
-    time: '2019-08-01T19:41:00Z',
-    distance: 21,
-    tags: ['commute'],
-    startlocation: 'Perth',
-    endlocation: 'Adelaide',
-  },
-  {
-    key: '7',
-    time: '2019-08-15T15:21:00Z',
-    distance: 19,
-    tags: ['commute'],
-    startlocation: 'Adelaide',
-    endlocation: 'Brisbane',
-  },
-];
-
-// const columns = [
-//   {
-//     title: "Time",
-//     dataIndex: "time"
-//   },
-
-//   {
-//     title: "Distance",
-//     dataIndex: "ditance"
-//   },
-
-//   {
-//     title: "Tags",
-//     dataIndex: "tags"
-//   },
-
-//   {
-//     title: "Start Loocation",
-//     dataIndex: "startlocation"
-//   },
-//   {
-//     title: "End Location",
-//     dataIndex: "endlocation"
-//   }
-// ];
-
 class AntdTableComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -133,7 +47,9 @@ class AntdTableComponent extends React.Component {
   };
 
   render() {
+    const trips = this.props.tripData;
     {
+      console.log(trips);
     }
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
@@ -141,10 +57,10 @@ class AntdTableComponent extends React.Component {
     const columns = [
       {
         title: 'Time',
-        dataIndex: 'time',
-        key: 'time',
+        dataIndex: 'startTime',
+        key: 'startTime',
         sorter: (a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0),
-        sortOrder: sortedInfo.columnKey === 'time' && sortedInfo.order,
+        sortOrder: sortedInfo.columnKey === 'startTime' && sortedInfo.order,
       },
 
       {
@@ -175,7 +91,7 @@ class AntdTableComponent extends React.Component {
             })}
           </span>
         ),
-        key: 'tags',
+        key: 'tagType',
         filters: [
           { text: 'busuiness', value: 'busuiness' },
           { text: 'vacation', value: 'vacation' },
@@ -186,14 +102,14 @@ class AntdTableComponent extends React.Component {
 
       {
         title: 'Start Location',
-        dataIndex: 'startlocation',
-        key: 'startlocation',
+        dataIndex: 'startLocation',
+        key: 'geoPoint',
         filters: [
           { text: 'Sydney', value: 'Sydney' },
           { text: 'Brisbane', value: 'Brisbane' },
         ],
-        filteredValue: filteredInfo.startlocation || null,
-        onFilter: (value, record) => record.startlocation.includes(value),
+        filteredValue: filteredInfo.startLocation || null,
+        onFilter: (value, record) => record.startLocation.includes(value),
       },
 
       {
@@ -219,7 +135,7 @@ class AntdTableComponent extends React.Component {
           </div>
           <Table
             columns={columns}
-            dataSource={data}
+            dataSource={trips}
             onChange={this.handleChange}
           />
         </div>
