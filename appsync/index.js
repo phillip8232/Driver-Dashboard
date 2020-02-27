@@ -14,7 +14,7 @@ async function fetchJSON(url, options, authToken) {
 }
 
 async function postJSON(url, payload, options) {
-  console.log(url, payload, options);
+  console.log(`URL<PAYLOAD<OPTIONS<POSTJSON`, url, payload, options);
   const rawResponse = await fetch(url, {
     method: "POST",
     headers: {
@@ -42,9 +42,12 @@ async function getOwnedVehicles(userId, authToken) {
 }
 
 async function getTripsForVehicle(vehicleId, authToken) {
-  console.log(`${API_URL}vehicles/${vehicleId}/trips`, authToken);
+  console.log(
+    `${API_URL}vehicles/${vehicleId}/trips?filter={"include":["tags", "startLocation", "endLocation"],"order": "createdAt DESC"}`,
+    authToken
+  );
   return await fetchJSON(
-    `${API_URL}vehicles/${vehicleId}/trips?filter={"include":["tags"]}`,
+    `${API_URL}vehicles/${vehicleId}/trips?filter={"include":["tags", "startLocation", "endLocation"]}`,
     {},
     authToken
   );
@@ -60,14 +63,31 @@ async function getRecentTrip(vehicleId, authToken) {
   return await fetchJSON(recentTrip.toString(), {}, authToken);
 }
 
+//TO DO, requesting TripDetails will crash database
 // async function getTripDetailsforVehicle(tripId, authToken) {
-//   return await fetchJSON(`${API_URL}trips/${tripId}/tripDetails`, {}, authToken);
+//   console.log('TRIP DETAIL LOG PLEASE LOOK AT THIS',`${API_URL}trips/${tripId}/tripDetails`)
+//   return await fetchJSON(
+//     `${API_URL}trips/${tripId}/tripDetails`,
+//     {},
+//     authToken
+//   );
 // }
 
-async function getDiagnosticIssueForVehicle(vehicleId, authToken) {
-  console.log(`${API_URL}/Vehicles/${vehicleId}/diagnosticTroubleCodes`);
+async function getParkedUserVehicles(userId, authToken) {
   return await fetchJSON(
-    `${API_URL}/vehicles/${vehicleId}/diagnosticTroubleCodes`,
+    `${API_URL}/users/${userId}/parkedVehicles`,
+    {},
+    authToken
+  );
+}
+
+async function getDiagnosticIssueForVehicle(vehicleId, authToken) {
+  console.log(
+    "this is getDiagnostic with filter",
+    `${API_URL}/vehicles/${vehicleId}/diagnosticTroubleCodes?filter={"where":{ "isActive": true }}`
+  );
+  return await fetchJSON(
+    `${API_URL}/vehicles/${vehicleId}/diagnosticTroubleCodes?filter={"where":{"isActive":true}}`,
     {},
     authToken
   );
@@ -100,18 +120,19 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
     tripSummaryData,
     tripsForVehicle,
     diagnosticIssueForVehicle,
-    recentTrip
+    recentTrip,
+    parkedUserVehicles
   ] = await Promise.all([
     getVehicleData(vehicleId, authToken),
     getRefillData(vehicleId, authToken),
     getTripSummaryData(userId, authToken),
     getTripsForVehicle(vehicleId, authToken),
     getDiagnosticIssueForVehicle(vehicleId, authToken),
-    getRecentTrip(vehicleId, authToken)
+    getRecentTrip(vehicleId, authToken),
+    getParkedUserVehicles(userId, authToken)
   ]);
 
-  console.log("refillData PLEASE LOOK AT THIS LOG", recentTrip);
-
+  console.log("refillData PLEASE LOOK AT THIS LOG", tripsForVehicle);
   const finalResult = {
     id: vehicleId,
     make: vehicleData.make,
@@ -119,10 +140,6 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
     odometer: vehicleData.calculatedOdometer,
     vehicleName: vehicleData.displayName,
     refillData: refillData,
-    odometerAtRefill: refillData.TODO,
-    lastFillUp: refillData.TODO,
-    lastFillUpTime: refillData.TODO,
-    lastLocation: refillData.TODO,
     diagnosticIssue: diagnosticIssueForVehicle,
     diagnosticDetail: "TODO",
     travelSince: recentTrip.TODO,
@@ -140,14 +157,12 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
     totalScore: tripSummaryData.score,
     travelDistanceThisYear: 100,
     fuelLeft: 999,
-    parking: {
-      lat: 99,
-      lon: 99
-    },
+    parking: recentTrip.location,
     timeTraveled: tripSummaryData.TODO,
     trips: tripsForVehicle,
     lifeLitresPerHundredKm: tripsForVehicle,
-    recentTrip: recentTrip
+    recentTrip: recentTrip,
+    parkedVehicle: parkedUserVehicles
   };
   return finalResult;
 }
@@ -200,6 +215,7 @@ exports.handler = async (event, context) => {
 
       return {
         ...ownerData,
+        firstName: ownerData.firstname,
         cars: ownedVehicles
       };
     }
