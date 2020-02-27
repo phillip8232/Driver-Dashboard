@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -148,7 +148,7 @@ function DashboardPage(props) {
     });
   } else {
     __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Redirect"], {
-      to: "/login",
+      to: "/",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 21
@@ -2523,7 +2523,7 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**********************************!*\
   !*** multi ./pages/dashboard.js ***!
   \**********************************/

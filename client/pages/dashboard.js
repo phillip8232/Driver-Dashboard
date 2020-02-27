@@ -18,7 +18,7 @@ export default function DashboardPage(props) {
   ) {
     <Redirect to="/dashboard" />;
   } else {
-    <Redirect to="/login" />;
+    <Redirect to="/" />;
   }
 
   const client = new ApolloClient({
