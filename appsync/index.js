@@ -157,6 +157,7 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
     totalScore: tripSummaryData.score,
     travelDistanceThisYear: 100,
     fuelLeft: 999,
+    parking: recentTrip.location,
     timeTraveled: tripSummaryData.TODO,
     trips: tripsForVehicle,
     lifeLitresPerHundredKm: tripsForVehicle,
