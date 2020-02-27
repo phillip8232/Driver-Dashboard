@@ -110,6 +110,18 @@ const getDashboardAllDataQuery = gql`
           id
           tagType
         }
+        startLocation {
+          geoPoint {
+            lat
+            lng
+          }
+        }
+        endLocation {
+          geoPoint {
+            lat
+            lng
+          }
+        }
       }
       parkedVehicle {
         name
