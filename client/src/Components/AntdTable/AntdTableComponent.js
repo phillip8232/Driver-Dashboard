@@ -73,12 +73,12 @@ class AntdTableComponent extends React.Component {
         sorter: (a, b) => a.distance - b.distance,
         sortOrder: sortedInfo.columnKey === 'distance' && sortedInfo.order,
         filteredValue: filteredInfo.distance || null,
-        onFilter: (value, record) => record.distance.includes(null),
+        onFilter: (value, record) => record.distance.includes(value),
       },
 
       {
         title: 'Tags',
-        dataIndex: 'tags.tagType',
+        dataIndex: 'tags.tagName',
         filters: [
           { text: 'busuiness', value: 'busuiness' },
           { text: 'vacation', value: 'vacation' },

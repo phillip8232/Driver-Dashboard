@@ -14,7 +14,6 @@ import EmissionsCard from './Card/EmissionsCard';
 import FuelEconomyCard from './Card/FuelEconomyCard';
 import GoogleMap from './GoogleMap/GoogleMap';
 import AntdTableComponent from './AntdTable/AntdTableComponent';
-import TripList from './TripList';
 
 export default function CarData(props) {
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
@@ -30,7 +29,6 @@ export default function CarData(props) {
     return (
       <div className="ui container">
         <Card.Group>
-          <TripList trips={data.car.trips} />
           <LastFillUpCard lastFillUpData={data.car.refillData} />
           <FuelLeftCard
             fuelLeft={data.car.fuelLeft}
@@ -38,10 +36,7 @@ export default function CarData(props) {
             lastRefillOdo={data.car.refillData}
             currentOdo={data.car.odometer}
           />
-          <DiagnosticCard
-            diagnosticIssue={data.car.diagnosticIssue}
-            // diagnosticDetail={data.car.diagnosticDetail}
-          />
+          <DiagnosticCard diagnosticIssue={data.car.diagnosticIssue} />
           <BusinessRatioCard
             businessRatio={data.car.businessRatio}
             businessTotal={data.car.businessTotal}
