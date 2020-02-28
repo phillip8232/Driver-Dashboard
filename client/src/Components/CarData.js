@@ -22,7 +22,6 @@ export default function CarData(props) {
       vehicleId: props.vehicleIdState.value,
     },
   });
-
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
