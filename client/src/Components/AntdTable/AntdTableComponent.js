@@ -55,40 +55,21 @@ class AntdTableComponent extends React.Component {
       {
         title: 'Time',
         dataIndex: 'startTime',
-        key: 'startTime',
-        sorter: (a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0),
+        sorter: (a, b) =>
+          a.startTime < b.startTime ? -1 : a.startTime > b.startTime ? 1 : 0,
         sortOrder: sortedInfo.columnKey === 'startTime' && sortedInfo.order,
       },
 
       {
         title: 'Distance',
         dataIndex: 'distance',
-        key: 'distance',
         sorter: (a, b) => a.distance - b.distance,
         sortOrder: sortedInfo.columnKey === 'distance' && sortedInfo.order,
       },
 
       {
         title: 'Tags',
-        dataIndex: 'tags',
-        render: tags => (
-          <span>
-            {tags.map(tag => {
-              let color = 'green';
-              if (tag === 'vacation') {
-                color = 'red';
-              } else if (tag === 'busuiness') {
-                color = 'blue';
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-          </span>
-        ),
-        key: 'tagType',
+        dataIndex: 'tags.tagType',
         filters: [
           { text: 'busuiness', value: 'busuiness' },
           { text: 'vacation', value: 'vacation' },
@@ -99,30 +80,17 @@ class AntdTableComponent extends React.Component {
 
       {
         title: 'Start Location',
-        dataIndex: 'startLocation',
-        key: 'geoPoint',
-        filters: [
-          { text: 'Sydney', value: 'Sydney' },
-          { text: 'Brisbane', value: 'Brisbane' },
-        ],
-        filteredValue: filteredInfo.startLocation || null,
-        onFilter: (value, record) => record.startLocation.includes(value),
+        dataIndex: 'startLocation.displayName',
       },
 
       {
         title: 'End Location',
-        dataIndex: 'endlocation',
-        key: 'endlocation',
-        filters: [
-          { text: 'Sydney', value: 'Sydney' },
-          { text: 'Brisbane', value: 'Brisbane' },
-        ],
-        filteredValue: filteredInfo.endlocation || null,
-        onFilter: (value, record) => record.endlocation.includes(value),
+        dataIndex: 'endLocation.displayName',
       },
     ];
     return (
       <Segment>
+        {console.log(trips)}
         <div>
           <div className="table-operations">
             <Button onClick={this.setTimeSort}>Sort time</Button>
