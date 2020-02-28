@@ -47,7 +47,6 @@ class AntdTableComponent extends React.Component {
 
   render() {
     const trips = this.props.tripData;
-    const dt = DateTime;
     const processedTrips = trips.map(trip => {
       return {
         ...trip,
