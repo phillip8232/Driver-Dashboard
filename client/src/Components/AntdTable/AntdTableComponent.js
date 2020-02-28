@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Table, Button, Tag } from 'antd';
-
+import { DateTime } from 'luxon';
 import { Segment } from 'semantic-ui-react';
 
 class AntdTableComponent extends React.Component {
@@ -14,7 +14,6 @@ class AntdTableComponent extends React.Component {
   }
 
   handleChange = (pagination, filters, sorter) => {
-    console.log('Various parameters', pagination, filters, sorter);
     this.setState({
       filteredInfo: filters,
       sortedInfo: sorter,
@@ -48,10 +47,11 @@ class AntdTableComponent extends React.Component {
 
   render() {
     const trips = this.props.tripData;
+    const dt = DateTime;
     const processedTrips = trips.map(trip => {
       return {
         ...trip,
-        startTime: trip.startTime,
+        startTime: DateTime.fromISO(trip.startTime).toFormat('yyyy LLL dd'),
         distance: trip.distance?.toFixed(2),
       };
     });
@@ -100,7 +100,6 @@ class AntdTableComponent extends React.Component {
     ];
     return (
       <Segment>
-        {console.log(trips)}
         <div>
           <div className="table-operations">
             <Button onClick={this.clearFilters}>Clear filters</Button>
