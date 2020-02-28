@@ -48,23 +48,33 @@ class AntdTableComponent extends React.Component {
 
   render() {
     const trips = this.props.tripData;
+    const processedTrips = trips.map(trip => {
+      return {
+        ...trip,
+        startTime: trip.startTime,
+        distance: trip.distance?.toFixed(2),
+      };
+    });
+
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
     const columns = [
       {
         title: 'Time',
-        dataIndex: 'startTime',
+        dataIndex: `startTime`,
         sorter: (a, b) =>
           a.startTime < b.startTime ? -1 : a.startTime > b.startTime ? 1 : 0,
         sortOrder: sortedInfo.columnKey === 'startTime' && sortedInfo.order,
       },
 
       {
-        title: 'Distance',
+        title: 'Distance (KM)',
         dataIndex: 'distance',
         sorter: (a, b) => a.distance - b.distance,
         sortOrder: sortedInfo.columnKey === 'distance' && sortedInfo.order,
+        filteredValue: filteredInfo.distance || null,
+        onFilter: (value, record) => record.distance.includes(null),
       },
 
       {
@@ -93,14 +103,12 @@ class AntdTableComponent extends React.Component {
         {console.log(trips)}
         <div>
           <div className="table-operations">
-            <Button onClick={this.setTimeSort}>Sort time</Button>
-            <Button onClick={this.setDistanceSort}>Sort Distance</Button>
             <Button onClick={this.clearFilters}>Clear filters</Button>
             <Button onClick={this.clearAll}>Clear filters and sorters</Button>
           </div>
           <Table
             columns={columns}
-            dataSource={trips}
+            dataSource={processedTrips}
             onChange={this.handleChange}
           />
         </div>

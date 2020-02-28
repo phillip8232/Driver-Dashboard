@@ -22,7 +22,6 @@ export default function CarData(props) {
       vehicleId: props.vehicleIdState.value,
     },
   });
-
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
@@ -31,7 +30,6 @@ export default function CarData(props) {
     return (
       <div className="ui container">
         <Card.Group>
-          {console.log(data.car)}
           <TripList trips={data.car.trips} />
           <LastFillUpCard lastFillUpData={data.car.refillData} />
           <FuelLeftCard
