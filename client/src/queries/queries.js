@@ -1,5 +1,4 @@
 import { gql } from 'apollo-boost';
-
 const LOGIN_QUERY = gql`
   query Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -9,7 +8,6 @@ const LOGIN_QUERY = gql`
     }
   }
 `;
-
 const getCarsQuery = gql`
   {
     cars {
@@ -18,7 +16,6 @@ const getCarsQuery = gql`
     }
   }
 `;
-
 const getUserDataQuery = gql`
   {
     userData {
@@ -33,7 +30,6 @@ const getUserDataQuery = gql`
     }
   }
 `;
-
 const getDashboardAllDataQuery = gql`
   query getDataForCar($vehicleId: ID!) {
     car(id: $vehicleId) {
@@ -64,7 +60,6 @@ const getDashboardAllDataQuery = gql`
         code
         isActive
       }
-      diagnosticDetail
       businessRatio
       businessTotal
       averageSpeed
@@ -73,13 +68,6 @@ const getDashboardAllDataQuery = gql`
       timeInCar
       emissions
       fuelEconomy
-      lifeLitresPerHundredKm {
-        litresPerHundredKm
-      }
-      parking {
-        lat
-        lng
-      }
       timeTraveled
       recentTrip {
         id
@@ -111,16 +99,10 @@ const getDashboardAllDataQuery = gql`
           tagType
         }
         startLocation {
-          geoPoint {
-            lat
-            lng
-          }
+          displayName
         }
         endLocation {
-          geoPoint {
-            lat
-            lng
-          }
+          displayName
         }
       }
       parkedVehicle {
@@ -134,7 +116,6 @@ const getDashboardAllDataQuery = gql`
     }
   }
 `;
-
 export {
   getCarsQuery,
   getUserDataQuery,

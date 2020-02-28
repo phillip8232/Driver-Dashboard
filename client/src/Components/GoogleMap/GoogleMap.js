@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper } from "google-maps-react";
 import { Header, Icon, Segment } from "semantic-ui-react";
+import Api from "./Google_Secret";
 
+console.log(Api.env.Google_secret)
 class SimpleMap extends Component {
   // constructor(props) {
   //   super(props);
@@ -34,12 +36,12 @@ class SimpleMap extends Component {
 
   render() {
     return (
-      <Segment>
+      <Segment style={{width:"85%"}}>
         <Header icon>
-          <Icon color="red" name="map marker alternate" size="big" />
+          <Icon color="red" name="map marker alternate" size="1.5rem" />
           Parking Location
         </Header>
-        <div className="ui embed">
+        <div className="ui embed" style={{maxWidth:"100vw", paddingBottom:"45%"}}>
           <Map
             google={this.props.google}
             zoom={9}
@@ -53,5 +55,5 @@ class SimpleMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: `${process.env.REACT_APP_GOOGLE_KEY}`
+  apiKey: Api.env.Google_secret
 })(SimpleMap);

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2099,11 +2099,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var google_maps_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(google_maps_react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Google_Secret__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Google_Secret */ "./src/Components/GoogleMap/Google_Secret.js");
 var _jsxFileName = "/home/phillip/Desktop/work/Driver-Dashboard/client/src/Components/GoogleMap/GoogleMap.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
+console.log(_Google_Secret__WEBPACK_IMPORTED_MODULE_3__["default"].env.Google_secret);
 
 class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   // constructor(props) {
@@ -2134,32 +2137,39 @@ class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   // };
   render() {
     return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Segment"], {
+      style: {
+        width: "85%"
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 39
       },
       __self: this
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Header"], {
       icon: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 40
       },
       __self: this
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Icon"], {
       color: "red",
       name: "map marker alternate",
-      size: "big",
+      size: "1.5rem",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 41
       },
       __self: this
     }), "Parking Location"), __jsx("div", {
       className: "ui embed",
+      style: {
+        maxWidth: "100vw",
+        paddingBottom: "45%"
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 44
       },
       __self: this
     }, __jsx(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["Map"], {
@@ -2171,7 +2181,7 @@ class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 45
       },
       __self: this
     })));
@@ -2180,8 +2190,25 @@ class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["GoogleApiWrapper"])({
-  apiKey: `${process.env.REACT_APP_GOOGLE_KEY}`
+  apiKey: _Google_Secret__WEBPACK_IMPORTED_MODULE_3__["default"].env.Google_secret
 })(SimpleMap));
+
+/***/ }),
+
+/***/ "./src/Components/GoogleMap/Google_Secret.js":
+/*!***************************************************!*\
+  !*** ./src/Components/GoogleMap/Google_Secret.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  env: {
+    Google_secret: 'AIzaSyB05HDuP6Jvdsy8jUcnvvkrW-Qq0Uluoyw'
+  }
+});
 
 /***/ }),
 
@@ -2449,7 +2476,6 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
         code
         isActive
       }
-      diagnosticDetail
       businessRatio
       businessTotal
       averageSpeed
@@ -2458,13 +2484,6 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
       timeInCar
       emissions
       fuelEconomy
-      lifeLitresPerHundredKm {
-        litresPerHundredKm
-      }
-      parking {
-        lat
-        lng
-      }
       timeTraveled
       recentTrip {
         id
@@ -2496,16 +2515,10 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
           tagType
         }
         startLocation {
-          geoPoint {
-            lat
-            lng
-          }
+          displayName
         }
         endLocation {
-          geoPoint {
-            lat
-            lng
-          }
+          displayName
         }
       }
       parkedVehicle {
@@ -2523,7 +2536,7 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!**********************************!*\
   !*** multi ./pages/dashboard.js ***!
   \**********************************/

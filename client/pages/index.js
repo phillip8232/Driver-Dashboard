@@ -43,7 +43,6 @@ export default function LoginPage(props) {
 }
 
 LoginPage.getInitialProps = ctx => {
-  console.log(`This is coming from login page getInitalProps`, ctx);
   return {
     cookiez: Cookiez(ctx) || '',
   };

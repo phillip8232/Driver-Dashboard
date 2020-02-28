@@ -20,7 +20,7 @@ export default function DashboardPage(props) {
   } else {
     <Redirect to="/" />;
   }
-
+  
   const client = new ApolloClient({
     uri:
       'https://jt63wdhqqre6rpjo5lnylfhjqm.appsync-api.ap-southeast-2.amazonaws.com/graphql',
