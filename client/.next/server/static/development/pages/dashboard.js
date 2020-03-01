@@ -2168,7 +2168,7 @@ class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["GoogleApiWrapper"])({
-  apiKey: _Google_Secret__WEBPACK_IMPORTED_MODULE_3__["default"]
+  apiKey: `${_Google_Secret__WEBPACK_IMPORTED_MODULE_3__["default"]}`
 })(SimpleMap));
 
 /***/ }),

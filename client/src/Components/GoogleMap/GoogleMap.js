@@ -55,5 +55,5 @@ class SimpleMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: GOOGLE_MAPS_API_KEY
+  apiKey: `${GOOGLE_MAPS_API_KEY}`
 })(SimpleMap);
