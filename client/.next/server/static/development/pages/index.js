@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -107,19 +107,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! node-fetch */ "node-fetch");
 /* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(node_fetch__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-cookie */ "js-cookie");
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next-cookies */ "next-cookies");
-/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-boost */ "apollo-boost");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(apollo_boost__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _src_pages_Login_LoginView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/pages/Login/LoginView */ "./src/pages/Login/LoginView.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next-cookies */ "next-cookies");
+/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "apollo-boost");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(apollo_boost__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _src_pages_Login_LoginView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/pages/Login/LoginView */ "./src/pages/Login/LoginView.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_7__);
 var _jsxFileName = "/home/phillip/Desktop/work/Driver-Dashboard/client/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -134,33 +132,28 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
-
 function handleSuccessfulLogin(router) {
   return function (loginResult) {
-    js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.set('GofarDashboardUserId', loginResult.userId, {
-      expires: 7
-    });
-    js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.set('GofarDashboardToken', loginResult.authToken, {
-      expires: 7
-    });
+    document.cookie = `GofarDashboardUserId=${loginResult.userId};`;
+    document.cookie = `GofarDashboardToken=${loginResult.authToken};`;
     router.push('/dashboard');
   };
 }
 
 function LoginPage(props) {
   if (props.authToken) {
-    return __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Redirect"], {
+    return __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Redirect"], {
       to: "/dashboard",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 20
       },
       __self: this
     });
   }
 
-  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_8__["useRouter"])();
-  const client = new apollo_boost__WEBPACK_IMPORTED_MODULE_4___default.a({
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_7__["useRouter"])();
+  const client = new apollo_boost__WEBPACK_IMPORTED_MODULE_3___default.a({
     uri: 'https://jt63wdhqqre6rpjo5lnylfhjqm.appsync-api.ap-southeast-2.amazonaws.com/graphql',
     headers: {
       Authorization: props.authToken,
@@ -168,18 +161,18 @@ function LoginPage(props) {
     },
     fetch: (node_fetch__WEBPACK_IMPORTED_MODULE_1___default())
   });
-  return __jsx(react_apollo__WEBPACK_IMPORTED_MODULE_5__["ApolloProvider"], {
+  return __jsx(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloProvider"], {
     client: client,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 35
     },
     __self: this
-  }, __jsx(_src_pages_Login_LoginView__WEBPACK_IMPORTED_MODULE_7__["default"], _extends({}, props, {
+  }, __jsx(_src_pages_Login_LoginView__WEBPACK_IMPORTED_MODULE_6__["default"], _extends({}, props, {
     handleSuccessfulLogin: handleSuccessfulLogin(router),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 36
     },
     __self: this
   })));
@@ -187,7 +180,7 @@ function LoginPage(props) {
 
 LoginPage.getInitialProps = ctx => {
   return {
-    cookiez: next_cookies__WEBPACK_IMPORTED_MODULE_3___default()(ctx) || ''
+    cookiez: next_cookies__WEBPACK_IMPORTED_MODULE_2___default()(ctx) || ''
   };
 };
 
@@ -643,7 +636,7 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -674,17 +667,6 @@ module.exports = require("@apollo/react-hooks");
 /***/ (function(module, exports) {
 
 module.exports = require("apollo-boost");
-
-/***/ }),
-
-/***/ "js-cookie":
-/*!****************************!*\
-  !*** external "js-cookie" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("js-cookie");
 
 /***/ }),
 

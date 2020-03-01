@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper } from "google-maps-react";
 import { Header, Icon, Segment } from "semantic-ui-react";
-import Api from "./Google_Secret";
+import GOOGLE_MAPS_API_KEY from "./Google_Secret";
 
-console.log(Api.env.Google_secret)
+console.log(`Coming from google maps`,GOOGLE_MAPS_API_KEY)
 class SimpleMap extends Component {
   // constructor(props) {
   //   super(props);
@@ -55,5 +55,5 @@ class SimpleMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: Api.env.Google_secret
+  apiKey: GOOGLE_MAPS_API_KEY
 })(SimpleMap);
