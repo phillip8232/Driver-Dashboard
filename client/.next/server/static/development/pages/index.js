@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -179,6 +179,7 @@ function LoginPage(props) {
 }
 
 LoginPage.getInitialProps = ctx => {
+  console.log(`THIS IS COMING FROM INDEX`, ctx);
   return {
     cookiez: next_cookies__WEBPACK_IMPORTED_MODULE_2___default()(ctx) || ''
   };
@@ -636,7 +637,7 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

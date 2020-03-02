@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -106,18 +106,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_pages_Dashboard_DashboardView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/pages/Dashboard/DashboardView */ "./src/pages/Dashboard/DashboardView.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next-cookies */ "next-cookies");
-/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! node-fetch */ "node-fetch");
-/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(node_fetch__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! apollo-boost */ "apollo-boost");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(apollo_boost__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! apollo-link-http */ "apollo-link-http");
-/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(apollo_link_http__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-cookie */ "js-cookie");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next-cookies */ "next-cookies");
+/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! node-fetch */ "node-fetch");
+/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(node_fetch__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! apollo-boost */ "apollo-boost");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(apollo_boost__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! apollo-link-http */ "apollo-link-http");
+/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(apollo_link_http__WEBPACK_IMPORTED_MODULE_8__);
 var _jsxFileName = "/home/phillip/Desktop/work/Driver-Dashboard/client/pages/dashboard.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
@@ -128,42 +130,45 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-const link = Object(apollo_link_http__WEBPACK_IMPORTED_MODULE_7__["createHttpLink"])({
+
+const link = Object(apollo_link_http__WEBPACK_IMPORTED_MODULE_8__["createHttpLink"])({
   uri: '/graphql',
-  fetch: node_fetch__WEBPACK_IMPORTED_MODULE_3___default.a
+  fetch: node_fetch__WEBPACK_IMPORTED_MODULE_4___default.a
 });
 function DashboardPage(props) {
   // TODO if not logged in redirect to login
-  const cookiezToken = document.cookie.replace(/(?:(?:^|.*;\s*)GofarDashboardToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-  const cookiezUser = document.cookie.replace(/(?:(?:^|.*;\s*)GofarDashboardUserId\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-  const client = new apollo_boost__WEBPACK_IMPORTED_MODULE_5___default.a({
+  const client = new apollo_boost__WEBPACK_IMPORTED_MODULE_6___default.a({
     uri: 'https://jt63wdhqqre6rpjo5lnylfhjqm.appsync-api.ap-southeast-2.amazonaws.com/graphql',
     headers: {
-      Authorization: cookiezToken,
-      UserID: cookiezUser,
+      Authorization: props.token,
+      UserID: props.userId,
       'X-API-KEY': 'da2-d5trhzrnqraznclr2teue2bmmu'
     },
-    fetch: (node_fetch__WEBPACK_IMPORTED_MODULE_3___default())
+    fetch: (node_fetch__WEBPACK_IMPORTED_MODULE_4___default())
   });
-  return __jsx(react_apollo__WEBPACK_IMPORTED_MODULE_6__["ApolloProvider"], {
+  return __jsx(react_apollo__WEBPACK_IMPORTED_MODULE_7__["ApolloProvider"], {
     client: client,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 28
     },
     __self: this
   }, __jsx(_src_pages_Dashboard_DashboardView__WEBPACK_IMPORTED_MODULE_0__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 29
     },
     __self: this
   }));
 }
 
 DashboardPage.getInitialProps = ctx => {
+  const token = next_cookies__WEBPACK_IMPORTED_MODULE_3___default()(ctx).GofarDashboardToken;
+  const userId = next_cookies__WEBPACK_IMPORTED_MODULE_3___default()(ctx).GofarDashboardUserId;
   return {
-    cookiez: next_cookies__WEBPACK_IMPORTED_MODULE_2___default()(ctx) || ''
+    cookiez: next_cookies__WEBPACK_IMPORTED_MODULE_3___default()(ctx) || '',
+    token,
+    userId
   };
 };
 
@@ -2168,7 +2173,7 @@ class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["GoogleApiWrapper"])({
-  apiKey: `${_Google_Secret__WEBPACK_IMPORTED_MODULE_3__["default"]}`
+  apiKey: _Google_Secret__WEBPACK_IMPORTED_MODULE_3__["default"]
 })(SimpleMap));
 
 /***/ }),
@@ -2511,7 +2516,7 @@ const getDashboardAllDataQuery = apollo_boost__WEBPACK_IMPORTED_MODULE_0__["gql"
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!**********************************!*\
   !*** multi ./pages/dashboard.js ***!
   \**********************************/
@@ -2575,6 +2580,17 @@ module.exports = require("apollo-link-http");
 /***/ (function(module, exports) {
 
 module.exports = require("google-maps-react");
+
+/***/ }),
+
+/***/ "js-cookie":
+/*!****************************!*\
+  !*** external "js-cookie" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("js-cookie");
 
 /***/ }),
 
