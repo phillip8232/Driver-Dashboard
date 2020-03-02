@@ -16,9 +16,6 @@ function handleSuccessfulLogin(router) {
 }
 
 export default function LoginPage(props) {
-  if (props.authToken) {
-    return <Redirect to="/dashboard" />;
-  }
 
   const router = useRouter();
 
