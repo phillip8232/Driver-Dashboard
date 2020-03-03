@@ -27,6 +27,7 @@ yarn-error.log*
 .env.local
 .history
 .now
+.next
 
 # API
 Google_Secret.js
