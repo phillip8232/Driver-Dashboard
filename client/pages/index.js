@@ -39,7 +39,6 @@ export default function LoginPage(props) {
 }
 
 LoginPage.getInitialProps = ctx => {
-  console.log(`THIS IS COMING FROM INDEX`,ctx)
   return {
     cookiez: Cookiez(ctx) || '',
   };

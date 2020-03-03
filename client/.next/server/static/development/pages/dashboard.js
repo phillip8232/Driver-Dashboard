@@ -1725,6 +1725,9 @@ function DashboardHeader(props) {
   } else {
     return __jsx("div", {
       className: "hero-img",
+      style: {
+        height: "300px"
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 24
@@ -2089,7 +2092,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-console.log(`Coming from google maps`, _Google_Secret__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
 class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   // constructor(props) {
@@ -2119,20 +2121,22 @@ class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   //   // });
   // };
   render() {
+    const marker = () => {};
+
     return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Segment"], {
       style: {
         width: "85%"
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 42
       },
       __self: this
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Header"], {
       icon: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 43
       },
       __self: this
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Icon"], {
@@ -2141,7 +2145,7 @@ class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       size: "small",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 44
       },
       __self: this
     }), "Parking Location"), __jsx("div", {
@@ -2152,22 +2156,31 @@ class SimpleMap extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 47
       },
       __self: this
     }, __jsx(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["Map"], {
       google: this.props.google,
-      zoom: 9,
+      zoom: 11,
       initialCenter: {
-        lat: 45.4211,
-        lng: -75.6903
+        lat: -33.8688,
+        lng: 151.2093
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 48
       },
       __self: this
-    })));
+    }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Icon"], {
+      color: "red",
+      name: "map   marker alternate",
+      size: "small",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 53
+      },
+      __self: this
+    }))));
   }
 
 }

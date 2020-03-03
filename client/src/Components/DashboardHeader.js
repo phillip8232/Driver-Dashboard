@@ -21,7 +21,7 @@ export default function DashboardHeader(props) {
     return <p>Error! {(carError, userError)}</p>;
   } else {
     return (
-      <div className="hero-img">
+      <div className="hero-img" style={{ height:"300px" }}>
         <Header as="h1">Welcome back {userData.userData.firstName}!</Header>
         <div className="hero-img-car-data">
           <h3 style={{ color: '#fff' }}>

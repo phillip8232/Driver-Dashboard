@@ -168,7 +168,6 @@ function LoginPage(props) {
 }
 
 LoginPage.getInitialProps = ctx => {
-  console.log(`THIS IS COMING FROM INDEX`, ctx);
   return {
     cookiez: next_cookies__WEBPACK_IMPORTED_MODULE_2___default()(ctx) || ''
   };

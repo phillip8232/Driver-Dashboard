@@ -33,7 +33,11 @@ class SimpleMap extends Component {
   //   // });
   // };
 
+
   render() {
+    const marker = () => {
+      
+    }
     return (
       <Segment style={{width:"85%"}}>
         <Header icon>
@@ -43,8 +47,8 @@ class SimpleMap extends Component {
         <div className="ui embed" style={{maxWidth:"100vw", paddingBottom:"45%"}}>
           <Map
             google={this.props.google}
-            zoom={9}
-            initialCenter={{ lat: 45.4211, lng: -75.6903 }}
+            zoom={11}
+            initialCenter={{ lat: -33.8688, lng: 151.2093  }}
           >
           </Map>
         </div>
