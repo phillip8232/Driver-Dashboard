@@ -4,7 +4,7 @@ import FuelEconomyCard from './FuelEconomyCard';
 
 class FuelLeftCard extends Component {
   render(props) {
-    if (!this.props.lastRefillOdo[0]) {
+    if (!this.props.lastRefillOdo[0], !this.props.refillData[0]) {
       return (
         <Card className="data-cards-r1">
           <Card.Content>
@@ -30,15 +30,13 @@ class FuelLeftCard extends Component {
       this.kmSinceLastRefill = this.odometer - this.lastRefillOdo;
       this.kmSinceLastRefillRounded = Math.floor(this.kmSinceLastRefill);
 
-
       const refillData = this.props.refillData
       const trips = this.props.trips
-      const refillStamp = new Date(refillData[0].timestamp)
+      const refillTimeStamp = new Date(refillData[0].timestamp)
       const refillLitres = refillData[0].litres
-  
     
       const filteredTrips = trips.filter((trips) => {
-          return refillStamp <= new Date(trips.endTime)
+          return refillTimeStamp <= new Date(trips.endTime)
       });
   
       const totalLitresUsed = filteredTrips.reduce((total, trip)=>{
@@ -49,12 +47,10 @@ class FuelLeftCard extends Component {
           return total + trip.distance;
       }, 0);
   
-  
       const litresLeft = refillLitres - totalLitresUsed
       const averagePer100Km =  (totalLitresUsed / totalDistance) * 100
       const kmsLeft = (totalDistance / totalLitresUsed) * litresLeft
 
-      
       return (
         <Card className="data-cards-r1">
           {/* <FuelEconomyCard averagePer100Km={averagePer100Km}/> */}
