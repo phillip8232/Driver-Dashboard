@@ -52,6 +52,9 @@ class SimpleMap extends Component {
   }
 }
 
+// NB Google Maps API key is not secret. It's fine to have it in clear text
+// because we whitelist URLs from the google maps console
+// If someone tries to use our key, they won't be able to use it anywhere except localhost
 export default GoogleApiWrapper({
-  apiKey: `${process.env.REACT_APP_GOOGLE_KEY}`
+  apiKey: `AIzaSyB05HDuP6Jvdsy8jUcnvvkrW-Qq0Uluoyw`
 })(SimpleMap);

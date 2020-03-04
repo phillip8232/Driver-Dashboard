@@ -14,7 +14,6 @@ import EmissionsCard from './Card/EmissionsCard';
 import FuelEconomyCard from './Card/FuelEconomyCard';
 import GoogleMap from './GoogleMap/GoogleMap';
 import AntdTableComponent from './AntdTable/AntdTableComponent';
-import FuelLeft from './FuelLeft'
 
 export default function CarData(props) {
   const { loading, error, data } = useQuery(getDashboardAllDataQuery, {
