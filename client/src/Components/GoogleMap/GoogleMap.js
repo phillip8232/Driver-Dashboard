@@ -41,7 +41,6 @@ class SimpleMap extends Component {
     return (
       <Segment style={{width:"85%"}}>
         <Header icon>
-          <Icon color="red" name="map marker alternate" size="small" />
           Parking Location
         </Header>
         <div className="ui embed" style={{maxWidth:"100vw", paddingBottom:"45%"}}>

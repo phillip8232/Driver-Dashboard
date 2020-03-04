@@ -51,7 +51,7 @@ export default function CarData(props) {
           <TravelDistanceTotalCard
               distanceTotal={data.car.travelDistanceTotal}
               distanceTotalThisYear={data.car.travelDistanceThisYear}
-          />
+            />
           <EmissionsCard emission={data.car.emissions} />
         </Card.Group>
         <div className="ui container">
