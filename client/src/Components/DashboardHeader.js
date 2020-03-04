@@ -22,33 +22,29 @@ export default function DashboardHeader(props) {
   } else {
     return (
       <div className="hero-img" style={{ height:"300px" }}>
-        <Header as="h1">Welcome back {userData.userData.firstName}!</Header>
+        <Header as="h1">What can we help you with {userData.userData.firstName}</Header>
         <div className="hero-img-car-data">
-          <h3 style={{ color: '#fff' }}>
+          <h1 style={{ color: '#fff' }}>
             {carData.car.make} {carData.car.model}'s Lifetime Statistics from
             GOFAR
-          </h3>
+          </h1>
           <Divider hidden />
           <Statistic.Group size="mini">
             <Statistic>
-              <Statistic.Value>{carData.car.trips.length}</Statistic.Value>
               <Statistic.Label> Total trips </Statistic.Label>
+              <Statistic.Value>{carData.car.trips.length}</Statistic.Value>
             </Statistic>
             <Statistic>
-              <Statistic.Value>
-                {carData.car.travelDistanceTotal} KM
-              </Statistic.Value>
               <Statistic.Label>Total Distance</Statistic.Label>
+              <Statistic.Value>{carData.car.travelDistanceTotal} KM</Statistic.Value>
             </Statistic>
             <Statistic>
-              <Statistic.Value>{carData.car.timeInCar} </Statistic.Value>
               <Statistic.Label>Time in Car (hrs) </Statistic.Label>
+              <Statistic.Value>{carData.car.timeInCar} </Statistic.Value>
             </Statistic>
             <Statistic>
-              <Statistic.Value>
-                {Math.floor(carData.car.odometer)} KM
-              </Statistic.Value>
               <Statistic.Label>Current Odometer</Statistic.Label>
+              <Statistic.Value>{Math.floor(carData.car.odometer)} KM</Statistic.Value>
             </Statistic>
           </Statistic.Group>
         </div>

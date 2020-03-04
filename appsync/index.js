@@ -14,7 +14,6 @@ async function fetchJSON(url, options, authToken) {
 }
 
 async function postJSON(url, payload, options) {
-  console.log(`URL<PAYLOAD<OPTIONS<POSTJSON`, url, payload, options);
   const rawResponse = await fetch(url, {
     method: "POST",
     headers: {
@@ -42,10 +41,6 @@ async function getOwnedVehicles(userId, authToken) {
 }
 
 async function getTripsForVehicle(vehicleId, authToken) {
-  console.log(
-    `${API_URL}vehicles/${vehicleId}/trips?filter={"include":["tags", "startLocation", "endLocation"],"order": "createdAt DESC"}`,
-    authToken
-  );
   return await fetchJSON(
     `${API_URL}vehicles/${vehicleId}/trips?filter={"include":["tags", "startLocation", "endLocation"]}`,
     {},
@@ -63,16 +58,6 @@ async function getRecentTrip(vehicleId, authToken) {
   return await fetchJSON(recentTrip.toString(), {}, authToken);
 }
 
-//TO DO, requesting TripDetails will crash database
-// async function getTripDetailsforVehicle(tripId, authToken) {
-//   console.log('TRIP DETAIL LOG PLEASE LOOK AT THIS',`${API_URL}trips/${tripId}/tripDetails`)
-//   return await fetchJSON(
-//     `${API_URL}trips/${tripId}/tripDetails`,
-//     {},
-//     authToken
-//   );
-// }
-
 async function getParkedUserVehicles(userId, authToken) {
   return await fetchJSON(
     `${API_URL}/users/${userId}/parkedVehicles`,
@@ -82,10 +67,6 @@ async function getParkedUserVehicles(userId, authToken) {
 }
 
 async function getDiagnosticIssueForVehicle(vehicleId, authToken) {
-  console.log(
-    "this is getDiagnostic with filter",
-    `${API_URL}/vehicles/${vehicleId}/diagnosticTroubleCodes?filter={"where":{ "isActive": true }}`
-  );
   return await fetchJSON(
     `${API_URL}/vehicles/${vehicleId}/diagnosticTroubleCodes?filter={"where":{"isActive":true}}`,
     {},
@@ -132,7 +113,6 @@ async function getDetailsForVehicle(userId, vehicleId, authToken) {
     getParkedUserVehicles(userId, authToken)
   ]);
 
-  console.log("refillData PLEASE LOOK AT THIS LOG", tripsForVehicle);
   const finalResult = {
     id: vehicleId,
     make: vehicleData.make,

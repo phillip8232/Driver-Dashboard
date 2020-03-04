@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Table, Button, Tag } from 'antd';
-
+import { DateTime } from 'luxon';
 import { Segment } from 'semantic-ui-react';
 
 class AntdTableComponent extends React.Component {
@@ -14,7 +14,6 @@ class AntdTableComponent extends React.Component {
   }
 
   handleChange = (pagination, filters, sorter) => {
-    console.log('Various parameters', pagination, filters, sorter);
     this.setState({
       filteredInfo: filters,
       sortedInfo: sorter,
@@ -48,50 +47,38 @@ class AntdTableComponent extends React.Component {
 
   render() {
     const trips = this.props.tripData;
-    {
-      console.log(trips);
-    }
+    const processedTrips = trips.map(trip => {
+      return {
+        ...trip,
+        startTime: DateTime.fromISO(trip.startTime).toFormat('yyyy LLL dd'),
+        distance: trip.distance?.toFixed(2),
+      };
+    });
+
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
     const columns = [
       {
         title: 'Time',
-        dataIndex: 'startTime',
-        key: 'startTime',
-        sorter: (a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0),
+        dataIndex: `startTime`,
+        sorter: (a, b) =>
+          a.startTime < b.startTime ? -1 : a.startTime > b.startTime ? 1 : 0,
         sortOrder: sortedInfo.columnKey === 'startTime' && sortedInfo.order,
       },
 
       {
-        title: 'Distance',
+        title: 'Distance (KM)',
         dataIndex: 'distance',
-        key: 'distance',
         sorter: (a, b) => a.distance - b.distance,
         sortOrder: sortedInfo.columnKey === 'distance' && sortedInfo.order,
+        filteredValue: filteredInfo.distance || null,
+        onFilter: (value, record) => record.distance.includes(value),
       },
 
       {
         title: 'Tags',
-        dataIndex: 'tags',
-        render: tags => (
-          <span>
-            {tags.map(tag => {
-              let color = 'green';
-              if (tag === 'vacation') {
-                color = 'red';
-              } else if (tag === 'busuiness') {
-                color = 'blue';
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-          </span>
-        ),
-        key: 'tagType',
+        dataIndex: 'tags.tagName',
         filters: [
           { text: 'busuiness', value: 'busuiness' },
           { text: 'vacation', value: 'vacation' },
@@ -102,40 +89,24 @@ class AntdTableComponent extends React.Component {
 
       {
         title: 'Start Location',
-        dataIndex: 'startLocation',
-        key: 'geoPoint',
-        filters: [
-          { text: 'Sydney', value: 'Sydney' },
-          { text: 'Brisbane', value: 'Brisbane' },
-        ],
-        filteredValue: filteredInfo.startLocation || null,
-        onFilter: (value, record) => record.startLocation.includes(value),
+        dataIndex: 'startLocation.displayName',
       },
 
       {
         title: 'End Location',
-        dataIndex: 'endlocation',
-        key: 'endlocation',
-        filters: [
-          { text: 'Sydney', value: 'Sydney' },
-          { text: 'Brisbane', value: 'Brisbane' },
-        ],
-        filteredValue: filteredInfo.endlocation || null,
-        onFilter: (value, record) => record.endlocation.includes(value),
+        dataIndex: 'endLocation.displayName',
       },
     ];
     return (
       <Segment>
         <div>
           <div className="table-operations">
-            <Button onClick={this.setTimeSort}>Sort time</Button>
-            <Button onClick={this.setDistanceSort}>Sort Distance</Button>
             <Button onClick={this.clearFilters}>Clear filters</Button>
             <Button onClick={this.clearAll}>Clear filters and sorters</Button>
           </div>
           <Table
             columns={columns}
-            dataSource={trips}
+            dataSource={processedTrips}
             onChange={this.handleChange}
           />
         </div>
