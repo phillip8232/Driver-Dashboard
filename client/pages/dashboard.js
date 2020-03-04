@@ -1,9 +1,7 @@
 import DashboardView from '../src/pages/Dashboard/DashboardView';
-import React, {useState} from 'react';
-import Cookies from 'js-cookie';
+import React from 'react';
 import Cookiez from 'next-cookies';
 import fetch from 'node-fetch';
-import { Redirect } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { createHttpLink } from 'apollo-link-http';
