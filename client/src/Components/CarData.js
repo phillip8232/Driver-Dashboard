@@ -21,6 +21,8 @@ export default function CarData(props) {
       vehicleId: props.vehicleIdState.value,
     },
   });
+
+
   if (loading) {
     return <LoadingSpinner />;
   } else if (error) {
@@ -28,13 +30,11 @@ export default function CarData(props) {
   } else {
     return (
       <div className="ui container">
+
         <Card.Group>
-          {/* <FuelLeft 
-          
-          /> */}
           <LastFillUpCard lastFillUpData={data.car.refillData} />
           <FuelLeftCard
-            fuelLeft={data.car.fuelLeft}
+            fuelLeft={data.car.kmsLeft}
             travelSince={data.car.recentTrip}
             lastRefillOdo={data.car.refillData}
             currentOdo={data.car.odometer}
@@ -55,7 +55,7 @@ export default function CarData(props) {
           <EmissionsCard emission={data.car.emissions} />
         </Card.Group>
         <div className="ui container">
-          <GoogleMap />
+          <GoogleMap trips={data.car.trips} />
         </div>
         <div className="ui container">
           <AntdTableComponent tripData={data.car.trips} />

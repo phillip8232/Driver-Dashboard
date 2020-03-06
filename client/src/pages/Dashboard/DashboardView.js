@@ -24,7 +24,7 @@ export default function DashboardView() {
       <>
         <CarList vehicleSelection={selectVehicle} />
         <div
-          style={{ height: '500px', textAlign: 'center', paddingTop: '50px' }}
+          style={{ height: '500px', textAlign: 'center', paddingTop: '50px', paddingBottom:'150px' }}
         >
           <h1>You have to choose a vehicle</h1>
           <img

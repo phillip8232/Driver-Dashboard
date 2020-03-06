@@ -1,7 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { getDashboardAllDataQuery, getUserDataQuery } from '../queries/queries';
-import LoadingSpinner from './LoadingSpinner';
 import { Statistic, Header, Divider } from 'semantic-ui-react';
 
 export default function DashboardHeader(props) {
@@ -16,7 +15,7 @@ export default function DashboardHeader(props) {
   const { error: userError, data: userData } = useQuery(getUserDataQuery);
 
   if (carLoading) {
-    return <LoadingSpinner />;
+    return <div> </div>
   } else if ((carError, userError)) {
     return <p>Error! {(carError, userError)}</p>;
   } else {

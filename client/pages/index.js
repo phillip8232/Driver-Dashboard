@@ -17,6 +17,7 @@ function handleSuccessfulLogin(router) {
 export default function LoginPage(props) {
 
   const router = useRouter();
+  
 
   const client = new ApolloClient({
     uri:
@@ -27,6 +28,7 @@ export default function LoginPage(props) {
     },
     fetch,
   });
+  
   return (
     <ApolloProvider client={client}>
       <LoginView
